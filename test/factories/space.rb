@@ -5,5 +5,6 @@ FactoryGirl.define do
     description       'Hello'
     price             {['5', '10','15'].sample}
     address_id        {}
+    user_id           {}
   end
 end

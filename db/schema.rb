@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 20160927003714) do
     t.text     "description"
     t.decimal  "price"
     t.integer  "address_id"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["address_id"], name: "index_spaces_on_address_id", using: :btree
+    t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -76,4 +78,5 @@ ActiveRecord::Schema.define(version: 20160927003714) do
   add_foreign_key "leases", "statuses"
   add_foreign_key "leases", "users"
   add_foreign_key "spaces", "addresses"
+  add_foreign_key "spaces", "users"
 end
