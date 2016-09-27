@@ -7,11 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'factory_girl_rails'
 
+
+# Genereting Some fake datas in seed file by using factory girl, data will
+# be invalid once we put it as production since factorygirl is loaded in
+# testing environemnt but not production, will try to find a way to get around
+
 # clear out data, better run rake db:setup
 User.delete_all
 Space.delete_all
 Address.delete_all
-
 
 
 # create 3 users
