@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160927181151) do
+=======
+ActiveRecord::Schema.define(version: 20160927154650) do
+>>>>>>> d2376d337eb3f963100266ed2a725d609c14cb75
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +32,12 @@ ActiveRecord::Schema.define(version: 20160927181151) do
   create_table "leases", force: :cascade do |t|
     t.integer  "desks"
     t.integer  "month"
-    t.integer  "user_id"
-    t.integer  "status_id"
+    t.integer  "status_id",  default: 0
     t.integer  "space_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["space_id"], name: "index_leases_on_space_id", using: :btree
     t.index ["status_id"], name: "index_leases_on_status_id", using: :btree
-    t.index ["user_id"], name: "index_leases_on_user_id", using: :btree
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160927181151) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "user_id"
     t.index ["address_id"], name: "index_spaces_on_address_id", using: :btree
     t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
@@ -78,7 +81,6 @@ ActiveRecord::Schema.define(version: 20160927181151) do
 
   add_foreign_key "leases", "spaces"
   add_foreign_key "leases", "statuses"
-  add_foreign_key "leases", "users"
   add_foreign_key "spaces", "addresses"
   add_foreign_key "spaces", "users"
 end

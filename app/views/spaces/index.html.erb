@@ -1,13 +1,13 @@
 <h2>home page</h2>
 
-<% if user_signed_in? %>
-  <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
-
-<% else %>
-  <%= link_to 'sign in', new_user_session_path %>
-
-
-  <%= link_to 'sign up', new_user_registration_path %>
-
+<% @spaces.each do |space| %>
+  <div class = 'space info'>
+    <%= space.name %>
+    <%= link_to "spaces show page", space_path(space) %>
+  </div>
+  
 <% end %>
 
+
+
+<%= link_to "add a new space", new_space_path %>
