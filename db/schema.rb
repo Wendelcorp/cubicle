@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927181151) do
+ActiveRecord::Schema.define(version: 20160927225833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.integer  "number"
-    t.string   "street_name"
-    t.string   "city"
-    t.string   "province"
-    t.string   "postal_code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "leases", force: :cascade do |t|
     t.integer  "desks"
@@ -43,11 +33,14 @@ ActiveRecord::Schema.define(version: 20160927181151) do
     t.integer  "available_desks"
     t.text     "description"
     t.decimal  "price"
-    t.integer  "address_id"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["address_id"], name: "index_spaces_on_address_id", using: :btree
+    t.integer  "number"
+    t.string   "street_name"
+    t.string   "city"
+    t.string   "province"
+    t.string   "postal_code"
     t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 
@@ -81,6 +74,5 @@ ActiveRecord::Schema.define(version: 20160927181151) do
   add_foreign_key "leases", "spaces"
   add_foreign_key "leases", "statuses"
   add_foreign_key "leases", "users"
-  add_foreign_key "spaces", "addresses"
   add_foreign_key "spaces", "users"
 end

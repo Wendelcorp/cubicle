@@ -1,5 +1,5 @@
 class Space < ApplicationRecord
-  has_one :address
+  has_one :address, :inverse_of => :space
   belongs_to :user
   has_many :leases
   has_many :users, through: :leases

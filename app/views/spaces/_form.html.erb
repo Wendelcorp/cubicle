@@ -33,7 +33,7 @@
 
     <div id = 'address'>
     <h2>Address:</h2>
-      <%= f.fields_for :addresses, @address do |address_fields| %>
+      <%= f.fields_for :address, @address do |address_fields| %>
       <div class = "field">
         <%= address_fields.label :number %><br/>
         <%= address_fields.number_field :number %>

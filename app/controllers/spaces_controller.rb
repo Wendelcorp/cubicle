@@ -8,12 +8,11 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
-    @address = Address.new
   end
 
   def create
     @user = current_user
-    @space = @user.owned_spaces.new(space_params)
+    @space = @user.owned_spaces.new(space_params) 
 
     if @space.save
       flash[:sucess] = 'New Space succesfully added'
@@ -40,8 +39,9 @@ class SpacesController < ApplicationController
                               :description,
                               :price,
                               :user_id,
+                              :address_id,
                               address_attributes:
-                              [:number, :street_name, :city,
+                              [:space_id, :number, :street_name, :city,
                                :province, :postal_code])
   end
 
