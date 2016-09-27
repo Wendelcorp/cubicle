@@ -13,6 +13,7 @@ require 'factory_girl_rails'
 # testing environemnt but not production, will try to find a way to get around
 
 # clear out data, better run rake db:setup
+Lease.delete_all
 User.delete_all
 Space.delete_all
 Address.delete_all
