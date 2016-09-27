@@ -22,11 +22,11 @@ Address.delete_all
 # create 3 users
 # sign in(email: user1@example.com, password 123456) funther details look
 # test/factories/user.rb
-user1 = FactoryGirl.create :user
+user1 = FactoryGirl.create :user, first_name: 'first', last_name: 'user'
 #email: user2@example.com, password 123456
-user2 = FactoryGirl.create :user
+user2 = FactoryGirl.create :user, first_name: 'second', last_name: 'user'
 #email: user3@example.com, password 123456
-user3 = FactoryGirl.create :user
+user3 = FactoryGirl.create :user, first_name: 'third', last_name: 'user'
 
 
 # create 4 status, only generate once never destory and never rerun
