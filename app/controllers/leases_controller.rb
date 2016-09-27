@@ -16,6 +16,8 @@ class LeasesController < ApplicationController
     end
   end
 
+  private
+
   def pledge_params
     params.require(:lease).permit(:desks, :user_id, :month, :space_id)
   end
