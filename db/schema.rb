@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160927154650) do
     t.text     "description"
     t.decimal  "price"
     t.integer  "address_id"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"

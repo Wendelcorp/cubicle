@@ -11,8 +11,8 @@ class SpacesController < ApplicationController
   end
 
   def create
-    @space = Space.new(space_params)
-    @space.user_id = current_user.id
+    @user = current_user
+    @space = @user.owned_spaces.new(space_params)
 
     if @space.save
       flash[:sucess] = 'New Space succesfully added'

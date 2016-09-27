@@ -6,6 +6,7 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.text :description
       t.decimal :price
       t.references :address, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
