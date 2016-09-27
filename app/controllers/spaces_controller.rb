@@ -1,5 +1,6 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :ensure_logged_in, only: [:update, :destroy]
 
   def index
     @spaces = Space.all
@@ -27,6 +28,10 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
   end
 
+  def update
+    
+  end
+
   private
 
   def space_params
@@ -38,6 +43,12 @@ class SpacesController < ApplicationController
                               address_attributes:
                               [:number, :street_name, :city,
                                :province, :postal_code])
+  end
+
+  def ensure_logged_in
+    if current_user != User.find(params[:id])
+      redirect_to spaces_path, notice: "you do not have access"
+    end
   end
 
 
