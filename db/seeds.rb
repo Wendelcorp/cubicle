@@ -8,7 +8,7 @@
 require 'factory_girl_rails'
 
 
-# Genereting Some fake datas in seed file by using factory girl, data will
+# Genereting Some fake data in seed file by using factory girl, data will
 # be invalid once we put it as production since factorygirl is loaded in
 # testing environemnt but not production, will try to find a way to get around
 
