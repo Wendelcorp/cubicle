@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :spaces, only: [:index, :show, :new, :create]
   resources :leases, only: [:new, :create, :show]
+  resources :users, only: [:show]
 
 
 
