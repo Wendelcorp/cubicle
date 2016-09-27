@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927184205) do
+ActiveRecord::Schema.define(version: 20160927184722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20160927184205) do
     t.integer  "space_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id"
     t.index ["space_id"], name: "index_leases_on_space_id", using: :btree
     t.index ["status_id"], name: "index_leases_on_status_id", using: :btree
+    t.index ["user_id"], name: "index_leases_on_user_id", using: :btree
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160927184205) do
 
   add_foreign_key "leases", "spaces"
   add_foreign_key "leases", "statuses"
+  add_foreign_key "leases", "users"
   add_foreign_key "spaces", "addresses"
   add_foreign_key "spaces", "users"
 end
