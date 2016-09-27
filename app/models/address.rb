@@ -1,3 +1,3 @@
 class Address < ApplicationRecord
-  has_one :space
+  belongs_to :space
 end
