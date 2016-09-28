@@ -4,7 +4,11 @@ FactoryGirl.define do
     available_desks   '20'
     description       'Hello'
     price             { %w(5 10 15).sample }
-    address_id        {}
     user_id           {}
+    number            {}
+    street_name       {['Yonge st', 'Queen st', 'King st'].sample}
+    city              'Toronto'
+    province          'On'
+    postal_code       'i9d9d0'
   end
 end

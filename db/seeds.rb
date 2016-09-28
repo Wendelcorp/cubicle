@@ -16,7 +16,6 @@ require 'factory_girl_rails'
 Lease.delete_all
 User.delete_all
 Space.delete_all
-Address.delete_all
 
 
 # create 3 users
@@ -43,30 +42,25 @@ create addresses : Those are not real stresses, probably cant use in
                 Google Map, but those are just test sample data
 =end
 
-# user1 have no space, so no address
-# user2 have 1 space, so 1 address
-user2_space1_address1 = FactoryGirl.create :address, number: 1
-# user3 have 2 spaces, so 2 address
-user3_space1_address1 = FactoryGirl.create :address, number: 2
-user3_space2_address2 = FactoryGirl.create :address, number: 3
 
 
-# now create spaces
+# create spaces
 # user1 have no space
 # user2 have 1 space
 user2_space1 = FactoryGirl.create :space,
                                    user_id:user2.id,
                                    name:"user2's space1",
-                                   address_id:user2_space1_address1.id
+                                   number: "21"
 # user3 have 2 spaces
 user3_space1 = FactoryGirl.create :space,
                                    user_id:user3.id,
                                    name:"user3's space1",
-                                   address_id:user3_space1_address1.id
+                                   number: "31"
+
 user3_space2 = FactoryGirl.create :space,
                                    user_id:user3.id,
                                    name:"user3's space1",
-                                   address_id:user3_space2_address2.id
+                                   number: "32"
 
 # user1 have 1 lease for user2's space 1
 user1_lease1_user2_space1 = FactoryGirl.create :lease,
