@@ -17,11 +17,18 @@
   </select>
   </div>
 </div>
-<div id="search-results"></div>
-<div class="space-info">
-<% @spaces.each do |space| %>
-    <%= space.name %>
-    <%= link_to "spaces show page", space_path(space) %><br>
-<% end %>
+
+<div class="results-container">
+  <div id="search-results">
+    <div class="space-info">
+      <% @spaces.each do |space| %>
+        <div class="space-box">
+          <%= space.name %>
+          <%= link_to "spaces show page", space_path(space) %><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+
 <%= link_to "add a new space", new_space_path %>
