@@ -2,14 +2,10 @@
 
 <p>This page will contain all the information on the space that is available, the pictures of the space, google maps location, and the information which we searched</p>
 
+<% @space.images.each do |image| %>
+  <%= image_tag image.url(:medium) %>
+<% end %>
+
 <%= link_to 'Request Reserved Space', new_lease_path, remote: true%>
 
-
 <div id = "new-lease-form"></div>
-
-
-
-
-
-
-

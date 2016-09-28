@@ -28,8 +28,8 @@ $(function(){
         if (city != 'All'){
           // hides the space info
           $('.space-info').hide();
-          // if the chosen city is equal to the city in the list and desks is not changed 
-          if(_allData[i]['city'] === city && desks === 1 ) { 
+          // if the chosen city is equal to the city in the list and desks is not changed
+          if(_allData[i]['city'] === city && desks === 1 ) {
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
           }
@@ -59,7 +59,7 @@ $(function(){
       for(var i = 0, l = _allData.length; i < l; i++){
         if (city != 'All'){
           $('.space-info').hide();
-          if(_allData[i]['available_desks'] >= desks) { 
+          if(_allData[i]['available_desks'] >= desks) {
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
           }
@@ -81,4 +81,3 @@ $(function(){
 
 
 });
-
