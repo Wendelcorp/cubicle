@@ -39,9 +39,8 @@ end
 
 =begin
 create addresses : Those are not real stresses, probably cant use in
-                Google Map, but those are just test sample data
+                Google Map, just test sample data
 =end
-
 
 
 # create spaces
