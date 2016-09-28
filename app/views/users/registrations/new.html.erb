@@ -1,7 +1,9 @@
-<ul class="panel-header">Sign Up with <a class="fblink">Facebook</a> or <a class="twlink">Twitter</a></ul>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+ <%= render "devise/shared/links" %>
+
+<hr>
 
  <form>
   <div class="field">
@@ -35,9 +37,5 @@
 
 <% end %>
   </form>
-<div class="footer">
-  <ul class="loginprompt">Already have a cubicle account?</ul>
-  <div class="loginlink">
- <%= render "devise/shared/links" %>
- </div>
- </div>
+
+ <!-- <%= render "devise/shared/links" %> -->

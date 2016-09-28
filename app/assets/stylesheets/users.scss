@@ -9,32 +9,32 @@ body {
   font-size: 14px;
 }
 
-button.panel-header {
-  margin-top: 10px;
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
-  padding-left: 27px !important;
-  padding-right: 27px !important;
-  font-weight: normal;
-  display: block;
-  white-space: normal;
-  width: 100%;
-  background-color: #8b9dc3;
-  color: white;
-  font-size: 16px;
-  text-align: center;
-  margin-top: 0px;
-  margin: 0px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  left: 0;
-  padding: 1rem;
-  text-align: center;
-  font-size: 14px;
-  border:none !important;
-  box-shadow:none !important;
-}
+// button.panel-header {
+//   margin-top: 10px;
+//   padding-top: 15px !important;
+//   padding-bottom: 15px !important;
+//   padding-left: 27px !important;
+//   padding-right: 27px !important;
+//   font-weight: normal;
+//   display: block;
+//   white-space: normal;
+//   width: 100%;
+  // background-color: #8b9dc3;
+//   color: white;
+//   font-size: 16px;
+//   text-align: center;
+//   margin-top: 0px;
+//   margin: 0px;
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   left: 0;
+//   padding: 1rem;
+//   text-align: center;
+//   font-size: 14px;
+//   border:none !important;
+//   box-shadow:none !important;
+// }
 
  ul.panel-header {
   text-align: center;
@@ -80,16 +80,16 @@ form {
   margin: 5px
 }
 
-.footer {
-  margin: 0px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-}
+// .footer {
+//   margin: 0px;
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   padding: 1rem;
+//   background-color: #efefef;
+//   text-align: center;
+// }
 
 .loginprompt {
   float: left;
@@ -98,16 +98,16 @@ form {
   width: 50%
 }
 
-.loginlink {
-  display: inline-block;
-  width: 20%;
-  padding: 10px;
-  color: $cubicle-color;
-  font-size: 14px;
-  float: right;
-  margin-right: 100px;
-  margin-top: 5px;
-}
+// .loginlink {
+//   display: inline-block;
+//   width: 20%;
+//   padding: 10px;
+//   color: $cubicle-color;
+//   font-size: 14px;
+//   float: right;
+//   margin-right: 100px;
+//   margin-top: 5px;
+// }
 
 a {
   color: $cubicle-color;
@@ -126,19 +126,47 @@ a {
   margin-top: 10px;
 }
 
-hr {
-  display: block;
-  margin-top: 50px;
-  border-style: inset;
+.width-control > a[href="/users/sign_up"] {
+  display: none;
+}
+
+#new_user.new_user > a[href="/users/sign_in"] {
+  display: none;
+}
+
+a[href="/users/password/new"] {
+
+}
+
+a[href="/users/auth/facebook"] {
+  margin-top:15px;
+  max-width:100%;
+  background-color: #8b9dc3;
+  color: white;
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  text-decoration:none;
+  align-items:flex-start;
+  cursor:default;
+  -webkit-appearence: push-button;
+  border-style: solid;
   border-width: 1px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: inherit;
+  border-color: #000;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  min-height: 30px;
+  border:none !important;
+  box-shadow:none !important;
 }
 
-.forgotlink {
-  display: inline-block;
-  float: right;
-}
-
-.signuplink {
-  display: inline-block;
-  float: left;
+#forgot_password_title {
+  font-weight: normal;
+  text-align: center;
 }

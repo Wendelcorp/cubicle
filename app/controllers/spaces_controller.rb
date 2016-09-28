@@ -4,11 +4,15 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = Space.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @spaces}
+    end
   end
 
   def new
     @space = Space.new
-    @address = Address.new
   end
 
   def create
@@ -23,26 +27,30 @@ class SpacesController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @space = Space.find(params[:id])
   end
 
-  def update
-    
+  def update  
   end
+
 
   private
 
   def space_params
-    params.require(:space).permit(:name, 
-                              :available_desks, 
-                              :description,
-                              :price,
-                              :user_id,
-                              address_attributes:
-                              [:number, :street_name, :city,
-                               :province, :postal_code])
+    params.require(:space).permit(:name,
+                                  :description,
+                                  :available_desks,
+                                  :price,
+                                  :user_id,
+                                  :number,
+                                  :street_name,
+                                  :city,
+                                  :province,
+                                  :postal_code,
+                                  images_attributes: [:location_picture,
+                                                      :_destroy])
   end
 
   def ensure_logged_in
@@ -53,18 +61,3 @@ class SpacesController < ApplicationController
 
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

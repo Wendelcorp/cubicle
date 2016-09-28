@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: helvetica, arial;
+  /*background-image: url(images/subtle_white_feathers.png);*/
+}
+
+.main-container {
+  position: relative;
+  top: 0;
+  // overflow: hidden;
+}
+
+#sign-in-button {
+
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+
+}
+
+nav {
+  height: 30px;
+  width: 100%;
+  background-color: #2E3192;
+  position: absolute;
+  top: 0;
+
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+
+}
+
+.nav-content {
+  max-width: 950px;
+  margin: 0 auto;
+  font-size: 13px;
+  text-align: right;
+
+}
+
+.width-control {
+  max-width: 950px;
+  margin: 0 auto;
+
+}
+
+.nav-item {
+  list-style: none;
+  color: white;
+  display: inline-block;
+  line-height: 30px;
+  margin-right: 20px;
+}
+
+.nav-item:last-child {
+  margin-right: 80px;
+}
+
+.header-container {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+}
+
+#logo {
+  width: 150px;
+}
+
+.featured-image {
+  max-width: 950px;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.inside-feature-frame {
+  max-width: 950px;
+}
