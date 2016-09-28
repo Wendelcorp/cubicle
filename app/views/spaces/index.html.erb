@@ -2,22 +2,27 @@
 
 
 <%# collection_select(:city, :user_id, @spaces,  :id, :description, {:prompt => true}) %>
-<select id="city">
-    <option value="All">Search All</option>
-    <option value="Toronto">Toronto</option>
-    <option value="Burlington">Burlington</option>
-    <option value="Hamilton">Hamilton</option>
-</select>
+<div class="sort-tools">
+  <div class="dropdown">
+    <select id="city">
+      <option value="All">All Cities</option>
+      <option value="Toronto">Toronto</option>
+      <option value="Montreal">Montreal</option>
+      <option value="Vancouver">Vancouver</option>
+    </select>
+  </div>
+  <div class="dropdown">
+  <select id="number-of-desks">
+  <% for i in (1..20) %>
+    <option value="<%= i %>"><%= i %></option>
+  <% end %>
+  </select>
+  </div>
+</div>
 
-<select id = 'number-of-desks'>
-<% for i in (1..30) %>
-  <option value="<%= i %>"><%= i %></option>
-<% end %>
-</select>
+<div id="search-results"></div>
 
-<div id = "search-results"></div>
-
-<div class = 'space-info'>
+<div class="space-info">
 <% @spaces.each do |space| %>
     <%= space.name %>
 
