@@ -6,57 +6,82 @@ $(function(){
     data: {},
     dataType: 'json'
   }).done(function(data){
-    var _allInfo = data
-    console.log(_allInfo)
+    var _allData = data
+    // globalish variables for all data and empty array for available data
+    var _availableData = []
+    var city;
+    var desks;
+    // console.log(_allData)
 
     $('#city').change(function(event){
-      var city = this.value;
-      console.log(city) // return value is 'Toronto' , 'Hamilton' ..
+      _availableData = []
+      city = this.value;
+      // console.log(city) // return value is 'Toronto' , 'Hamilton' ..
 
-      // clears the html in the space-info class
-      if (city != 'All'){
-        $('.space-info').hide();
-      }
-      else{
-        $('.space-info').show();
-      }
-
+      //clears the search results
       $('#search-results').html("")
 
       //loops through all data
-      for(var i = 0, l = _allInfo.length; i < l; i++){
+      for(var i = 0, l = _allData.length; i < l; i++){
 
-        console.log(_allInfo[i]['city']) //returns each city in the console
-
-        // if the chosen city is equal to the city in the list..
-        if(_allInfo[i]['city'] === city){
-          console.log(_allInfo[i]['name'])
-          //append the new information into cleared space info class
-          $("<div>").html(_allInfo[i]['name']+ " ").attr('id', _allInfo[i]['id']).appendTo("#search-results")
-          $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allInfo[i]['id']).html('spaces show page').appendTo("#" + _allInfo[i]['id'])
+        console.log(desks)
+        if (city != 'All'){
+          // hides the space info
+          $('.space-info').hide();
+          // if the chosen city is equal to the city in the list and desks is not changed
+          if(_allData[i]['city'] === city && desks === undefined ) {
+            $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
+            $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+          }
+          else if( _allData[i]['city'] === city && desks != 0 ){
+            if(_allData[i]['available_desks'] >= desks){
+              $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
+              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+            }
+          }
+        }
+        else{
+          if(_allData[i]['available_desks'] >= desks){
+            $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
+            $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+          }
         }
       }
     });
 
     $('#number-of-desks').change(function(event){
-      var desks = this.value;
-      console.log(desks)
+      desks = this.value;
+      // console.log(desks)
+      $('#search-results').html("")
+
+      for(var i = 0, l = _allData.length; i < l; i++){
+        if (city != 'All'){
+          $('.space-info').hide();
+          if(_allData[i]['available_desks'] >= desks) {
+            $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
+            $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+          }
+        }
+        else{
+          if(_allData[i]['available_desks'] >= desks){
+            $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
+            $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+          }
+        }
+      }
     });
-
-
-
-
-
-
 
 
   }).fail(function(data){
     console.log('this failed')
   });
 
+
+
 });
 
-
-
+// if ($.inArray('example', myArray) != -1)
+          // $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
+          // $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
 // ment.style.visibility = 'hidden';      // Hide
 // element.style.visibility = 'visible';     // Show
