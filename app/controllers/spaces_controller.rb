@@ -32,7 +32,17 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
   end
 
-  def update  
+  def edit
+    @space = Space.find(params[:id])
+  end
+
+  def update 
+    @space = Space.find(params[:id])
+    @space.update_attributes(space_params)
+    if @space.save
+      flash[:sucess] = 'project succesfully updated'
+      redirect_to space_path(@space) 
+    end
   end
 
 
