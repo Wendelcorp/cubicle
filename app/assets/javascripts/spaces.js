@@ -11,11 +11,11 @@ $(function(){
 
     $('#city').change(function(event){
       var city = this.value;
-      // console.log(city) // return value is 'Toronto' , 'Hamilton' ..
-      $('.space-info').attr('style',"display:none")
-      for(i = 0, l = _allInfo.length; i < l; i++){
+      console.log(city) // return value is 'Toronto' , 'Hamilton' ..
+      $('.space-info').html("")
+      for(var i = 0, l = _allInfo.length; i < l; i++){
         if(_allInfo[i]['city'] === city){
-          $('<div>').html("name:" + _allInfo[i]['name']).attr('id', _allInfo[i]['id'])
+          $('<div>').html("name:" + _allInfo[i]['name']).attr('id', _allInfo[i]['id']).appendTo(".space-info")
         }
       }
     });
