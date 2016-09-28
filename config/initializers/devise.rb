@@ -252,7 +252,8 @@ Devise.setup do |config|
                      '1200193056704629',
                      '5aa2f6bcd9d822abf88b9b1960d691e2',
                       scope: 'email',
-                      info_fields: "email,first_name,last_name"
+                      info_fields: "email,first_name,last_name",
+                      display: 'popup'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
