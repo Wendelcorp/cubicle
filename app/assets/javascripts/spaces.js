@@ -59,7 +59,7 @@ $(function(){
       for(var i = 0, l = _allData.length; i < l; i++){
         if (city != 'All'){
           $('.space-info').hide();
-          if(_allData[i]['available_desks'] >= desks) {
+          if(_allData[i]['available_desks'] >= desks && _allData[i]['city'] === city ) {
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
           }
