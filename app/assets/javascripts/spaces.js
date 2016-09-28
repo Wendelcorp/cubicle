@@ -28,7 +28,7 @@ $(function(){
 
         console.log(_allInfo[i]['city']) //returns each city in the console
 
-        // if the chosen city is equal to the city in the list.. 
+        // if the chosen city is equal to the city in the list..
         if(_allInfo[i]['city'] === city){
           console.log(_allInfo[i]['name'])
           //append the new information into cleared space info class
