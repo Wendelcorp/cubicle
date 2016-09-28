@@ -54,6 +54,15 @@
     <%= f.text_field :postal_code %>
   </div>
 
+  <div id="upload_pictures">
+    <%= f.fields_for :images do |image| %>
+      <%= render partial: 'image_fields', :f => image %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add image', f, :images %>
+    </div>
+  </div>
+
   <%= f.submit 'Save' %>
 
 <% end %>
