@@ -1,8 +1,6 @@
-<h2>home page</h2>
-
-
 <%# collection_select(:city, :user_id, @spaces,  :id, :description, {:prompt => true}) %>
 <div class="sort-tools">
+  <h2>I'm looking for:</h2>
   <div class="dropdown">
     <select id="city">
       <option value="All">All Cities</option>
@@ -13,26 +11,17 @@
   </div>
   <div class="dropdown">
   <select id="number-of-desks">
-  <% for i in (1..20) %>
+  <% for i in (1..30) %>
     <option value="<%= i %>"><%= i %></option>
   <% end %>
   </select>
   </div>
 </div>
-
 <div id="search-results"></div>
-
 <div class="space-info">
 <% @spaces.each do |space| %>
     <%= space.name %>
-
     <%= link_to "spaces show page", space_path(space) %><br>
 <% end %>
 </div>
-
-
-
-
-
-
 <%= link_to "add a new space", new_space_path %>
