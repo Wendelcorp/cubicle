@@ -19,7 +19,7 @@ class SpacesController < ApplicationController
     @user = current_user
     @space = @user.owned_spaces.new(space_params)
 
-    if @space.save
+    if @space.save!
       flash[:sucess] = 'New Space succesfully added'
       redirect_to spaces_path
     else
@@ -32,9 +32,19 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
   end
 
-  def update
-
+  def edit
+    @space = Space.find(params[:id])
   end
+
+  def update 
+    @space = Space.find(params[:id])
+    @space.update_attributes(space_params)
+    if @space.save
+      flash[:sucess] = 'project succesfully updated'
+      redirect_to space_path(@space) 
+    end
+  end
+
 
   private
 

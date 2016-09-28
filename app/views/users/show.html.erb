@@ -4,10 +4,11 @@
 
 <h3>Owned offices:</h3>
 <% @spaces.each do |space| %>
-  <%= "Name of company: #{space.name}"%>
-  <%= "Available_desks: #{space.available_desks}"%>
-  <%= "Price per desk: #{space.price}" %>
-  <%= "Address: #{space.name}" %>
+  <%= "Name of company: #{space.name}"%></br>
+  <%= "Available_desks: #{space.available_desks}"%></br>
+  <%= "Price per desk: #{space.price}" %></br>
+  <%= "Address: #{space.name}" %></br>
+  <%= link_to 'Edit this Space', edit_space_path(space) %></br>
 <% end %>
 
 <h3>Current Leases:</h3>

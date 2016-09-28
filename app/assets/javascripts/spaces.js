@@ -10,7 +10,7 @@ $(function(){
     // globalish variables for all data and empty array for available data
     var _availableData = []
     var city;
-    var desks;
+    var desks = 1;
     // console.log(_allData)
 
     $('#city').change(function(event){
@@ -28,12 +28,12 @@ $(function(){
         if (city != 'All'){
           // hides the space info
           $('.space-info').hide();
-          // if the chosen city is equal to the city in the list and desks is not changed 
-          if(_allData[i]['city'] === city && desks === undefined ) { 
+          // if the chosen city is equal to the city in the list and desks is not changed
+          if(_allData[i]['city'] === city && desks === 1 ) {
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
           }
-          else if( _allData[i]['city'] === city && desks != 0 ){
+          else if( _allData[i]['city'] === city && desks != 1 ){
             if(_allData[i]['available_desks'] >= desks){
               $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
               $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
@@ -41,7 +41,9 @@ $(function(){
           }
         }
         else{
+          console.log('this is the else')
           if(_allData[i]['available_desks'] >= desks){
+            console.log('inside the if')
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
           }
@@ -57,7 +59,7 @@ $(function(){
       for(var i = 0, l = _allData.length; i < l; i++){
         if (city != 'All'){
           $('.space-info').hide();
-          if(_allData[i]['available_desks'] >= desks) { 
+          if(_allData[i]['available_desks'] >= desks && _allData[i]['city'] === city ) {
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
           }
@@ -79,9 +81,3 @@ $(function(){
 
 
 });
-
-// if ($.inArray('example', myArray) != -1)
-          // $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).appendTo("#search-results")
-          // $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
-// ment.style.visibility = 'hidden';      // Hide
-// element.style.visibility = 'visible';     // Show
