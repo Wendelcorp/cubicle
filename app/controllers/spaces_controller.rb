@@ -4,6 +4,11 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = Space.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @spaces}
+    end
   end
 
   def new

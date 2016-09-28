@@ -31,32 +31,30 @@
     <%= f.number_field :price %>
   </div>
 
-    <div id = 'address'>
     <h2>Address:</h2>
-      <%= f.fields_for :address, @address do |address_fields| %>
-      <div class = "field">
-        <%= address_fields.label :number %><br/>
-        <%= address_fields.number_field :number %>
-      </div>
-            <div class = "field">
-        <%= address_fields.label "Street Name" %><br/>
-        <%= address_fields.text_field :street_name %>
-      </div>
-            <div class = "field">
-        <%= address_fields.label :city %><br/>
-        <%= address_fields.text_field :city %>
-      </div>
-      <div class = "field">
-        <%= address_fields.label :province %><br/>
-        <%= address_fields.text_field :province %>
-      </div>
-      <div class = "field">
-        <%= address_fields.label "postal code" %><br/>
-        <%= address_fields.text_field :postal_code %>
-      </div>
 
-      <% end %>
-    </div>
+  <div class = "field">
+    <%= f.label :number %><br/>
+    <%= f.number_field :number %>
+  </div>
+        <div class = "field">
+    <%= f.label "Street Name" %><br/>
+    <%= f.text_field :street_name %>
+  </div>
+        <div class = "field">
+    <%= f.label :city %><br/>
+    <%= f.text_field :city %>
+  </div>
+  <div class = "field">
+    <%= f.label :province %><br/>
+    <%= f.text_field :province %>
+  </div>
+  <div class = "field">
+    <%= f.label "postal code" %><br/>
+    <%= f.text_field :postal_code %>
+  </div>
+
+
 
 
 
