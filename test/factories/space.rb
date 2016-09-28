@@ -1,3 +1,5 @@
+#user faker to generate some test data
+
 FactoryGirl.define do
   factory :space do
     name              {}
