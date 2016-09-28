@@ -1,12 +1,37 @@
 <h2>home page</h2>
 
+
+
+<%# collection_select(:city, :user_id, @spaces,  :id, :description, {:prompt => true}) %>
+<select id="city">
+    <option value="">Select one...</option>
+    <option value="Toronto">Toronto</option>
+    <option value="Burlington">Burlington</option>
+    <option value="Hamilton">Hamilton</option>
+</select>
+
+<select id = 'number-of-desks'>
+<% for i in (1..20) %>
+  <option value="<%= i %>"><%= i %></option>
+<% end %>
+</select>
+
+
+
+<select id = "number-of-desks"></select>
+
+<div id = "search-results"></div>
+
 <% @spaces.each do |space| %>
-  <div class = 'space info'>
+  <div class = 'space-info'>
     <%= space.name %>
     <%= link_to "spaces show page", space_path(space) %>
   </div>
   
 <% end %>
+
+
+
 
 
 

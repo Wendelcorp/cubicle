@@ -7,7 +7,7 @@
   <%= "Name of company: #{space.name}"%>
   <%= "Available_desks: #{space.available_desks}"%>
   <%= "Price per desk: #{space.price}" %>
-  <%= "Address: #{Address.concat_address(space.address_id)}" %>
+  <%= "Address: #{space.name}" %>
 <% end %>
 
 <h3>Current Leases:</h3>
@@ -17,4 +17,6 @@
   <%= "space name: #{Space.find(lease.space_id).name}" %></br>
   <%= "status: #{Status.find(lease.status_id).name}" %></br>
 <% end %>
+
+
 

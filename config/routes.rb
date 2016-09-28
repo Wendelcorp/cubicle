@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
   resources :spaces, only: [:index, :show, :new, :create]
   resources :leases, only: [:new, :create, :show]
   resources :users, only: [:show]

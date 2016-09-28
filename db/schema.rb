@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927225833) do
+ActiveRecord::Schema.define(version: 20160928050043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "space_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "location_picture_file_name"
+    t.string   "location_picture_content_type"
+    t.integer  "location_picture_file_size"
+    t.datetime "location_picture_updated_at"
+    t.index ["space_id"], name: "index_images_on_space_id", using: :btree
+  end
 
   create_table "leases", force: :cascade do |t|
     t.integer  "desks"
@@ -71,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160927225833) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "images", "spaces"
   add_foreign_key "leases", "spaces"
   add_foreign_key "leases", "statuses"
   add_foreign_key "leases", "users"
