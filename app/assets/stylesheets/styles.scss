@@ -96,3 +96,20 @@ nav ul {
 .inside-feature-frame {
   max-width: 950px;
 }
+
+.space-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+}
+
+.space-box {
+  min-width: 300px;
+  min-width: 300px;
+  height: 200px;
+  margin: 0 5px;
+  background: white;
+}
