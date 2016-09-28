@@ -23,6 +23,7 @@
     <div class="space-info">
       <% @spaces.each do |space| %>
         <div class="space-box">
+          <%= image_tag @space.images.first.location_picture.url(:thumb)  %>
           <%= space.name %>
           <%= link_to "spaces show page", space_path(space) %><br>
         </div>
