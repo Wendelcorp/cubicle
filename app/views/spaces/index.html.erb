@@ -2,19 +2,26 @@
 <div class="sort-tools">
   <h2>I'm looking for:</h2>
   <div class="dropdown">
+  <select id="number-of-desks">
+  <% for i in (1..30) %>
+  <% if i == 1  %>
+  <option value="<%= i %>"><%= "#{i} Desk "%></option>
+  <% else %>
+  <option value="<%= i %>"><%= "#{i} Desks "%></option>
+  <% end %>
+  <% end %>
+  </select>
+  </div>
+  <div id="in" class="dropdown">
+    <h2>in</h2>
+  </div>
+  <div class="dropdown">
     <select id="city">
       <option value="All">All Cities</option>
       <option value="Toronto">Toronto</option>
       <option value="Montreal">Montreal</option>
       <option value="Vancouver">Vancouver</option>
     </select>
-  </div>
-  <div class="dropdown">
-  <select id="number-of-desks">
-  <% for i in (1..30) %>
-    <option value="<%= i %>"><%= i %></option>
-  <% end %>
-  </select>
   </div>
 </div>
 
@@ -23,6 +30,7 @@
     <div class="space-info">
       <% @spaces.each do |space| %>
         <div class="space-box">
+          <%# image_tag space.images.first.location_picture.url(:thumb)  %>
           <%= space.name %>
           <%= link_to "spaces show page", space_path(space) %><br>
         </div>
@@ -30,5 +38,4 @@
     </div>
   </div>
 </div>
-
 <%= link_to "add a new space", new_space_path %>
