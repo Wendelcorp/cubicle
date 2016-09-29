@@ -34,6 +34,8 @@ $(function(){
           if(_allData[i]['city'] === city && desks === 1 ) {
             $("<div>").html(_allData[i]['name']+ " ").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info')
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+            // $("<img>").attr('class', "front-page-img").src("NEED PHOTO LINK HERE")
+            // $( ".front-page-img" ).wrap( "<a href = 'space/"+ _allData[i]['id'] + "</a>" );
           }
           else if( _allData[i]['city'] === city && desks != 1 ){
 
@@ -86,3 +88,11 @@ $(function(){
 
 
 });
+
+
+
+
+
+
+
+// $( ".inner" ).wrap( "<div class='new'></div>" );
