@@ -1,3 +1,6 @@
+
+document.addEventListener("turbolinks:load", function() {
+
 $(function(){
 
   $.ajax({
@@ -116,7 +119,7 @@ $(function(){
 
 });
 
-
+});
 
 
 
