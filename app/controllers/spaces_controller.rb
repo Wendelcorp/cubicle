@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :ensure_logged_in, only: [:update, :destroy]
+  before_action :ensure_logged_in, only: [:destroy, :edit, :update]
 
   def index
     @spaces = Space.all
@@ -36,13 +36,23 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
   end
 
-  def update 
+  def update
+    @user = current_user
     @space = Space.find(params[:id])
-    @space.update_attributes(space_params)
-    if @space.save
+    if @space.update_attributes(space_params)
       flash[:sucess] = 'project succesfully updated'
-      redirect_to space_path(@space) 
+      redirect_to space_path(@space)
+    else
+      flash[:notice] = 'this didnt update'
+      redirect_to root_path
     end
+  end
+
+  def destroy
+    #important, if you destroy the space, you have to destroy the associated leases
+    @space = Space.find(params[:id])
+    Lease.where(space_id: @space.id).destroy_all
+    @space.destroy
   end
 
 
@@ -64,7 +74,8 @@ class SpacesController < ApplicationController
   end
 
   def ensure_logged_in
-    if current_user != User.find(params[:id])
+    @space = Space.find(params[:id])
+    if current_user != User.find(@space.user_id)
       redirect_to spaces_path, notice: "you do not have access"
     end
   end

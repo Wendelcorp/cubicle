@@ -43,23 +43,32 @@ create addresses : Those are not real stresses, probably cant use in
 =end
 
 
-# create spaces
+# create spaces with 1 default picture
 # user1 have no space
 # user2 have 1 space
 user2_space1 = FactoryGirl.create :space,
                                    user_id:user2.id,
                                    name:"user2's space1",
                                    number: "21"
+
+user2_space1_picture = FactoryGirl.create :image,
+                                   space_id:user2_space1.id
 # user3 have 2 spaces
 user3_space1 = FactoryGirl.create :space,
                                    user_id:user3.id,
                                    name:"user3's space1",
                                    number: "31"
 
+user3_space1_picture = FactoryGirl.create :image,
+                                   space_id:user3_space1.id
+
 user3_space2 = FactoryGirl.create :space,
                                    user_id:user3.id,
                                    name:"user3's space1",
                                    number: "32"
+
+user3_space2_picture = FactoryGirl.create :image,
+                                   space_id:user3_space2.id
 
 # user1 have 1 lease for user2's space 1
 user1_lease1_user2_space1 = FactoryGirl.create :lease,

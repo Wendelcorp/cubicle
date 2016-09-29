@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: helvetica, arial;
+  // background: url("/images/worn_dots.png")
   /*background-image: url(images/subtle_white_feathers.png);*/
 }
 
@@ -95,4 +96,25 @@ nav ul {
 
 .inside-feature-frame {
   max-width: 950px;
+}
+
+.space-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 18px;
+
+}
+
+.space-box {
+  min-width: 250px;
+  height: 200px;
+  margin: 0 5px;
+  background: white;
+  margin-top: 10px;
+}
+.front-page-img{
+  width: 100%;
+  height: 100%;
 }
