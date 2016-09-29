@@ -39,7 +39,7 @@ class SpacesController < ApplicationController
   def update
     @user = current_user
     @space = Space.find(params[:id])
-    if @space.update_attributes(space_params)
+    if @space.update_attributes!(space_params)
       flash[:sucess] = 'project succesfully updated'
       redirect_to space_path(@space)
     else
@@ -69,8 +69,7 @@ class SpacesController < ApplicationController
                                   :city,
                                   :province,
                                   :postal_code,
-                                  images_attributes: [:location_picture,
-                                                      :_destroy])
+                                  images_attributes: [:id, :location_picture, :_destroy])
   end
 
   def ensure_logged_in
