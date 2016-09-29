@@ -1,4 +1,5 @@
 <br><%= "this is the #{@space.name} page" %>
+<div class = "desks-requested"></div>
 
 <p>This page will contain all the information on the space that is available, the pictures of the space, google maps location, and the information which we searched</p>
 
@@ -6,6 +7,9 @@
   <%= image_tag image.location_picture.url(:medium) %>
 <% end %>
 
-<%= link_to 'Request Reserved Space', new_lease_path, remote: true%>
+<%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
 
 <div id = "new-lease-form"></div>
+
+  
+</div>
