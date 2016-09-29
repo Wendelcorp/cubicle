@@ -31,7 +31,6 @@ user3 = FactoryGirl.create :user, first_name: 'third', last_name: 'user'
 # create 4 status, only generate once never destory and never rerun
 unless Status.exists?
   # create 4 status codes
-  sent = FactoryGirl.create :status, name: 'sent'
   pending = FactoryGirl.create :status, name: 'pending'
   accept = FactoryGirl.create :status, name: 'accept'
   reject = FactoryGirl.create :status, name: 'reject'
@@ -74,9 +73,9 @@ user3_space2_picture = FactoryGirl.create :image,
 user1_lease1_user2_space1 = FactoryGirl.create :lease,
                                                user_id: user1.id,
                                                space_id: user2_space1.id,
-                                               status_id: sent.id
+                                               status_id: pending.id
 # user2 have 1 lease for user3's space 2
 user2_lease1_user3_space2 = FactoryGirl.create :lease,
                                                user_id: user2.id,
                                                space_id: user3_space2.id,
-                                               status_id: sent.id
+                                               status_id: pending.id
