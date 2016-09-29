@@ -12,7 +12,7 @@ class LeasesController < ApplicationController
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     @user = current_user
     @lease = @space.leases.create(lease_params)
-    @lease.status_id = 1
+    @lease.status_id = 0
     @lease.user_id = @user.id
 
     if @lease.save
