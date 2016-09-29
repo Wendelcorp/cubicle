@@ -13,15 +13,22 @@
 <% end %>
 
 
-<h3>Current Leases:</h3>
+<h3>My Pending Leases:</h3>
 <% @leases.each do |lease| %>
-  <%= "number of desks: #{lease.desks}" %> </br>
-  <%= "starting month: #{lease.month}" %></br>
-  <%= "space name: #{Space.find(lease.space_id).name}" %></br>
-  <%= "status: #{Status.find(lease.status_id).name}" %></br>
+  <% if lease.user.id == current_user.id %>
+    <%= "number of desks: #{lease.desks}" %> </br>
+    <%= "starting month: #{lease.month}" %></br>
+    <%= "space name: #{Space.find(lease.space_id).name}" %></br>
+    <%= "status: #{Status.find(lease.status_id).name}" %></br>
+  <% end %>
 <% end %>
 
-
-
-
-
+<h3>Pending Leases for my spaces</h3>
+<% @leases.each do |lease| %>
+  <% if lease.space.user.id == current_user.id %>
+    <%= "number of desks: #{lease.desks}" %> </br>
+    <%= "starting month: #{lease.month}" %></br>
+    <%= "space name: #{Space.find(lease.space_id).name}" %></br>
+    <%= "status: #{Status.find(lease.status_id).name}" %></br>
+  <% end %>
+<% end %>

@@ -7,6 +7,7 @@ class LeasesController < ApplicationController
     @lease = Lease.new
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   end
+
   def create
     @space = Space.find(params[:space_id])
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

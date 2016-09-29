@@ -7,7 +7,9 @@
   <%= image_tag image.location_picture.url(:medium) %>
 <% end %>
 
-<%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+<% unless @space.user.id == current_user.id%>
+  <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+<% end %>
 
 <div id = "new-lease-form"></div>
 
