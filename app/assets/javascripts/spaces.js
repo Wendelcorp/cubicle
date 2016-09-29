@@ -20,7 +20,7 @@ $(function(){
 
       //clears the search results
       $('.space-info').html("")
-      
+
 
 
       //loops through all data

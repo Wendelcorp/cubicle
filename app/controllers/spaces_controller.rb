@@ -36,12 +36,12 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
   end
 
-  def update 
+  def update
     @user = current_user
     @space = Space.find(params[:id])
     if @space.update_attributes!(space_params)
       flash[:sucess] = 'project succesfully updated'
-      redirect_to space_path(@space) 
+      redirect_to space_path(@space)
     else
       flash[:notice] = 'this didnt update'
       redirect_to root_path
