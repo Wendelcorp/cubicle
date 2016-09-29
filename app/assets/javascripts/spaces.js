@@ -6,13 +6,17 @@ $(function(){
     data: {},
     dataType: 'json'
   }).done(function(data){
-    console.log(data)
-    var imgHash = {}
-    for(i = 0, l = data.length; i < l; i++){
-      // console.log(data[i]['location_picture_file_name'])
-      imgHash[data[i]['space_id']] = data[i]['location_picture_file_name']
+    // console.log(data)
+    // console.log(data.length)
+    var imgArr = []
+    keys = Object.keys(data)
+    for (i=0; i < keys.length; i++){
+      imgArr.push(data[keys[i]])
     }
-    console.log(imgHash)
+    console.log(imgArr)
+    // $('<img>').attr('src',data[keys[0]]).appendTo('.sort-tools')
+
+    // console.log(Object.values(data))
 
     $.ajax({
       url: "/spaces.json",
@@ -52,16 +56,15 @@ $(function(){
             if(_allData[i]['city'] === city && desks === 1 ) {
               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
               $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              // if(_allData[i]['id'] in imgHash){ console.log('This worked')}
-              $('<img>').attr('class','front-page-img').attr('src', imgHash[_allData[i]['id']]).appendTo('#link' + _allData[i]['id'])
-              // $("<img>").attr('class', "front-page-img").src("NEED PHOTO LINK HERE")
-              // $( ".front-page-img" ).wrap( "<a href = 'space/"+ _allData[i]['id'] + "</a>" );
+              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+             
             }
             else if( _allData[i]['city'] === city && desks != 1 ){
 
               if(_allData[i]['available_desks'] >= desks){
-                $("<div>").html(_allData[i]['name']+ " ").attr('class', 'space-box').attr('id', _allData[i]['id']).appendTo(".space-info")
-                $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+                $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
               }
             }
           }
@@ -69,8 +72,9 @@ $(function(){
             // console.log('this is the else')
             if(_allData[i]['available_desks'] >= desks){
               // console.log('inside the if')
-              $("<div>").html(_allData[i]['name']+ " ").attr('class', 'space-box').attr('id', _allData[i]['id']).appendTo(".space-info")
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
             }
           }
         }
@@ -86,15 +90,17 @@ $(function(){
           if (city != 'All'){
             console.log(city)
             if(_allData[i]['available_desks'] >= desks && _allData[i]['city'] === city ) {
-              $("<div>").html(_allData[i]['name']+ " ").attr('class', 'space-box').attr('id', _allData[i]['id']).appendTo(".space-info")
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
             }
           }
           else{
             console.log('this is the final else')
             if(_allData[i]['available_desks'] >= desks){
-              $("<div>").html(_allData[i]['name']+ " ").attr('class', 'space-box').attr('id', _allData[i]['id']).appendTo(".space-info")
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).html('spaces show page').appendTo("#" + _allData[i]['id'])
+               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
             }
           }
         }

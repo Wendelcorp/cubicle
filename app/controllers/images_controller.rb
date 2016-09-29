@@ -1,9 +1,9 @@
 class ImagesController < ApplicationController
   def index
-    img_array = []
+    img_array = {}
     spaces = Space.all
     for space in spaces
-      img_array << space.images.first
+      img_array[space.id] = space.images.first.location_picture.url(:thumb)
     end
 
     respond_to do |format|
@@ -15,3 +15,5 @@ class ImagesController < ApplicationController
   end
 
 end
+
+# image.location_picture.url(:medium)
