@@ -31,6 +31,11 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find(params[:id])
     @leases = @space.leases
+    available_spaces = @space.available_desks
+    available_leases = Space.available_leases(@space)
+    taken_desks = Space.taken_desks(available_leases)
+    @remaining_desks = available_spaces - taken_desks
+    @price_per_desk = @space.price 
   end
 
   def edit
@@ -82,3 +87,14 @@ class SpacesController < ApplicationController
 
 
 end
+
+
+# to_query
+
+# url    = 'http://www.foo.com?id=4&empid=6'
+# uri    = URI.parse(url)
+# params = CGI.parse(uri.query)
+# # params is now {"id"=>["4"], "empid"=>["6"]}
+#
+# id     = params['id'].first
+# # id is now "4"
