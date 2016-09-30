@@ -115,10 +115,7 @@ $(function(){
 
  });
 
- $('form').on('cocoon:after-insert', function(e, newthing){
-
-   newthing.find('input[type=file]').on('change', function(event){
-
+   function previewpic(env, tagid, selecttag, old=false){
      var files = event.target.files;
      var image = files[0]
      var reader = new FileReader();
@@ -127,13 +124,29 @@ $(function(){
        var img = new Image();
        console.log(file);
        img.src = file.target.result;
-       var fileid = newthing.find('input[type=file]').attr('id');
-       var picturediv = $('<div>').html(img).attr('id', fileid);
-       picturediv.appendTo('#upload_pictures');
+       if(!old){
+         selecttag.html(img).attr('id', tagid).appendTo('#upload_pictures');
+       }else{
+         selecttag.html(img).attr('id', tagid);
+       }
      }
 
      reader.readAsDataURL(image);
      console.log(files);
+   };
+
+ $('input[type=file]').on('change', function(event){
+   number = parseInt($(this).attr('id').split('_')[3]);
+   console.log(number);
+   previewpic(event, $(this).attr('id'), $('div.imagetags').eq(number), true);
+
+ });
+
+ $('form').on('cocoon:after-insert', function(e, newthing){
+
+   newthing.find('input[type=file]').on('change', function(event){
+
+     previewpic(event, newthing.find('input[type=file]').attr('id'), $('<div>'));
 
    });
 
