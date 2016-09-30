@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @leases = @user.leases
-    @spaces = @user.owned_spaces
+    spaces = @user.owned_spaces
+    @pending = spaces.where()
   end
 
 
