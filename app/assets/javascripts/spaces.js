@@ -34,6 +34,13 @@ $(function(){
       var desks = 1;
       // console.log(_allData)
 
+      function populate(i) {
+        $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+        $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+        $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+      }
+
+
       $('#city').change(function(event){
         _availableData = []
         city = this.value;
@@ -56,18 +63,15 @@ $(function(){
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
+
+
             if(_allData[i]['city'] === city && desks === 1 ) {
-              $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
-             
+              populate(i)
             }
             else if( _allData[i]['city'] === city && desks != 1 ){
 
               if(_allData[i]['available_desks'] >= desks){
-                $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+              populate(i)
               }
             }
           }
@@ -75,9 +79,7 @@ $(function(){
             // console.log('this is the else')
             if(_allData[i]['available_desks'] >= desks){
               // console.log('inside the if')
-               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+              populate(i)
             }
           }
         }
@@ -92,18 +94,12 @@ $(function(){
           //console.log(_allData[i]['available_desks'])
           if (city != 'All'){
             console.log(city)
-            if(_allData[i]['available_desks'] >= desks && _allData[i]['city'] === city ) {
-               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
-            }
+            populate(i)
           }
           else{
             console.log('this is the final else')
             if(_allData[i]['available_desks'] >= desks){
-               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+            populate(i)
             }
           }
         }
