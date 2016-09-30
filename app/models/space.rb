@@ -17,7 +17,7 @@ class Space < ApplicationRecord
     return array
   end
 
-#takes collection of confirm leases and returns count of desks  
+#takes collection of confirm leases and returns count of desks
   def self.taken_desks(array)
     count = 0
     array.each do |lease|

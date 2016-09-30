@@ -118,6 +118,35 @@ $(function(){
 
 
  });
+
+ $('form').on('cocoon:after-insert', function(e, newthing){
+
+   newthing.find('input[type=file]').on('change', function(event){
+
+     var files = event.target.files;
+     var image = files[0]
+     var reader = new FileReader();
+
+     reader.onload = function(file){
+       var img = new Image();
+       console.log(file);
+       img.src = file.target.result;
+       var fileid = newthing.find('input[type=file]').attr('id');
+       var picturediv = $('<div>').html(img).attr('id', fileid);
+       picturediv.appendTo('#upload_pictures');
+     }
+
+     reader.readAsDataURL(image);
+     console.log(files);
+
+   });
+
+ });
+
+$('form').on('cocoon:after-remove', function(e,removething){
+
+  var fileid = removething.find('input[type=file]').attr('id');
+  $('div#'+fileid).remove();
 });
 
 });
