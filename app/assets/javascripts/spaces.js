@@ -1,5 +1,5 @@
+document.addEventListener("turbolinks:load", function () {
 
-document.addEventListener("turbolinks:load", function() {
 
 $(function(){
 
@@ -60,7 +60,7 @@ $(function(){
               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
               $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
               $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
-             
+
             }
             else if( _allData[i]['city'] === city && desks != 1 ){
 
@@ -117,10 +117,10 @@ $(function(){
   });
 
 
+ });
 });
 
 });
-
 
 
 

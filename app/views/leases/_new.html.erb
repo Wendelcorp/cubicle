@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= f.label 'Confirm number of desks' %>
-    <%= f.number_field :desks %>
+    <%= f.select :desks, (1..20), {}, class: 'confirm-desks' %>
   </div>
     <div class="field">
     <%= f.label 'Select potential start month' %>
