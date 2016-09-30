@@ -254,6 +254,12 @@ Devise.setup do |config|
                       scope: 'email',
                       info_fields: "email,first_name,last_name",
                       display: 'popup'
+
+    config.omniauth :linkedin,
+                     '782r1adt1eoh2x',
+                     'I1M2DuieGeAnZFkb',
+                     scope: 'r_emailaddress',
+                     :field => ["id", "email-address", "first_name", "last_name"]
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
