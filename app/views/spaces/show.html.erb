@@ -1,11 +1,13 @@
+
 <br><%= "this is the #{@space.name} page" %>
 <div class = "desks-requested"></div>
 
 <p>This page will contain all the information on the space that is available, the pictures of the space, google maps location, and the information which we searched</p>
 
-<% @space.images.each do |image| %>
-  <%= image_tag image.location_picture.url(:medium) %>
-<% end %>
+
+    <% @space.images.each do |image| %>
+    <%= image_tag image.location_picture.url(:medium) %>
+    <% end %>
 
 <% unless @space.user.id == current_user.id%>
   <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>

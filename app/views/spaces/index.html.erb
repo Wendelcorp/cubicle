@@ -30,6 +30,7 @@
     <div class="space-info">
       <% @spaces.each do |space| %>
         <div class="space-box">
+          <p class="space-price">$<%= space.price %></p>
         <%= link_to space_path(space), class: 'show-btn', id: "link1" do %>
             <%= image_tag space.images.first.location_picture.url(:thumb), class: 'front-page-img' if space.images.first  %>
             <% end %>
