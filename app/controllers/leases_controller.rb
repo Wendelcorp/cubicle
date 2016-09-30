@@ -22,7 +22,26 @@ class LeasesController < ApplicationController
       render :new
     end
   end
-  
+
+  def update
+    @lease = Lease.find(params[:id]);
+
+    if params[:status] == 'accept'
+      status = Status.find_by_name("accept").id
+      @lease.status_id = status
+    elsif params[:status] == 'reject'
+      status = Status.find_by_name("reject").id
+      @lease.status_id = status
+    end
+
+    if @lease.save!
+      respond_to do |format|
+        format.html
+        format.json { render json: { name:@lease.status.name, id:@lease.id }}
+      end
+    end
+  end
+
 
   private
 
