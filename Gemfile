@@ -26,6 +26,7 @@ gem 'devise'
 # Omiauth-platform based
 gem 'omniauth-facebook'
 gem "cocoon"
+gem 'geocoder'
 
 # Paper Clip for uploading file
 gem "paperclip", "~>5.0.0"
