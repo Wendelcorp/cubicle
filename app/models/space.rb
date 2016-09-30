@@ -4,6 +4,9 @@ class Space < ApplicationRecord
   has_many :users, through: :leases
   has_many :images, inverse_of: :space, dependent: :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true
+  geocoded_by :postal_code
+  after_validation :geocode
+
 
 #finds all leases where lease status is 2(confirmed)
   def self.available_leases(space)
@@ -25,6 +28,5 @@ class Space < ApplicationRecord
     end
     return count
   end
-
 
 end

@@ -1,5 +1,5 @@
-document.addEventListener("turbolinks:load", function () {
 
+document.addEventListener("turbolinks:load", function() {
 
 $(function(){
 
@@ -156,6 +156,7 @@ $('form').on('cocoon:after-remove', function(e,removething){
 
   var fileid = removething.find('input[type=file]').attr('id');
   $('div#'+fileid).remove();
+
 
 });
 
