@@ -7,9 +7,18 @@
   <%= image_tag image.location_picture.url(:medium) %>
 <% end %>
 
-<%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+<% unless @space.user.id == current_user.id%>
+  <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+<% end %>
 
 <div id = "new-lease-form"></div>
 
+<%= "remaining desks = #{@remaining_desks}" %>
+<br />
 
+<div class="price_each_desk" value="<%= @price_per_desk %>">
+<span id='price'><%= @price_per_desk %></span> is the price per desk
+</div>
+
+<div class = "total-price">your total:</div>
 </div>

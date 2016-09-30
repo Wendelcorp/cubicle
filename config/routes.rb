@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :spaces do
-    resources :leases, only: [:new, :create, :show]
+    resources :leases, only: [:new, :create, :show, :update]
   end
   resources :users, only: [:show]
   resources :images, only: [:index]
