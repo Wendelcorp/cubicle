@@ -147,6 +147,7 @@ $('form').on('cocoon:after-remove', function(e,removething){
 
   var fileid = removething.find('input[type=file]').attr('id');
   $('div#'+fileid).remove();
+
 });
 
 });
