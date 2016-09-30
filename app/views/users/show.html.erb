@@ -13,7 +13,7 @@
 <% end %>
 
 
-<h3>Current Leases:</h3>
+<h3>My Pending Leases:</h3>
 <% @leases.each do |lease| %>
   <%= "number of desks: #{lease.desks}" %> </br>
   <%= "starting month: #{lease.month}" %></br>
@@ -21,7 +21,20 @@
   <%= "status: #{Status.find(lease.status_id).name}" %></br>
 <% end %>
 
-
-
-
-
+<h3>Pending Leases for my spaces</h3>
+<% @spaces.each do |space| %>
+  <% unless space.leases.blank? %>
+    <h4>Pending Leases for my space <%= space.name %></h2>
+  <% end %>
+  <% space.leases.each do |lease| %>
+    <%= "number of desks: #{lease.desks}" %> </br>
+    <%= "starting month: #{lease.month}" %></br>
+    <%= "space name: #{Space.find(lease.space_id).name}" %></br>
+    <span id=<%= lease.id %>>Current Status: <%= lease.status.name %></span></br>
+    <% if lease.status.name == 'pending' %>
+      <button type="button" name="accept" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Accept</button>
+      <button type="button" name="reject" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Reject</button>
+    <% end %>
+  </br>
+  <% end %>
+<% end %>
