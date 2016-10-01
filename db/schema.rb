@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930192710) do
+ActiveRecord::Schema.define(version: 20161001193652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20160930192710) do
     t.index ["space_id"], name: "index_leases_on_space_id", using: :btree
     t.index ["status_id"], name: "index_leases_on_status_id", using: :btree
     t.index ["user_id"], name: "index_leases_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spaces", force: :cascade do |t|
