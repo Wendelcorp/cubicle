@@ -1,0 +1,13 @@
+#slides {
+  // display: none;
+}
+
+/* Center the slideshow */
+.container-slider {
+  margin: 0 auto;
+}
+
+/* Show active item in the pagination */
+.slidesjs-pagination .active {
+  color:red;
+}
