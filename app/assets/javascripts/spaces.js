@@ -30,20 +30,21 @@ $(function(){
       var _allData = data
       // globalish variables for all data and empty array for available data
       var _availableData = []
-      var city = 'All';
+      var city = 'all';
       var desks = 1;
-      // console.log(_allData)
+      console.log(_allData)
 
       function populate(i) {
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+        $('<p>').attr('class', 'space-price').html('$' + _allData[i]['price']).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
         $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
       }
-
+      // .toLowerCase();
 
       $('#city').change(function(event){
         _availableData = []
-        city = this.value;
+        city = this.value.toLowerCase();
         // console.log(city) // return value is 'Toronto' , 'Hamilton' ..
 
         //clears the search results
@@ -55,22 +56,23 @@ $(function(){
         for(var i = 0, l = _allData.length; i < l; i++){
 
 
-
+          var dataCity = _allData[i]['city'].toLowerCase();
 
 
           // console.log(desks)
-          if (city != 'All'){
+          if (city != 'all'){
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
 
 
-            if(_allData[i]['city'] === city && desks === 1 ) {
+            if(dataCity === city && desks === 1 ) {
               console.log(_allData[i]['id'])
               populate(i)
             }
-            else if( _allData[i]['city'] === city && desks != 1 ){
-
+            else if( dataCity === city && desks != 1 ){
+              // console.log(dataCity);
+              // console.log(city)
               if(_allData[i]['available_desks'] >= desks){
               populate(i)
               }
@@ -88,19 +90,21 @@ $(function(){
 
       $('#number-of-desks').change(function(event){
         desks = this.value;
-        console.log(desks)
+        // console.log(desks)
         $('.space-info').html("")
-
+       
         for(var i = 0, l = _allData.length; i < l; i++){
-          //console.log(_allData[i]['available_desks'])
-          if (city != 'All'){
-            console.log(city)
+          
+          if (city != 'all'){
+
+            if(_allData[i]['city'].toLowerCase() === city && _allData[i]['available_desks'] >= desks)
+          
             populate(i)
           }
           else{
             console.log('this is the final else')
             if(_allData[i]['available_desks'] >= desks){
-            populate(i)
+              populate(i)
             }
           }
         }
