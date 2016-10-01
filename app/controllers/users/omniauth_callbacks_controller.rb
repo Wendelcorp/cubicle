@@ -27,7 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def facebook
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    @user = User.from_omniauth_facebook(request.env["omniauth.auth"])
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
@@ -42,12 +42,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def linkedin
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    @user = User.from_omniauth_linkedin(request.env["omniauth.auth"])
+
+    if (User.find_by_email(@user.email))
+      flash[:alert] = "Identical record found in the website, please using correct login platform"
+    end
+
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "LinkedIn") if is_navigational_format?
     else
-      session["devise.linkedin_data"] = request.env["omniauth.auth"]
+      session["devise.linkedin_data"] = request.env["omniauth.auth"].except("extra");
       redirect_to new_user_registration_url
     end
 
@@ -55,4 +60,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to root_path
     end
   end
+
+
 end
