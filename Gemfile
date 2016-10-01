@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # Omiauth-platform based
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 gem "cocoon"
 gem 'geocoder'
 gem 'gmaps4rails'
