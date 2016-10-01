@@ -66,6 +66,7 @@ $(function(){
 
 
             if(_allData[i]['city'] === city && desks === 1 ) {
+              console.log(_allData[i]['id'])
               populate(i)
             }
             else if( _allData[i]['city'] === city && desks != 1 ){
