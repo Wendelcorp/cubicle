@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
     img_array = {}
     spaces = Space.all
     for space in spaces
-      img_array[space.id] = space.images.first.location_picture.url(:thumb)
+      img_array[space.id] = space.images.first.location_picture.url(:original)
     end
 
     respond_to do |format|
