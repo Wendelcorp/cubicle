@@ -7,6 +7,12 @@ class Space < ApplicationRecord
   geocoded_by :postal_code
   after_validation :geocode
 
+  validates :name, presence: true
+  validates :available_desks, presence: true, numericality: {only_integer: true}
+  validates :description, presence: true
+
+
+
 
 #finds all leases where lease status is 2(confirmed)
   def self.available_leases(space)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930192710) do
+ActiveRecord::Schema.define(version: 20161002012100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20160930192710) do
     t.string   "name"
     t.integer  "available_desks"
     t.text     "description"
-    t.decimal  "price"
+    t.decimal  "price",           precision: 30, scale: 2
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "number"
     t.string   "street_name"
     t.string   "city"

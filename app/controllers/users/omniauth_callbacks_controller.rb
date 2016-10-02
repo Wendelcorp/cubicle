@@ -28,6 +28,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     @user = User.from_omniauth_facebook(request.env["omniauth.auth"])
+
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
@@ -43,10 +44,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def linkedin
     @user = User.from_omniauth_linkedin(request.env["omniauth.auth"])
-
-    if (User.find_by_email(@user.email))
-      flash[:alert] = "Identical record found in the website, please using correct login platform"
-    end
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
