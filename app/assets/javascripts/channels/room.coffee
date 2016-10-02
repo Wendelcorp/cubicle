@@ -8,7 +8,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     $message = $('#messages')
     $message.append data 
-    $message.scrollTop $messages.prop('scrollHeight')
+    $message.scrollTop $message.prop('scrollHeight')
     # Called when there's incoming data on the websocket for this channel
 
   speak: (message) ->

@@ -4,7 +4,6 @@ class User < ApplicationRecord
   has_many :leases
   has_many :owned_spaces, class_name: "Space"
   has_many :spaces, through: :leases
-  belongs_to :message
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
