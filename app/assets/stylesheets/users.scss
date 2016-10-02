@@ -138,7 +138,8 @@ a[href="/users/password/new"] {
 
 }
 
-a[href="/users/auth/facebook"] {
+a[href="/users/auth/facebook"],
+a[href="/users/auth/linkedin"] {
   margin-top:15px;
   max-width:100%;
   background-color: $cubicle-color;

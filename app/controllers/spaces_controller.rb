@@ -13,13 +13,14 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
+    @space.images.build
   end
 
   def create
     @user = current_user
     @space = @user.owned_spaces.new(space_params)
 
-    if @space.save!
+    if @space.save
       flash[:sucess] = 'New Space succesfully added'
       redirect_to spaces_path
     else

@@ -20,7 +20,8 @@
         <div class="nav-content">
           <span class = "navbar-text">
          <% if user_signed_in? %>
-           <li class="nav-item"><span id = "welcome-message" class = "<%= current_user.id  %>"> Signed in as <%= link_to "#{current_user.email}", user_path(current_user) %></span></li>
+           <li class="nav-item"><span id = "welcome-message" class = "<%= current_user.id  %>"> Hello, <%= link_to "#{current_user.first_name}", user_path(current_user) %></span></li>
+           <li class="nav-item"><span id = "user-icon" class = "<%= current_user.id  %>"> <%= link_to image_tag("/images/ic_person_24px.svg"), user_path(current_user) %></span></li>
            <li class="nav-item"><span id = "log-out-button"><%= link_to "Log out", destroy_user_session_path, :method => :delete %></span></li>
          <% else %>
            <li class="nav-item"><span id = "log-in-button"><%= link_to "Log In", new_user_session_path %></span></li>

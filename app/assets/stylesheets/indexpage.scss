@@ -24,6 +24,14 @@
   display: inline-block;
 }
 
+#user-icon img {
+  position: absolute;
+  top: 5px;
+  color: white;
+  width: 20px;
+  margin-left: -15px;
+}
+
 #in {
   width: 40px;
   padding: 0;

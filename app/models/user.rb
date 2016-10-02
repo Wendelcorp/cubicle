@@ -11,10 +11,19 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook, :linkedin]
 
 
-  def self.from_omniauth(auth)
+  def self.from_omniauth_facebook(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.first_name = auth.extra.raw_info.first_name
       user.last_name = auth.extra.raw_info.last_name
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
+
+  def self.from_omniauth_linkedin(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
     end
@@ -24,7 +33,7 @@ class User < ApplicationRecord
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
               user.email = data["email"] if user.email.blank?
-      elsif data = session["devise.linkedin_data"] && session["devise.linkedin_data"]["extra"]["raw_info"]
+      elsif data = session["devise.linkedin_data"] && session["devise.linkedin_data"]["info"]
               user.email = data["email"] if user.email.blank?
       end
     end

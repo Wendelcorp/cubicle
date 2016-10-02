@@ -1,7 +1,7 @@
 <div class="nested-fields">
-  <div class="field">
-    <%= f.label :Add_New_Picture %>
-    <%= f.file_field :location_picture %>
-  </div>
-  <%= link_to_remove_association "remove image", f %>
+  <a class="field">
+    <%= f.file_field :location_picture, :title => "Add Image" %>
+  </a>
+  <%= link_to_remove_association "Remove", f %>
+  </br></br>
 </div>
