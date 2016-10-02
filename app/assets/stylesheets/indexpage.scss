@@ -68,8 +68,12 @@
   margin-top: 10px;
 }
 
-.front-page-img {
+.front-page-img-container {
   width: 300px;
+  overflow: hidden;
+}
+
+.front-page-img {
   height: 200px;
 }
 

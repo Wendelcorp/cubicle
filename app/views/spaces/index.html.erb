@@ -33,8 +33,10 @@
         <div class="space-box">
           <p class="space-price">$<%= space.price %></p>
         <%= link_to space_path(space), class: 'show-btn', id: "link1" do %>
-            <%= image_tag space.images.first.location_picture.url(:thumb), class: 'front-page-img' if space.images.first  %>
+        <div class="front-page-img-container">
+            <%= image_tag space.images.first.location_picture.url(:original), class: 'front-page-img' if space.images.first  %>
             <% end %>
+        </div>
           <%# space.name %>
           <%# link_to "spaces show page", space_path(space) %><br>
         </div>

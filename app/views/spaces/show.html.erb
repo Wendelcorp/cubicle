@@ -1,32 +1,36 @@
 
-<br><%= "this is the #{@space.name} page" %>
-<div class = "desks-requested"></div>
-
-<p>This page will contain all the information on the space that is available, the pictures of the space, google maps location, and the information which we searched</p>
-
 
     <% @space.images.each do |image| %>
-    <%= image_tag image.location_picture.url(:medium) %>
+    <div class="show-page-image-container">
+    <%= image_tag image.location_picture.url(:original), class: "show-page-image" %>
+    </div>
     <% end %>
 
-<% unless !current_user || @space.user.id == current_user.id%>
-  <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
-<% end %>
 
-<div id = "new-lease-form"></div>
 
-<%= "remaining desks = #{@remaining_desks}" %>
-<br />
+<div class="space-details-container">
+<br><h3><%= "#{@space.name}" %></h3>
+<p><%= "#{@space.description}" %></p>
 
+<div class = "desks-requested"></div>
+
+<h4><%= "Desks Available: #{@remaining_desks}" %></h4>
 <div class="price_each_desk" value="<%= @price_per_desk %>">
 <span id='price'><%= @price_per_desk %></span> is the price per desk
 </div>
 
-<div class = "total-price">your total:</div>
+<div class="total-price">your total:</div>
+
+<% unless !current_user || @space.user.id == current_user.id%>
+  <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+<% end %>
+<div id="new-lease-form"></div>
+<p class="notice"><%= notice %></p>
 </div>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+
+<div class="map-container">
+  <div id="map" style='width: 100%; height: 400px;'></div>
 </div>
 
 

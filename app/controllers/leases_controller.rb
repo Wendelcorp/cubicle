@@ -17,7 +17,7 @@ class LeasesController < ApplicationController
     @lease.user_id = @user.id
 
     if @lease.save
-      redirect_to space_path(@space), :notice => "the lease request has been sent to the user"
+      redirect_to space_path(@space), :notice => "Lease request submitted."
     else
       render :new
     end
