@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: helvetica, arial;
+
   // background: url("/images/foggy_birds.png")
   /*background-image: url(images/subtle_white_feathers.png);*/
 }
@@ -15,8 +16,9 @@ h2 {
 
 .main-container {
   position: relative;
-  top: 0;
-  // overflow: hidden;
+  overflow: hidden;
+  margin-bottom: 50px;
+  padding-bottom: 25px;
 }
 
 #sign-in-button {
