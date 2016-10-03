@@ -1,4 +1,4 @@
-<h1>user show page</h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <%= link_to 'back to home page', spaces_path %>
 
@@ -15,12 +15,17 @@
 <% unless @leases.blank? %>
   <h3>My Pending Leases:</h3>
 <% end %>
+<div class="my-leases">
+
 <% @leases.each do |lease| %>
-  <%= "number of desks: #{lease.desks}" %> </br>
-  <%= "starting month: #{lease.month}" %></br>
-  <%= "space name: #{Space.find(lease.space_id).name}" %></br>
-  <%= "status: #{Status.find(lease.status_id).name}" %></br>
+  <div class="each-lease">
+   Desks Requested: <strong><%="#{lease.desks}" %></strong>
+   Starting Month: <strong><%="#{lease.month}" %></strong>
+   Company: <strong><%="#{Space.find(lease.space_id).name}" %></strong>
+   Status: <strong><%="#{Status.find(lease.status_id).name}" %></strong>
+  </div>
 <% end %>
+</div>
 
 <h3>Pending Leases for my spaces</h3>
 <% @spaces.each do |space| %>

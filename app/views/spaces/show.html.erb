@@ -1,10 +1,17 @@
-
-
+<div class="show-page-image-container">
+<div class="my-slider">
+  <ul>
     <% @space.images.each do |image| %>
+    <li><%= image_tag image.location_picture.url(:original), class: "show-page-image" %></li>
+    <% end %>
+  </ul>
+</div>
+</div>
+    <!-- <% @space.images.each do |image| %>
     <div class="show-page-image-container">
     <%= image_tag image.location_picture.url(:original), class: "show-page-image" %>
     </div>
-    <% end %>
+    <% end %> -->
 
 
 
