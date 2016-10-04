@@ -11,12 +11,12 @@ var hasBeenChanged = false;
  if (hasBeenChanged) {
   //  var desks = $(this).val();
    var desks = $('#lease_desks').text();
-   var price = $('span#price').text();
+   var price = $('span#pricenumber').text();
 
    $('.total-price').text(desks * price);
  } else {
     var loadDesks = (String(localStorage.desks));
-    var price = $('span#price').text();
+    var price = $('span#pricenumber').text();
 
    $('.total-price').text(loadDesks * price);
  }

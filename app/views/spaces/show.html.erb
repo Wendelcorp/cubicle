@@ -24,7 +24,7 @@
 
 <h4><%= "Desks Available: #{@remaining_desks}" %></h4>
 <div class="price_each_desk" value="<%= @price_per_desk %>">
-<span id='price'>Price per desk: $<%= @price_per_desk %>0 / month</span>
+<span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span>0 / month</span>
 </div>
 
 <div class="total-price">Your total: $<%= @price_per_desk %>0 / month</div>
