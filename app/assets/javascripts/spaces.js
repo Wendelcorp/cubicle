@@ -1,6 +1,8 @@
-document.addEventListener("turbolinks:load", function () {
+// document.addEventListener("turbolinks:load", function () {
 
-$(function(){
+$(document).on('turbolinks:load', function(){
+
+var querystring
 
   $.ajax({
     url: "/images.json",
@@ -15,7 +17,7 @@ $(function(){
     for (i=0; i < keys.length; i++){
       imgArr.push(data[keys[i]])
     }
-    console.log(imgArr)
+    // console.log(imgArr)
     // $('<img>').attr('src',data[keys[0]]).appendTo('.sort-tools')
 
     // console.log(Object.values(data))
@@ -84,7 +86,7 @@ $(function(){
 
       $('#number-of-desks').change(function(event){
         desks = this.value;
-        console.log(desks)
+        // console.log(desks)
         $('.space-info').html("")
 
         for(var i = 0, l = _allData.length; i < l; i++){
@@ -98,7 +100,7 @@ $(function(){
             }
           }
           else{
-            console.log('this is the final else')
+            // console.log('this is the final else')
             if(_allData[i]['available_desks'] >= desks){
                $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
               $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
@@ -106,18 +108,31 @@ $(function(){
             }
           }
         }
+        //places desk value in query string to be used on following page in
+        //request form desk value
+        querystring = EncodeQueryData(desks);
+        // event.preventDefault();
+        function EncodeQueryData(desks) {
+        var ret = [];
+        for (var d in desks)
+          ret.push(encodeURIComponent(desks[d]));
+          return ret.join("");
+       }
+      //  console.log(querystring)
+       localStorage.setItem('desks', querystring);
       });
 
-
-    }).fail(function(data){
+      }).fail(function(data){
       console.log('this failed')
     });
 
   });
 
-
- });
 });
+
+
+
+
 
 
 

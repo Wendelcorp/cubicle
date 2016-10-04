@@ -10,6 +10,5 @@ $(function(){
     $('.total-price').text(desks * price)
    });
 
-
- });
+  });
 });

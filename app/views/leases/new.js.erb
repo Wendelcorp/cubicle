@@ -1,2 +1,22 @@
 $('#new-lease-form').html("<%= j (render 'new') %>");
 $('#new-lease-form').slideDown(350);
+
+$('select#lease_desks.confirm-desks').val(String(localStorage.desks));
+
+var hasBeenChanged = false;
+   $('#new-lease-form').delegate("#lease_desks", "change", function(event){
+     hasBeenChanged = true;
+ });
+
+ if (hasBeenChanged) {
+  //  var desks = $(this).val();
+   var desks = $('#lease_desks').text();
+   var price = $('span#price').text();
+
+   $('.total-price').text(desks * price);
+ } else {
+    var loadDesks = (String(localStorage.desks));
+    var price = $('span#price').text();
+
+   $('.total-price').text(loadDesks * price);
+ }
