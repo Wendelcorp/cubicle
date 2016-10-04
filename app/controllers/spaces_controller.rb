@@ -13,13 +13,14 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
+    @space.images.build
   end
 
   def create
     @user = current_user
     @space = @user.owned_spaces.new(space_params)
 
-    if @space.save!
+    if @space.save
       flash[:sucess] = 'New Space succesfully added'
       redirect_to spaces_path
     else
@@ -35,7 +36,11 @@ class SpacesController < ApplicationController
     available_leases = Space.available_leases(@space)
     taken_desks = Space.taken_desks(available_leases)
     @remaining_desks = available_spaces - taken_desks
-    @price_per_desk = @space.price 
+    @price_per_desk = @space.price
+    @hash = Gmaps4rails.build_markers(@space) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+    end
   end
 
   def edit

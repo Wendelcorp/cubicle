@@ -1,6 +1,6 @@
-// document.addEventListener("turbolinks:load", function () {
+document.addEventListener("turbolinks:load", function() {
 
-$(document).on('turbolinks:load', function(){
+$(function(){
 
 var querystring
 
@@ -31,13 +31,21 @@ var querystring
       var _allData = data
       // globalish variables for all data and empty array for available data
       var _availableData = []
-      var city = 'All';
+      var city = 'all';
       var desks = 1;
-      // console.log(_allData)
+      console.log(_allData)
+
+      function populate(i) {
+        $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+        $('<p>').attr('class', 'space-price').html('$' + _allData[i]['price']).appendTo("#" + _allData[i]['id'])
+        $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+        $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+      }
+      // .toLowerCase();
 
       $('#city').change(function(event){
         _availableData = []
-        city = this.value;
+        city = this.value.toLowerCase();
         // console.log(city) // return value is 'Toronto' , 'Hamilton' ..
 
         //clears the search results
@@ -49,26 +57,25 @@ var querystring
         for(var i = 0, l = _allData.length; i < l; i++){
 
 
-
+          var dataCity = _allData[i]['city'].toLowerCase();
 
 
           // console.log(desks)
-          if (city != 'All'){
+          if (city != 'all'){
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
-            if(_allData[i]['city'] === city && desks === 1 ) {
-              $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
 
+
+            if(dataCity === city && desks === 1 ) {
+              console.log(_allData[i]['id'])
+              populate(i)
             }
-            else if( _allData[i]['city'] === city && desks != 1 ){
-
+            else if( dataCity === city && desks != 1 ){
+              // console.log(dataCity);
+              // console.log(city)
               if(_allData[i]['available_desks'] >= desks){
-                $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+              populate(i)
               }
             }
           }
@@ -76,9 +83,7 @@ var querystring
             // console.log('this is the else')
             if(_allData[i]['available_desks'] >= desks){
               // console.log('inside the if')
-               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+              populate(i)
             }
           }
         }
@@ -90,21 +95,17 @@ var querystring
         $('.space-info').html("")
 
         for(var i = 0, l = _allData.length; i < l; i++){
-          //console.log(_allData[i]['available_desks'])
-          if (city != 'All'){
-            console.log(city)
-            if(_allData[i]['available_desks'] >= desks && _allData[i]['city'] === city ) {
-               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
-            }
+
+          if (city != 'all'){
+
+            if(_allData[i]['city'].toLowerCase() === city && _allData[i]['available_desks'] >= desks)
+
+            populate(i)
           }
           else{
             // console.log('this is the final else')
             if(_allData[i]['available_desks'] >= desks){
-               $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-              $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-              $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+              populate(i)
             }
           }
         }
@@ -128,9 +129,55 @@ var querystring
 
   });
 
+ });
+
+
+   function previewpic(env, tagid, selecttag, old=false){
+     var files = event.target.files;
+     var image = files[0]
+     var reader = new FileReader();
+
+     reader.onload = function(file){
+       var img = new Image();
+       console.log(file);
+       img.src = file.target.result;
+       if(!old){
+         selecttag.html(img).attr('id', tagid).appendTo('#upload_pictures');
+       }else{
+         selecttag.html(img).attr('id', tagid);
+       }
+     }
+
+     reader.readAsDataURL(image);
+     console.log(files);
+   };
+
+ $('input[type=file]').on('change', function(event){
+   number = parseInt($(this).attr('id').split('_')[3]);
+   console.log(number);
+   previewpic(event, $(this).attr('id'), $('div.imagetags').eq(number), true);
+
+ });
+
+ $('form').on('cocoon:after-insert', function(e, newthing){
+
+   newthing.find('input[type=file]').on('change', function(event){
+
+     previewpic(event, newthing.find('input[type=file]').attr('id'), $('<div>'));
+
+   });
+
+ });
+
+$('form').on('cocoon:after-remove', function(e,removething){
+
+  var fileid = removething.find('input[type=file]').attr('id');
+  $('div#'+fileid).remove();
+
+
 });
 
-
+});
 
 
 

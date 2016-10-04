@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
+
   root "spaces#index"
   # devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
   resources :spaces do
-    resources :leases, only: [:new, :create, :show]
+    resources :leases, only: [:new, :create, :show, :update]
   end
   resources :users, only: [:show]
   resources :images, only: [:index]
+
+  mount ActionCable.server => '/cable'
 
 
 

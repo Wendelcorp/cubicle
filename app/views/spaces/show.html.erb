@@ -1,23 +1,55 @@
-<br><%= "this is the #{@space.name} page" %>
+<div class="show-page-image-container">
+<div class="my-slider">
+  <ul>
+    <% @space.images.each do |image| %>
+    <li><%= image_tag image.location_picture.url(:original), class: "show-page-image" %></li>
+    <% end %>
+  </ul>
+</div>
+</div>
+    <!-- <% @space.images.each do |image| %>
+    <div class="show-page-image-container">
+    <%= image_tag image.location_picture.url(:original), class: "show-page-image" %>
+    </div>
+    <% end %> -->
+
+
+
+
+<div class="space-details-container">
+<br><h3><%= "#{@space.name}" %></h3>
+<p><%= "#{@space.description}" %></p>
+
 <div class = "desks-requested"></div>
 
-<p>This page will contain all the information on the space that is available, the pictures of the space, google maps location, and the information which we searched</p>
-
-<% @space.images.each do |image| %>
-  <%= image_tag image.location_picture.url(:medium) %>
-<% end %>
-
-<%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true, id: 'request_lease'%>
-
-
-<div id = "new-lease-form"></div>
-
-<%= "remaining desks = #{@remaining_desks}" %>
-<br />
-
+<h4><%= "Desks Available: #{@remaining_desks}" %></h4>
 <div class="price_each_desk" value="<%= @price_per_desk %>">
-<span id='price'><%= @price_per_desk %></span> is the price per desk
+<span id='price'>Price per desk: $<%= @price_per_desk %>0 / month</span>
 </div>
 
-<div class = "total-price">your total:</div>
+<div class="total-price">Your total: $<%= @price_per_desk %>0 / month</div>
+<br>
+
+<% unless !current_user || @space.user.id == current_user.id%>
+  <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+<% end %>
+<div id="new-lease-form"></div>
+<p class="notice"><%= notice %></p>
 </div>
+
+
+<div class="map-container">
+  <div id="map" style='width: 100%; height: 400px;'></div>
+</div>
+
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers(<%=raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+handler.getMap().setZoom(16);
+});
+
+</script>

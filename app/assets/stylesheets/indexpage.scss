@@ -24,6 +24,14 @@
   display: inline-block;
 }
 
+#user-icon img {
+  position: absolute;
+  top: 5px;
+  color: white;
+  width: 20px;
+  margin-left: -15px;
+}
+
 #in {
   width: 40px;
   padding: 0;
@@ -40,4 +48,38 @@
 .results-container a {
     // color: white;
     text-decoration: none;
+}
+
+.space-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 18px;
+
+}
+
+.space-box {
+  position: relative;
+  min-width: 250px;
+  height: 200px;
+  margin: 0 5px;
+  background: white;
+  margin-top: 10px;
+}
+
+.front-page-img-container {
+  width: 300px;
+  overflow: hidden;
+}
+
+.front-page-img {
+  height: 200px;
+}
+
+.space-price {
+  position: absolute;
+  padding: 5px 10px;;
+  background-color: #00AEEF;
+  color: white;
 }

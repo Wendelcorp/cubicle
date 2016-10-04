@@ -55,14 +55,23 @@
   </div>
 
   <div id = "upload_pictures" >
+    <p>Upload Images</p></br>
     <%= f.fields_for :images do |image| %>
       <%= render 'image_fields', :f => image %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add image', f, :images %>
+      <%=link_to_add_association 'Add extra Image', f, :images %>
     </div>
-  </div>
+  </br></br>
+    <% unless @space.images.blank? %>
+      <% @space.images.each do |image| %>
+        <div class='imagetags'>
+          <%= image_tag image.location_picture.url(:thumb) %>
+        </div>
+      <% end %>
+    <% end %>
 
+  </div>
   <%= f.submit 'Save' %>
 
 <% end %>

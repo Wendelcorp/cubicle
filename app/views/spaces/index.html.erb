@@ -1,4 +1,5 @@
 <%# collection_select(:city, :user_id, @spaces,  :id, :description, {:prompt => true}) %>
+<div class = "index-page">
 <div class="sort-tools">
   <h2>I'm looking for:</h2>
   <div class="dropdown">
@@ -17,10 +18,10 @@
   </div>
   <div class="dropdown">
     <select id="city">
-      <option value="All">All Cities</option>
-      <option value="Toronto">Toronto</option>
-      <option value="Montreal">Montreal</option>
-      <option value="Vancouver">Vancouver</option>
+      <option value="all">All Cities</option>
+      <option value="toronto">Toronto</option>
+      <option value="montreal">Montreal</option>
+      <option value="vancouver">Vancouver</option>
     </select>
   </div>
 </div>
@@ -30,14 +31,18 @@
     <div class="space-info">
       <% @spaces.each do |space| %>
         <div class="space-box">
-        <%= link_to space_path(space) do %>
-            <%= image_tag space.images.first.location_picture.url(:thumb), class: 'front-page-img' if space.images.first  %>
+          <p class="space-price">$<%= space.price %></p>
+        <%= link_to space_path(space), class: 'show-btn', id: "link1" do %>
+        <div class="front-page-img-container">
+            <%= image_tag space.images.first.location_picture.url(:original), class: 'front-page-img' if space.images.first  %>
             <% end %>
+        </div>
           <%# space.name %>
           <%# link_to "spaces show page", space_path(space) %><br>
         </div>
       <% end %>
     </div>
   </div>
+</div>
 </div>
 <%= link_to "add a new space", new_space_path %>

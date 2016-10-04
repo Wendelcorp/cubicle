@@ -3,7 +3,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: helvetica, arial;
-  // background: url("/images/worn_dots.png")
+
+  // background: url("/images/foggy_birds.png")
   /*background-image: url(images/subtle_white_feathers.png);*/
 }
 
@@ -15,8 +16,9 @@ h2 {
 
 .main-container {
   position: relative;
-  top: 0;
-  // overflow: hidden;
+  overflow: hidden;
+  margin-bottom: 50px;
+  padding-bottom: 25px;
 }
 
 #sign-in-button {
@@ -47,7 +49,7 @@ nav ul {
 .nav-content {
   max-width: 950px;
   margin: 0 auto;
-  font-size: 13px;
+  font-size: 11px;
   text-align: right;
 
 }
@@ -96,25 +98,4 @@ nav ul {
 
 .inside-feature-frame {
   max-width: 950px;
-}
-
-.space-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 18px;
-
-}
-
-.space-box {
-  min-width: 250px;
-  height: 200px;
-  margin: 0 5px;
-  background: white;
-  margin-top: 10px;
-}
-.front-page-img{
-  width: 100%;
-  height: 100%;
 }
