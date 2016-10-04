@@ -13,10 +13,10 @@ var hasBeenChanged = false;
    var desks = $('#lease_desks').text();
    var price = $('span#pricenumber').text();
 
-   $('.total-price').text(desks * price);
+   $('span#total-price-value').text(desks * price + ".0");
  } else {
     var loadDesks = (String(localStorage.desks));
     var price = $('span#pricenumber').text();
 
-   $('.total-price').text(loadDesks * price);
+   $('span#total-price-value').text(loadDesks * price + ".0");
  }

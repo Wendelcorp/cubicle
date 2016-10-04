@@ -27,7 +27,7 @@
 <span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span>0 / month</span>
 </div>
 
-<div class="total-price">Your total: $<%= @price_per_desk %>0 / month</div>
+<div class="total-price">Your total: $<span id='total-price-value'><%= @price_per_desk %></span>0 / month</div>
 <br>
 
 <% unless !current_user || @space.user.id == current_user.id%>
