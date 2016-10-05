@@ -46,7 +46,7 @@ class LeasesController < ApplicationController
   private
 
   def lease_params
-    params.require(:lease).permit(:desks, :user_id, :month, :space_id)
+    params.require(:lease).permit(:desks, :user_id, :month, :description, :space_id)
   end
 
 end

@@ -5,4 +5,5 @@ class Lease < ApplicationRecord
 
   validates :desks, presence: true, numericality: {only_integer: true}
   validates :month, presence: true, numericality: {only_integer: true}
+  validates :description, presence: true
 end

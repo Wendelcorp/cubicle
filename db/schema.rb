@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003215939) do
+ActiveRecord::Schema.define(version: 20161005173816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 20161003215939) do
     t.integer  "desks"
     t.integer  "month"
     t.integer  "user_id"
-    t.integer  "status_id",  default: 0
+    t.integer  "status_id",   default: 0
     t.integer  "space_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "description"
     t.index ["space_id"], name: "index_leases_on_space_id", using: :btree
     t.index ["status_id"], name: "index_leases_on_status_id", using: :btree
     t.index ["user_id"], name: "index_leases_on_user_id", using: :btree
@@ -51,15 +52,15 @@ ActiveRecord::Schema.define(version: 20161003215939) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "messagetoid"
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "rooms", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "title"
