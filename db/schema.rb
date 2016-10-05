@@ -52,15 +52,17 @@ ActiveRecord::Schema.define(version: 20161005173816) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "messagetoid"
+    t.integer  "room_id"
+    t.index ["room_id"], name: "index_messages_on_room_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "rooms", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "title"
@@ -116,6 +118,8 @@ ActiveRecord::Schema.define(version: 20161005173816) do
   add_foreign_key "leases", "spaces"
   add_foreign_key "leases", "statuses"
   add_foreign_key "leases", "users"
+  add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "rooms", "users"
   add_foreign_key "spaces", "users"
 end
