@@ -128,6 +128,9 @@ var querystring
       console.log('this failed')
     });
 
+      if($('div').is('.index-page')){
+        localStorage.setItem('desks', 1);
+      };
   });
 
  });
