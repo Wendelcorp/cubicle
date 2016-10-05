@@ -83,6 +83,7 @@ class SpacesController < ApplicationController
                                   images_attributes: [:id, :location_picture, :_destroy])
   end
 
+
   def ensure_logged_in
     @space = Space.find(params[:id])
     if current_user != User.find(@space.user_id)
