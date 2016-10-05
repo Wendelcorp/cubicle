@@ -16,6 +16,10 @@
 
 
 <div class="space-details-container">
+
+
+<div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"), user_path(current_user) %></div>
+  <div class="message-user-text">Send a message</div>
 <br><h3><%= "#{@space.name}" %></h3>
 <p><%= "#{@space.description}" %></p>
 

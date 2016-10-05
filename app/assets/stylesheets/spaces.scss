@@ -8,3 +8,20 @@ div.space-box{
   width: 300px;
   height: 200px;
 }
+
+.space-details-container {
+  position: relative;
+}
+
+.message-user-icon {
+  width: 26px;
+  margin-left: 400px;
+}
+
+.message-user-text {
+  width: 150px;
+  right: 0px;
+  top: 14px;
+  position: absolute;
+  font-size: 12px;
+}

@@ -1,9 +1,26 @@
-.my-leases {
-  background-color: #00AEEF;
-  color: white;
-  padding: 20px;
-}
 
 .each-lease {
   margin-bottom: 5px;
+  background-color: #00AEEF;
+  color: white;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.request-status {
+  background-color: #2E3192;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 250px;
+  text-align: center;
+  height: 100%;
+  line-height: 57px;
+
+}
+
+.space-between-lease {
+  margin-right: 20px;
 }

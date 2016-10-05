@@ -15,17 +15,17 @@
 <% unless @leases.blank? %>
   <h3>My Pending Leases:</h3>
 <% end %>
-<div class="my-leases">
+
 
 <% @leases.each do |lease| %>
   <div class="each-lease">
-   Desks Requested: <strong><%="#{lease.desks}" %></strong>
-   Starting Month: <strong><%="#{lease.month}" %></strong>
+   <span class="space-between-lease">Desks Requested: <strong><%="#{lease.desks}" %></strong></span>
+   <span class="space-between-lease">Starting Month: <strong><%="#{lease.month}" %></strong></span>
    Company: <strong><%="#{Space.find(lease.space_id).name}" %></strong>
-   Status: <strong><%="#{Status.find(lease.status_id).name}" %></strong>
+   <div class="request-status"> Status: <strong><%="#{Status.find(lease.status_id).name}" %></strong> </div>
   </div>
 <% end %>
-</div>
+
 
 <h3>Pending Leases for my spaces</h3>
 <% @spaces.each do |space| %>
