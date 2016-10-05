@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'rooms/show'
-
   root "spaces#index"
   # devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
