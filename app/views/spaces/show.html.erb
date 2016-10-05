@@ -7,11 +7,6 @@
   </ul>
 </div>
 </div>
-    <!-- <% @space.images.each do |image| %>
-    <div class="show-page-image-container">
-    <%= image_tag image.location_picture.url(:original), class: "show-page-image" %>
-    </div>
-    <% end %> -->
 
 
 
@@ -31,12 +26,17 @@
 <span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span>0 / month</span>
 </div>
 
-<div class="total-price">Your total: $<span id='total-price-value'><%= @price_per_desk %></span>0 / month</div>
-<br>
 
 <% unless !current_user || @space.user.id == current_user.id%>
+    <div class="total-price">Your total: $<span id='total-price-value'><%= @price_per_desk %></span>0 / month</div>
   <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
+
+  <br>
 <% end %>
+<% if current_user && @space.user.id == current_user.id %>
+
+  <%= link_to 'Edit Your Place', edit_space_path(@space)%>
+  <% end %>
 <div id="new-lease-form"></div>
 <p class="notice"><%= notice %></p>
 </div>
