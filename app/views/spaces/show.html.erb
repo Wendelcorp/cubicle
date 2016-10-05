@@ -33,6 +33,9 @@
 <% unless !current_user || @space.user.id == current_user.id%>
   <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
 <% end %>
+<% if @space.user.id == current_user.id %>
+  <%= link_to 'Edit Your Place', new_space_lease_path(@space)%>
+  <% end %>
 <div id="new-lease-form"></div>
 <p class="notice"><%= notice %></p>
 </div>

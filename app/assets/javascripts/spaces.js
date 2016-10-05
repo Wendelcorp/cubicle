@@ -40,6 +40,7 @@ var querystring
         $('<p>').attr('class', 'space-price').html('$' + _allData[i]['price']).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
         $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container'></div>");
       }
       // .toLowerCase();
 
