@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :room do
-    User nil
-    owner 1
+    user1_id {}
+    user2_id {}
   end
 end

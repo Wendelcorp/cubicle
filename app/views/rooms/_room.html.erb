@@ -1,0 +1,9 @@
+<% if room.user1_id != current_user.id  %>
+  <h3><%= link_to room.user1.first_name +
+          ' ' +
+          room.user1.last_name, room_path(room) %></h3>
+<% else %>
+  <h3><%= link_to room.user2.first_name +
+          ' ' +
+          room.user2.last_name, room_path(room) %></h3>
+<% end %>

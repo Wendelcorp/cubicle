@@ -4,11 +4,23 @@ class User < ApplicationRecord
   has_many :leases
   has_many :owned_spaces, class_name: "Space"
   has_many :spaces, through: :leases
+  has_many :start_chatrooms, :class_name => 'Room', :foreign_key => "user1_id"
+  has_many :received_chatrooms, :class_name => 'Room', :foreign_key => "user2_id"
+
+  after_update_commit {AppearanceBroadcastJob.perform_later self}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :linkedin]
 
+
+  def is_online
+    self.update_attributes(online:true)
+  end
+
+  def is_offline
+    self.update_attributes(online:false)
+  end
 
   def self.from_omniauth_facebook(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -16,6 +28,7 @@ class User < ApplicationRecord
       user.last_name = auth.extra.raw_info.last_name
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
+      user.online = true
     end
   end
 
@@ -25,6 +38,7 @@ class User < ApplicationRecord
       user.last_name = auth.info.last_name
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
+      user.online = true
     end
   end
 

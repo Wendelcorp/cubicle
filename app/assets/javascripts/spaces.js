@@ -128,6 +128,17 @@ var querystring
       console.log('this failed')
     });
 
+      if($('div').is('.index-page')){
+        localStorage.setItem('desks', 1);
+      };
+
+      if($('span').is('#total-price-value')){
+        var loadDesks = String(localStorage.desks)
+        console.log(loadDesks)
+        var price = $('span#pricenumber').text();
+        console.log(price)
+        $('span#total-price-value').text(loadDesks * price + ".0");
+      }
   });
 
  });
@@ -157,7 +168,6 @@ var querystring
    number = parseInt($(this).attr('id').split('_')[3]);
    console.log(number);
    previewpic(event, $(this).attr('id'), $('div.imagetags').eq(number), true);
-
  });
 
  $('form').on('cocoon:after-insert', function(e, newthing){
