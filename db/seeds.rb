@@ -16,6 +16,8 @@ require 'factory_girl_rails'
 Lease.delete_all
 User.delete_all
 Space.delete_all
+Room.delete_all
+Message.delete_all
 
 
 # create 3 users
@@ -79,3 +81,19 @@ user2_lease1_user3_space2 = FactoryGirl.create :lease,
                                                user_id: user2.id,
                                                space_id: user3_space2.id,
                                                status_id: pending.id
+
+# chat room start from user1 to user2
+chat_room_user1_To_user2 = FactoryGirl.create :room,
+                                              user1_id:user1.id,
+                                              user2_id:user2.id
+
+# messages in chat room with user1 and user2
+message1 = FactoryGirl.create :message,
+                              content: "hello from user1 to user2",
+                              user_id: user1.id,
+                              room_id: chat_room_user1_To_user2.id
+
+message2 = FactoryGirl.create :message,
+                              content: "hello from user2 to user1",
+                              user_id: user2.id,
+                              room_id: chat_room_user1_To_user2.id

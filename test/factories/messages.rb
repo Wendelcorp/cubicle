@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :message do
-    content "MyText"
+    content  {}
+    user_id     {}
+    room_id     {}
   end
 end

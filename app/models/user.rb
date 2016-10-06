@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :leases
   has_many :owned_spaces, class_name: "Space"
   has_many :spaces, through: :leases
+  has_many :start_chatrooms, :class_name => 'Room', :foreign_key => "user1_id"
+  has_many :received_chatrooms, :class_name => 'Room', :foreign_key => "user2_id"
+
   after_update_commit {AppearanceBroadcastJob.perform_later self}
 
   devise :database_authenticatable, :registerable,

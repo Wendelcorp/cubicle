@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :images, only: [:index]
+  resources :rooms, except: [:update, :edit, :destory]
+  resources :messages, only: [:create]
 
   mount ActionCable.server => '/cable'
 

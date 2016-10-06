@@ -14,7 +14,10 @@
 <div class="space-details-container">
 
 <% if current_user && current_user.id != @space.user_id %>
-<div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"), user_path(current_user) %></div>
+<div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"),
+                                    rooms_path(user1_id:current_user.id,
+                                               user2_id:@space.user_id), method: :post %>
+</div>
   <div class="message-user-text">Chat with Owner</div>
 <% end %>
 <br><h3><%= "#{@space.name}" %></h3>
