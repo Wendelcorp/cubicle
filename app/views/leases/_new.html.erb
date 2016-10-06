@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <button class ='back-to-description'>Back to Description</button>
 <div class = "lease-info">
   <div class="field">
     <%= f.label 'Confirm number of desks' %>
@@ -20,15 +21,9 @@
     <%= f.select :month, @months.each_with_index.map{|name, index| [name,index + 1]} %>
     
   </div>
-  <button class = 'add-description-button'>Add description</button>
-    
-</div>
-
-  <div class = "description" style="display: none">
-  <button class = 'back-to-form'>Back To Form</button>
-
+  <div class = "description" >
     <div class="field">
-      <%= f.text_area :description, placeholder: 'Tell us why you want this space' %>
+      <%= f.text_area :description, rows: 5, cols: 40, placeholder: 'Tell us why you want this space' %>
   </div>
     <div class="actions">
     <%= f.submit class: 'save' %>
@@ -36,5 +31,6 @@
   <% end %>
     
   </div>
+</div>
 
 

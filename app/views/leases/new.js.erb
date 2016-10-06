@@ -22,15 +22,11 @@ var hasBeenChanged = false;
    $('span#total-price-value').text(loadDesks * price + ".0");
  }
 
-$('.add-description-button').click(function(event){
+$('.back-to-description').click(function(event){
   event.preventDefault();
-  $('.lease-info').toggle();
-  $('.description').toggle();
-});
-
-$('.back-to-form').click(function(){
-  event.preventDefault();
-  $('.lease-info').toggle();
-  $('.description').toggle();
+  $('.new_lease').toggle();
+  $('.new-lease').toggle();
+  $('.toggle-info').toggle();
 })
+
 

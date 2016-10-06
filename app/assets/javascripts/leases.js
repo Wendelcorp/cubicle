@@ -12,4 +12,15 @@ $(function(){
    });
 
   });
+  
+  // this listens for the load of a div on the spaces show
+  // containing all the description information which 
+  // gets toggled off on the click of the lease
+  if($('div').is('.space-details-container')){
+    $('.new-lease').click(function(){
+      $('.new-lease').toggle()
+      $('.toggle-info').toggle()
+    });
+  }
 });
+

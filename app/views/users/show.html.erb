@@ -34,8 +34,9 @@
   <% end %>
   <% space.leases.each do |lease| %>
     <%= "number of desks: #{lease.desks}" %> </br>
-    <%= "starting month: #{lease.month}" %></br>
+    <%= "starting month: #{lease.month}"  %></br>
     <%= "space name: #{Space.find(lease.space_id).name}" %></br>
+    <%= "User description: #{lease.description}" %> <br>
     <span id=<%= lease.id %>>Current Status: <%= lease.status.name %></span></br>
     <% if lease.status.name == 'pending' %>
       <button type="button" name="accept" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Accept</button>

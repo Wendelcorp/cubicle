@@ -12,49 +12,49 @@
 
 
 <div class="space-details-container">
-
-<% if current_user && current_user.id != @space.user_id %>
-<div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"),
-                                    rooms_path(user1_id:current_user.id,
-                                               user2_id:@space.user_id), method: :post %>
-</div>
-  <div class="message-user-text">Chat with Owner</div>
-<% end %>
-<br><h3><%= "#{@space.name}" %></h3>
-<h3>Owner: <%= @space.user.first_name %> <%= @space.user.last_name %></h3>
-<div class="status">
-  <% if current_user %>
-    <% if @space.user.online %>
-      <span>Owner Status: <%= image_tag "green_dot.png", id: "#{@space.user_id}-status", class: "active" %></span>
-    <% else %>
-      <span>Owner Status: <%= image_tag "green_dot.png", id: "#{@space.user_id}-status", class: "inactive"%></span>
-    <% end %>
+  <% if current_user && current_user.id != @space.user_id %>
+  <div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"),
+                                      rooms_path(user1_id:current_user.id,
+                                                 user2_id:@space.user_id), method: :post %>
+  </div>
+    <div class="message-user-text">Chat with Owner</div>
   <% end %>
-  <% unless current_user %>
-      <span>Please Login to communicated with owner</span>
+  <br><h3><%= "#{@space.name}" %></h3>
+  <div class = 'toggle-info'>
+    <div class="status">
+      <% if current_user %>
+        <% if @space.user.online %>
+          <span>Owner Status: <%= image_tag "green_dot.png", id: "#{@space.user_id}-status", class: "active" %></span>
+        <% else %>
+          <span>Owner Status: <%= image_tag "green_dot.png", id: "#{@space.user_id}-status", class: "inactive"%></span>
+        <% end %>
+      <% end %>
+      <% unless current_user %>
+          <span>Please Login to communicated with owner</span>
+      <% end %>
+    </div>
+    <p class = 'description' ><%= "#{@space.description}" %></p>
+
+    <div class = "desks-requested"></div>
+</div>
+  <h4><%= "Desks Available: #{@remaining_desks}" %></h4>
+  <div class="price_each_desk" value="<%= @price_per_desk %>">
+  <span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span>0 / month</span>
+  </div>
+
+  <% unless !current_user || @space.user.id == current_user.id%>
+      <%  %>
+      <div class="total-price">Your total: $<span id='total-price-value'><%= @price_per_desk %></span>0 / month</div>
+    <%= link_to 'Request Reserved Space', new_space_lease_path(@space), {class: 'new-lease', remote: true} %>
+
+    <br>
   <% end %>
-</div>
-<p><%= "#{@space.description}" %></p>
+  <% if current_user && @space.user.id == current_user.id %>
+    <%= link_to 'Edit Your Place', edit_space_path(@space)%>
+  <% end %>
 
-<div class = "desks-requested"></div>
-
-<h4><%= "Desks Available: #{@remaining_desks}" %></h4>
-<div class="price_each_desk" value="<%= @price_per_desk %>">
-<span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span>0 / month</span>
-</div>
-
-<% unless !current_user || @space.user.id == current_user.id%>
-    <%  %>
-    <div class="total-price">Your total: $<span id='total-price-value'><%= @price_per_desk %></span>0 / month</div>
-  <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
-
-  <br>
-<% end %>
-<% if current_user && @space.user.id == current_user.id %>
-  <%= link_to 'Edit Your Place', edit_space_path(@space)%>
-<% end %>
-<div id="new-lease-form"></div>
-<p class="notice"><%= notice %></p>
+  <div id="new-lease-form"></div>
+  <p class="notice"><%= notice %></p>
 </div>
 
 
