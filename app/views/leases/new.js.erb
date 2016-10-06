@@ -3,6 +3,7 @@ $('#new-lease-form').slideDown(350);
 
 $('select#lease_desks.confirm-desks').val(String(localStorage.desks));
 
+
 var hasBeenChanged = false;
    $('#new-lease-form').delegate("#lease_desks", "change", function(event){
      hasBeenChanged = true;

@@ -43,7 +43,7 @@
   </div>
         <div class = "field">
     <%= f.label :city %><br/>
-    <%= f.text_field :city %>
+    <%= f.select :city, ['Toronto', 'Montreal', 'Vancouver'], { :prompt => "Select" } , :style => "width:135px" %>
   </div>
   <div class = "field">
     <%= f.label :province %><br/>
