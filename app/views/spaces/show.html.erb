@@ -18,10 +18,24 @@
 
 <div class="space-details-container">
 
-
+<% if current_user && current_user.id != @space.user_id %>
 <div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"), user_path(current_user) %></div>
-  <div class="message-user-text">Send a message</div>
+  <div class="message-user-text">Chat with Owner</div>
+<% end %>
 <br><h3><%= "#{@space.name}" %></h3>
+<h3>Owner: <%= @space.user.first_name %> <%= @space.user.last_name %></h3>
+<div class="status">
+  <% if current_user %>
+    <% if @space.user.online %>
+      <span>Owner Status: <%= image_tag "green_dot.png", id: "#{@space.user_id}-status", class: "active" %></span>
+    <% else %>
+      <span>Owner Status: <%= image_tag "green_dot.png", id: "#{@space.user_id}-status", class: "inactive"%></span>
+    <% end %>
+  <% end %>
+  <% unless current_user %>
+      <span>Please Login to communicated with owner</span>
+  <% end %>
+</div>
 <p><%= "#{@space.description}" %></p>
 
 <div class = "desks-requested"></div>
@@ -37,7 +51,7 @@
 <% unless !current_user || @space.user.id == current_user.id%>
   <%= link_to 'Request Reserved Space', new_space_lease_path(@space), remote: true%>
 <% end %>
-<% if @space.user.id == current_user.id %>
+<% if current_user && @space.user.id == current_user.id %>
   <%= link_to 'Edit Your Place', new_space_lease_path(@space)%>
   <% end %>
 <div id="new-lease-form"></div>
