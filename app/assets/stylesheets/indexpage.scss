@@ -32,6 +32,14 @@
   margin-left: -15px;
 }
 
+#current_chats img {
+  position: absolute;
+  top: 6px;
+  color: white;
+  width: 18px;
+  margin-left: -12px;
+}
+
 #in {
   width: 40px;
   padding: 0;
@@ -48,6 +56,26 @@
 .results-container a {
     // color: white;
     text-decoration: none;
+}
+
+.add-space {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  text-decoration: none;
+  background-color: #2E3192;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+
+
+}
+
+.add-space a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+    line-height: 35px;
 }
 
 .space-info {

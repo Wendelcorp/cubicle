@@ -57,6 +57,7 @@ nav ul {
 .width-control {
   max-width: 950px;
   margin: 0 auto;
+  position: relative;
 
 }
 
@@ -71,7 +72,7 @@ nav ul {
   color: white;
   display: inline-block;
   line-height: 30px;
-  margin-right: 20px;
+  margin-right: 28px;
 }
 
 .nav-item:last-child {
