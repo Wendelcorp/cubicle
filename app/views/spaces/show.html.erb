@@ -9,8 +9,6 @@
 </div>
 
 
-
-
 <div class="space-details-container">
   <% if current_user && current_user.id != @space.user_id %>
   <div class="message-user-icon" ><%= link_to image_tag("/images/ic_textsms_24px.svg"),
@@ -65,11 +63,12 @@
 
 <script type="text/javascript">
 handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+handler.buildMap({ provider: {scrollwheel: false}, internal: {id: 'map'}}, function(){
 markers = handler.addMarkers(<%=raw @hash.to_json %>);
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();
 handler.getMap().setZoom(16);
+
 });
 
 </script>
