@@ -45,31 +45,111 @@ create addresses : Those are not real stresses, probably cant use in
 
 
 # create spaces with 1 default picture
-# user1 have no space
-# user2 have 1 space
+# user1 have 3 spaces
+user1_space1 = FactoryGirl.create :space,
+                                   user_id:user1.id,
+                                   name:"Shopify",
+                                   number: "30",
+                                   postal_code: 'M5V 2J4'
+
+user1_space1_picture_1 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic1.jpg')),
+                                  space_id:user1_space1.id
+
+user1_space1_picture_2 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic10.jpg')),
+                                  space_id:user1_space1.id
+
+user1_space2 = FactoryGirl.create :space,
+                                  user_id:user1.id,
+                                  name:"Google",
+                                  number: "30",
+                                  postal_code: 'M5H 2G4'
+
+user1_space2_picture_1 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic2.jpeg')),
+                                  space_id:user1_space2.id
+
+user1_space2_picture_2 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic11.jpeg')),
+                                  space_id:user1_space2.id
+
+user1_space3 = FactoryGirl.create :space,
+                                  user_id:user1.id,
+                                  name:"Amazon",
+                                  number: "30",
+                                  postal_code: 'L6Y 0C9'
+
+user1_space3_picture_1 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic3.jpg')),
+                                  space_id:user1_space3.id
+
+user1_space3_picture_2 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic12.jpg')),
+                                  space_id:user1_space3.id
+
+# user2 have 3 space
 user2_space1 = FactoryGirl.create :space,
                                    user_id:user2.id,
-                                   name:"user2's space1",
-                                   number: "21"
+                                   name:"500Pixel",
+                                   number: "21",
+                                   postal_code: 'M5H 3G8'
 
-user2_space1_picture = FactoryGirl.create :image,
+user2_space1_picture_1 = FactoryGirl.create :image,
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic4.jpg')),
                                    space_id:user2_space1.id
-# user3 have 2 spaces
+
+user2_space2 = FactoryGirl.create :space,
+                                  user_id:user2.id,
+                                  name:"Apple",
+                                  number: "21",
+                                  postal_code: 'M5J 0A8'
+
+user2_space2_picture_1 = FactoryGirl.create :image,
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic5.jpg')),
+                                   space_id:user2_space2.id
+
+
+user2_space3 = FactoryGirl.create :space,
+                                  user_id:user2.id,
+                                  name:"Microsoft",
+                                  number: "21",
+                                  postal_code: 'L5N 8L9'
+
+user2_space3_picture_1 = FactoryGirl.create :image,
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic6.jpg')),
+                                   space_id:user2_space3.id
+# user3 have 3 spaces
 user3_space1 = FactoryGirl.create :space,
                                    user_id:user3.id,
-                                   name:"user3's space1",
-                                   number: "31"
+                                   name:"TWS",
+                                   number: "40",
+                                   postal_code: 'M5V 3C1'
 
-user3_space1_picture = FactoryGirl.create :image,
+user3_space1_picture_1 = FactoryGirl.create :image,
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic7.jpg')),
                                    space_id:user3_space1.id
 
 user3_space2 = FactoryGirl.create :space,
                                    user_id:user3.id,
-                                   name:"user3's space1",
-                                   number: "32"
+                                   name:"Linkedin",
+                                   number: "32",
+                                   postal_code: 'M5B 2L7'
 
-user3_space2_picture = FactoryGirl.create :image,
+user3_space2_picture_1 = FactoryGirl.create :image,
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic8.png')),
                                    space_id:user3_space2.id
+
+user3_space3 = FactoryGirl.create :space,
+                                  user_id:user3.id,
+                                  name:"Facebook",
+                                  number: "32",
+                                  postal_code: 'M4P 1E4'
+
+user3_space3_picture_1 = FactoryGirl.create :image,
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic9.jpg')),
+                                  space_id:user3_space3.id
+
 
 # user1 have 1 lease for user2's space 1
 user1_lease1_user2_space1 = FactoryGirl.create :lease,
