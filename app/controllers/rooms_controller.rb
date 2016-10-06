@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :ensure_private_users, only: [:show]
   def index
     @rooms = current_user.start_chatrooms +
              current_user.received_chatrooms
@@ -36,6 +37,13 @@ class RoomsController < ApplicationController
   end
 
   private
+
+  def ensure_private_users
+    room = Room.find(params[:id])
+    if current_user.id != room.user1_id && current_user.id != room.user2_id
+      redirect_to spaces_path
+    end
+  end
 
   def find_room(user1_id, user2_id)
     room ||= Room.where(user1_id:params[:user1_id],
