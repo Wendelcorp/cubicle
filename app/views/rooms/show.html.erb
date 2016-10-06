@@ -3,11 +3,16 @@
     <% if user.id != current_user.id %>
       <li>
         <%= user.first_name + ' ' + user.last_name %>
-        <%= image_tag "green_dot.png", id: "#{user.id}-status" %>
+        <% if user.online %>
+          <%= image_tag "green_dot.png", id: "#{user.id}-status", class: "active" %>
+        <% else%>
+          <%= image_tag "green_dot.png", id: "#{user.id}-status", class: "inactive" %>
+        <% end %>
       </li>
     <% end %>
   <% end %>
 </ul>
-
-<%= render @messages %>
+<div class="messages">
+  <%= render @messages %>
+</div>
 <%= render partial: "/messages/form", locals: {room: @room, message: @message} %>
