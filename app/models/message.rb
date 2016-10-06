@@ -1,4 +1,8 @@
 class Message < ApplicationRecord
-  after_create_commit { BroadcastMessageJob.perform_later self }
   belongs_to :user
+  belongs_to :room
+
+  validates_presence_of :content
+  validates_presence_of :user_id
+  validates_presence_of :room_id
 end
