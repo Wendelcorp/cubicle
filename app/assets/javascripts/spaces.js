@@ -40,7 +40,7 @@ var querystring
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
         $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
-        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container'></div>");
+        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ _allData[i]['id'] + "' ></div>");
       }
       // .toLowerCase();
 
@@ -88,6 +88,20 @@ var querystring
             }
           }
         }
+        $('.front-page-img-container').mouseenter(function(event){
+        value = parseInt(this.id); // starts at 1
+          console.log(value)
+          $(this).stop().animate({opacity:.5},200);
+          $('<div>').html(_allData[value -1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
+          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
+          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
+      });
+        $('.front-page-img-container').mouseleave(function(event){
+          $('.available_desks').remove()
+          $('.name').remove()
+          $(this).stop().animate({opacity:1},200);
+      });
+
       });
 
       $('#number-of-desks').change(function(event){
@@ -124,8 +138,42 @@ var querystring
        localStorage.setItem('desks', querystring);
       });
 
+
+
+
+
+
+
+
+
+      $('.front-page-img-container').mouseenter(function(event){
+        value = parseInt(this.id);
+        $(this).stop().animate({opacity:.5},200);
+        $('<div>').html(_allData[value]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
+        $('<div>').html("Available Desks: " + _allData[value]['available_desks']).attr("class",'available_desks').css("position", "absolute")
+        .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
+        console.log(_allData[value]['description'])
+      });
+
+      $('.front-page-img-container').mouseleave(function(event){
+        $('.available_desks').remove()
+        $('.name').remove()
+        $(this).stop().animate({opacity:1},200);
+        console.log(_allData[value]['description'])
+      });
+
+
+
+
+
+
+
+
+
+
       }).fail(function(data){
-      console.log('this failed')
+      console.log('this failed');
+
     });
 
       if($('div').is('.index-page')){
