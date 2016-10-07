@@ -124,6 +124,21 @@ var querystring
             }
           }
         }
+
+      $('.front-page-img-container').mouseenter(function(event){
+        value = parseInt(this.id); // starts at 1
+          console.log(value)
+          $(this).stop().animate({opacity:.5},200);
+          $('<div>').html(_allData[value -1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
+          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
+          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
+      });
+        $('.front-page-img-container').mouseleave(function(event){
+          $('.available_desks').remove()
+          $('.name').remove()
+          $(this).stop().animate({opacity:1},200);
+      });
+        
         //places desk value in query string to be used on following page in
         //request form desk value
         querystring = EncodeQueryData(desks);

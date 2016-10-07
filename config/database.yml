@@ -17,6 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -24,7 +25,7 @@ default: &default
 development:
   <<: *default
   database: cubicle_development
-
+  host: localhost
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
