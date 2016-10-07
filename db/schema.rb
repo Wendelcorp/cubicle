@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20161006211115) do
     t.integer  "user2_id"
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
-    t.datetime "user1_visited_timestamp", default: '2016-10-06 21:16:36'
-    t.datetime "user2_visited_timestamp", default: '2016-10-06 21:16:36'
+    t.datetime "user1_visited_timestamp", default: '2016-10-07 00:09:21'
+    t.datetime "user2_visited_timestamp", default: '2016-10-07 00:09:21'
     t.index ["user1_id"], name: "index_rooms_on_user1_id", using: :btree
     t.index ["user2_id"], name: "index_rooms_on_user2_id", using: :btree
   end
