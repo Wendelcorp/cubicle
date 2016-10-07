@@ -23,11 +23,11 @@ Message.delete_all
 # create 3 users
 # sign in(email: user1@example.com, password 123456) funther details look
 # test/factories/user.rb
-user1 = FactoryGirl.create :user, first_name: 'first', last_name: 'user'
+user1 = FactoryGirl.create :user, first_name: 'Ian', last_name: 'Bruce'
 #email: user2@example.com, password 123456
-user2 = FactoryGirl.create :user, first_name: 'second', last_name: 'user'
+user2 = FactoryGirl.create :user, first_name: 'Wes', last_name: 'Daily'
 #email: user3@example.com, password 123456
-user3 = FactoryGirl.create :user, first_name: 'third', last_name: 'user'
+user3 = FactoryGirl.create :user, first_name: 'Bryce', last_name: 'Wendalaar'
 
 
 # create 4 status, only generate once never destory and never rerun
@@ -114,7 +114,7 @@ user2_space3 = FactoryGirl.create :space,
                                   user_id:user2.id,
                                   name:"Microsoft",
                                   number: "21",
-                                  postal_code: 'L5N 8L9'
+                                  postal_code: 'V5Z 2M9'
 
 user2_space3_picture_1 = FactoryGirl.create :image,
                                    location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic6.jpg')),
@@ -144,7 +144,7 @@ user3_space3 = FactoryGirl.create :space,
                                   user_id:user3.id,
                                   name:"Facebook",
                                   number: "32",
-                                  postal_code: 'M4P 1E4'
+                                  postal_code: 'H2W 2R2'
 
 user3_space3_picture_1 = FactoryGirl.create :image,
                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic9.jpg')),
@@ -169,11 +169,11 @@ chat_room_user1_To_user2 = FactoryGirl.create :room,
 
 # messages in chat room with user1 and user2
 message1 = FactoryGirl.create :message,
-                              content: "hello from user1 to user2",
+                              content: "hello from Ian to Wes",
                               user_id: user1.id,
                               room_id: chat_room_user1_To_user2.id
 
 message2 = FactoryGirl.create :message,
-                              content: "hello from user2 to user1",
+                              content: "hello from Wes to Ian",
                               user_id: user2.id,
                               room_id: chat_room_user1_To_user2.id
