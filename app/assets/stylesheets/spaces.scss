@@ -8,8 +8,13 @@
 .inactive{ visibility: hidden;}
 
 #newmessage{
-  color: red;
+  color: tomato;
   font-size: 15px;
+  position: absolute;
+  right: 176px;
+  top: 5px;
+  font-weight: bolder;
+  margin: 0;
 }
 
 div.space-box{
