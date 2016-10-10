@@ -33,12 +33,10 @@ gem 'gmaps4rails'
 
 # Paper Clip for uploading file
 gem "paperclip", "~>5.0.0"
+gem "aws-sdk", '~>2.3'
 # Use Redis adapter to run Action Cable in production
-<<<<<<< HEAD
-# gem 'redis', '~> 3.0'
-=======
 gem 'redis', '~> 3.0'
->>>>>>> parent of fac998d... check if heroku support factory gril
+gem 'factory_girl_rails', '~>4.7'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,7 +46,6 @@ gem 'redis', '~> 3.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'factory_girl_rails', '~>4.7'
   # gem 'minitest-rails-capybara'
 end
 
@@ -63,7 +60,7 @@ group :development do
   gem 'faker'
 end
 
-group :production do 
+group :production do
   gem 'rails_12factor'
 end
 
