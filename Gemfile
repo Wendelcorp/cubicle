@@ -34,7 +34,11 @@ gem 'gmaps4rails'
 # Paper Clip for uploading file
 gem "paperclip", "~>5.0.0"
 # Use Redis adapter to run Action Cable in production
+<<<<<<< HEAD
 # gem 'redis', '~> 3.0'
+=======
+gem 'redis', '~> 3.0'
+>>>>>>> parent of fac998d... check if heroku support factory gril
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
