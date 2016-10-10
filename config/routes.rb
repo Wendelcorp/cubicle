@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # mount actioncable
+  mount ActionCable.server => '/cable'
+  
   root "spaces#index"
   # devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -12,7 +15,6 @@ Rails.application.routes.draw do
   resources :rooms, except: [:update, :edit, :destory]
   resources :messages, only: [:create]
 
-  mount ActionCable.server => '/cable'
 
 
 
