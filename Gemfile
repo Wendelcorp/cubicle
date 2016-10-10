@@ -33,8 +33,9 @@ gem 'gmaps4rails'
 
 # Paper Clip for uploading file
 gem "paperclip", "~>5.0.0"
+gem "aws-sdk", '~>2.3'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -59,7 +60,7 @@ group :development do
   gem 'faker'
 end
 
-group :production do 
+group :production do
   gem 'rails_12factor'
 end
 

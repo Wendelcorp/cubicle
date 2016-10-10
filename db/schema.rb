@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006211115) do
+ActiveRecord::Schema.define(version: 20161010213359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.integer  "number"
-    t.string   "street_name"
-    t.string   "city"
-    t.string   "province"
-    t.string   "postal_code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "images", force: :cascade do |t|
     t.integer  "space_id"
@@ -61,14 +51,12 @@ ActiveRecord::Schema.define(version: 20161006211115) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer  "user1_id"
-    t.integer  "user2_id"
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
-    t.datetime "user1_visited_timestamp", default: '2016-10-07 15:33:55'
-    t.datetime "user2_visited_timestamp", default: '2016-10-07 15:33:56'
-    t.index ["user1_id"], name: "index_rooms_on_user1_id", using: :btree
-    t.index ["user2_id"], name: "index_rooms_on_user2_id", using: :btree
+    t.integer  "user1_id"
+    t.integer  "user2_id"
+    t.datetime "user1_visited_timestamp", default: '2016-10-10 21:34:32'
+    t.datetime "user2_visited_timestamp", default: '2016-10-10 21:34:32'
   end
 
   create_table "spaces", force: :cascade do |t|
