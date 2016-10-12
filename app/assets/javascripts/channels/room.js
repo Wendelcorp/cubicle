@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function () {
+$(document).on("turbolinks:load", function () {
   App.room = App.cable.subscriptions.create({
     channel: 'RoomChannel',
     room: window.location.pathname.split("/")[2]

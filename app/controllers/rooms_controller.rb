@@ -11,7 +11,12 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @messages = @room.messages.order(id: :desc).limit(500).reverse
     @message = Message.new
-    @users = [@room.user1, @room.user2]
+
+    if current_user == @room.user1
+      @user = @room.user2
+    else
+      @user = @room.user1
+    end
 
     if current_user.id = @room.user1_id
       @room.update_timestamp_user1
