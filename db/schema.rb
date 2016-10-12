@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20161010213359) do
     t.datetime "updated_at",                                              null: false
     t.integer  "user1_id"
     t.integer  "user2_id"
-    t.datetime "user1_visited_timestamp", default: '2016-10-10 21:34:32'
-    t.datetime "user2_visited_timestamp", default: '2016-10-10 21:34:32'
+    t.datetime "user1_visited_timestamp", default: '2016-10-12 20:35:48'
+    t.datetime "user2_visited_timestamp", default: '2016-10-12 20:35:48'
   end
 
   create_table "spaces", force: :cascade do |t|

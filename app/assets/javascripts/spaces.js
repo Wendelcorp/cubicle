@@ -29,20 +29,22 @@ var querystring
       dataType: 'json'
     }).done(function(data){
       var _allData = data
+      console.log(_allData)
       // globalish variables for all data and empty array for available data
       var _availableData = []
       var city = 'all';
       var desks = 1;
-      console.log(_allData)
+      console.log(_allData[0])
+      console.log(_allData[0]['id'])
 
       function populate(i) {
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-        $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+        $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-2]).appendTo('#link' + _allData[i]['id'])
+        console.log(imgArr[_allData[i]['id']])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ _allData[i]['id'] + "' ></div>");
       }
-      // .toLowerCase();
 
       $('#city').change(function(event){
         _availableData = []
@@ -132,8 +134,8 @@ var querystring
         value = parseInt(this.id); // starts at 1
           console.log(value)
           $(this).stop().animate({opacity:.5},200);
-          $('<div>').html(_allData[value -1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
-          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
+          $('<div>').html(_allData[value -2]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
+          $('<div>').html("Available Desks: " + _allData[value-2]['available_desks']).attr("class",'available_desks').css("position", "absolute")
           .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
       });
         $('.front-page-img-container').mouseleave(function(event){
