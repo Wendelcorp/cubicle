@@ -7,10 +7,9 @@ $(function(){
     // console.log($(this).val());
     var price = $('span#pricenumber').text();
     // console.log($('span#pricenumber').text())
-    $('span#total-price-value').text(desks * price + ".0");
-
+    var total = parseFloat(Math.round((desks * price) * 100) / 100).toFixed(2)
+    $('span#total-price-value').text(total);
    });
-
   });
   
   // this listens for the load of a div on the spaces show

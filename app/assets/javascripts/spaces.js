@@ -202,7 +202,8 @@ var querystring
         console.log(loadDesks)
         var price = $('span#pricenumber').text();
         console.log(price)
-        $('span#total-price-value').text(loadDesks * price + ".0");
+        var total = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
+        $('span#total-price-value').text(total);
       }
   });
 
