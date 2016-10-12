@@ -36,6 +36,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
+  # this is web socket
   config.web_socket_server_url = 'wss://whispering-spire-50980.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = ['https://whispering-spire-50980.herokuapp.com', 'http://whispering-spire-50980.herokuapp.com']
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
