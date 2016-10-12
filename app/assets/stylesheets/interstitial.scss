@@ -3,15 +3,21 @@
   width: 100%;
   background-image: url('/images/photo-1445810694374-0a94739e4a03.jpg');
   background-size: cover;
+  position: relative;
 }
 
 .int-cta {
   color: white;
 }
 
+.int-logo {
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
 .int-main-container {
   max-width: 400px;
-  border: 2px solid red;
   height: 400px;
   margin: 0 auto;
   display: flex;
