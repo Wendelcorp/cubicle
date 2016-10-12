@@ -143,16 +143,8 @@ var querystring
         
         //places desk value in query string to be used on following page in
         //request form desk value
-        querystring = EncodeQueryData(desks);
-        // event.preventDefault();
-        function EncodeQueryData(desks) {
-        var ret = [];
-        for (var d in desks)
-          ret.push(encodeURIComponent(desks[d]));
-          return ret.join("");
-       }
-      //  console.log(querystring)
-       localStorage.setItem('desks', querystring);
+
+       localStorage.setItem('desks', desks);
       });
 
 
