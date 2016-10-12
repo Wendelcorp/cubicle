@@ -31,6 +31,7 @@ gem "cocoon"
 gem 'geocoder'
 gem 'gmaps4rails'
 
+
 # Paper Clip for uploading file
 gem "paperclip", "~>5.0.0"
 gem 'aws-sdk', '~>2.3'
