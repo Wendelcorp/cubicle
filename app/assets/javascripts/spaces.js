@@ -74,12 +74,12 @@ var querystring
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
-            console.log(desks)
-            console.log(city)
-            console.log(dataCity)
+            // console.log(desks)
+            // console.log(city)
+            // console.log(dataCity)
 
             if(dataCity === city && desks === 1 ) {
-              console.log('fuck ya')
+
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
@@ -103,6 +103,7 @@ var querystring
       });
 
       $('#number-of-desks').change(function(event){
+
         desks = parseInt(this.value);
 
         $('.space-info').html("")
