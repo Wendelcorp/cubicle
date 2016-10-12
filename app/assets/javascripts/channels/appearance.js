@@ -2,18 +2,23 @@ $(document).on("turbolinks:load", function () {
   App.appearance = App.cable.subscriptions.create({
     channel: 'AppearanceChannel'
   }, {
+    disconnected: function(){},
     received: function(data){
-      var user = JSON.parse(data)
-      if(user.online == true){
-        $(userImgIdConstructor(user)).attr('class','active');
+      var userdata = JSON.parse(data);
+
+      var id = userdata.id;
+      var online = userdata.online;
+
+      if(online == true){
+        $(userImgIdConstructor(id)).attr('class','active');
       };
-      if(user.online == false){
-        $(userImgIdConstructor(user)).attr('class','inactive');
+      if(online == false){
+        $(userImgIdConstructor(id)).attr('class','inactive');
       };
     }
   });
 
-  var userImgIdConstructor = function(user){
+  var userImgIdConstructor = function(id){
     return "#" + user.id + "-status";
   }
 });
