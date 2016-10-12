@@ -68,7 +68,7 @@ var querystring
             // if the chosen city is equal to the city selected in the list and desks is not changed
 
 
-            if(dataCity === city && desks === 1 ) {
+            if(dataCity === city && desks === '1' ) {
               console.log(_allData[i]['id'])
               populate(i)
             }
