@@ -36,6 +36,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
+  # everything is up to date
   config.action_cable.url = 'wss://whispering-spire-50980.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = ['https://whispering-spire-50980.herokuapp.com', 'http://whispering-spire-50980.herokuapp.com']
 
