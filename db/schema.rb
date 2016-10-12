@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20161010183508) do
     t.datetime "user2_visited_timestamp", default: '2016-10-10 18:36:37'
     t.integer  "user1_id"
     t.integer  "user2_id"
+    t.datetime "user1_visited_timestamp", default: '2016-10-12 20:35:48'
+    t.datetime "user2_visited_timestamp", default: '2016-10-12 20:35:48'
   end
 
   create_table "spaces", force: :cascade do |t|
