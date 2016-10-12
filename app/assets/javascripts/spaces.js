@@ -83,7 +83,7 @@ var querystring
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
-              
+
               console.log(city)
               if(_allData[i]['available_desks'] >= desks){
                 populate(i)
@@ -91,9 +91,9 @@ var querystring
             }
           }
           else{
-            
+
             if(_allData[i]['available_desks'] >= desks){
-              
+
               populate(i)
             }
           }
@@ -117,7 +117,7 @@ var querystring
             }
           }
           else{
-            
+
             if(_allData[i]['available_desks'] >= desks){
               populate(i)
             }
@@ -144,8 +144,9 @@ var querystring
         var loadDesks = localStorage.desks
         console.log(loadDesks)
         var price = $('span#pricenumber').text();
-        var totalPrice = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
-        $('span#total-price-value').text(totalPrice);
+        console.log(price)
+        var total = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
+        $('span#total-price-value').text(total);
       }
   });
 

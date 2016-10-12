@@ -42,7 +42,7 @@
 
   <% unless !current_user || @space.user.id == current_user.id%>
       <%  %>
-      <div class="total-price">Your total: $<span id='total-price-value'></span> / month</div>
+      <div class="total-price">Your total: $<span id='total-price-value'></span>/ month</div>
     <%= link_to 'Request Reserved Space', new_space_lease_path(@space), {class: 'new-lease', remote: true} %>
 
     <br>
