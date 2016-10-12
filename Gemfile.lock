@@ -247,11 +247,8 @@ PLATFORMS
 
 DEPENDENCIES
   addressable (~> 2.4)
-<<<<<<< HEAD
   aws-sdk (~> 2.3)
-=======
   bootstrap-sass (~> 3.3.6)
->>>>>>> e1aa3fe83cb1b5d199fd204d39be08345a7e7506
   byebug
   cocoon
   coffee-rails (~> 4.2)
