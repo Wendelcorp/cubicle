@@ -26,8 +26,8 @@ var querystring
       var _availableData = []
       var city = 'all';
       var desks = 1;
-      console.log(_allData[0])
-      console.log(_allData[0]['id'])
+      // console.log(_allData[0])
+      // console.log(_allData[0]['id'])
 
       function populate(i) {
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
