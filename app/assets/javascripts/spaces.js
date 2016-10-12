@@ -108,7 +108,7 @@ var querystring
 
       $('#number-of-desks').change(function(event){
         desks = parseInt(this.value);
-        console.log(desks)
+        // console.log(desks)
         $('.space-info').html("")
 
         for(var i = 0, l = _allData.length; i < l; i++){
@@ -141,18 +141,7 @@ var querystring
           $(this).stop().animate({opacity:1},200);
       });
 
-        //places desk value in query string to be used on following page in
-        //request form desk value
-        querystring = EncodeQueryData(desks);
-        // event.preventDefault();
-        function EncodeQueryData(desks) {
-        var ret = [];
-        for (var d in desks)
-          ret.push(encodeURIComponent(desks[d]));
-          return ret.join("");
-       }
-      //  console.log(querystring)
-       localStorage.setItem('desks', querystring);
+       localStorage.setItem('desks', desks);
       });
 
 
@@ -195,14 +184,14 @@ var querystring
 
       if($('div').is('.index-page')){
         localStorage.setItem('desks', 1);
-      };
+      };//parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2);
 
       if($('span').is('#total-price-value')){
-        var loadDesks = String(localStorage.desks)
+        var loadDesks = localStorage.desks
         console.log(loadDesks)
         var price = $('span#pricenumber').text();
-        console.log(price)
-        $('span#total-price-value').text(loadDesks * price + ".0");
+        var totalPrice = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
+        $('span#total-price-value').text(totalPrice);
       }
   });
 
