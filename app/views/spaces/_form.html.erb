@@ -12,8 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
+    <%= f.label 'Venue name' %><br/>
+    <%= f.text_field :name, placeholder: "Enter your venue's name" %>
+  </div>
+
+  <div class = "field">
+    <%= f.label 'Address'%><br/>
+    <%= f.number_field :number, placeholder: "Street Number" %>
+  </div>
+  <div class = "field">
+    <%= f.text_field :street_name, placeholder: "Street Name" %>
+  </div>
+  <div class = "field">
+    <%= f.label :city %><br/>
+    <%= f.select :city, ['Toronto', 'Montreal', 'Vancouver'], { :prompt => "Select" }%>
+  </div>
+  <div class = "field">
+    <%= f.label :province %><br/>
+    <%= f.select :province, ['AB', 'BC', 'MB','NB','NL','NS','NT','NU','ON','PE','QC','SK','YT'], { :prompt => "Select" }, placeholder: "Please select your province" %>
+  </div>
+  <div class = "field">
+    <%= f.label "postal code" %><br/>
+    <%= f.text_field :postal_code, placeholder: "Postal Code" %>
   </div>
 
   <div class="field">
@@ -31,28 +51,6 @@
     <%= f.number_field :price %>
   </div>
 
-    <h2>Address:</h2>
-
-  <div class = "field">
-    <%= f.label :number %><br/>
-    <%= f.number_field :number %>
-  </div>
-        <div class = "field">
-    <%= f.label "Street Name" %><br/>
-    <%= f.text_field :street_name %>
-  </div>
-        <div class = "field">
-    <%= f.label :city %><br/>
-    <%= f.select :city, ['Toronto', 'Montreal', 'Vancouver'], { :prompt => "Select" } , :style => "width:135px" %>
-  </div>
-  <div class = "field">
-    <%= f.label :province %><br/>
-    <%= f.text_field :province %>
-  </div>
-  <div class = "field">
-    <%= f.label "postal code" %><br/>
-    <%= f.text_field :postal_code %>
-  </div>
 
   <div id = "upload_pictures" >
     <p>Upload Images</p></br>

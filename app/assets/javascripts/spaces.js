@@ -140,7 +140,7 @@ var querystring
           $('.name').remove()
           $(this).stop().animate({opacity:1},200);
       });
-        
+
         //places desk value in query string to be used on following page in
         //request form desk value
         querystring = EncodeQueryData(desks);
