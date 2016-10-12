@@ -37,12 +37,12 @@
 </div>
   <h4><%= "Desks Available: #{@remaining_desks}" %></h4>
   <div class="price_each_desk" value="<%= @price_per_desk %>">
-  <span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span>0 / month</span>
+  <span id='price'>Price per desk: $<span id='pricenumber'><%= @price_per_desk %></span> / month</span>
   </div>
 
   <% unless !current_user || @space.user.id == current_user.id%>
       <%  %>
-      <div class="total-price">Your total: $<span id='total-price-value'><%= @price_per_desk %></span>0 / month</div>
+      <div class="total-price">Your total: $<span id='total-price-value'></span> / month</div>
     <%= link_to 'Request Reserved Space', new_space_lease_path(@space), {class: 'new-lease', remote: true} %>
 
     <br>
