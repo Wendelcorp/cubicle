@@ -1,6 +1,15 @@
 <div class="int-body">
+  <img class="int-logo" src="/images/footer-logo.svg" alt="">
   <div class="int-main-container">
-    <img id="logo" src="/images/logo.svg" alt="">
+
     <h1 class="int-cta">Find your space.</h1>
+    <button class="scroll" type="button" name="button"></button>
   </div>
 </div>
+<script type="text/javascript">
+$(".scroll").click(function() {
+  $('html,body').animate({
+      scrollTop: $(".main-container").offset().top},
+      'slow');
+});
+</script>
