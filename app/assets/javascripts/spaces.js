@@ -26,8 +26,6 @@ var querystring
       var _availableData = []
       var city = 'all';
       var desks = 1;
-      // console.log(_allData[0])
-      // console.log(_allData[0]['id'])
 
       function populate(i) {
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
@@ -76,9 +74,6 @@ var querystring
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
-            // console.log(desks)
-            // console.log(city)
-            // console.log(dataCity)
 
             if(dataCity === city && desks === 1 ) {
 
@@ -112,7 +107,7 @@ var querystring
 
         for(var i = 0, l = _allData.length; i < l; i++){
 
-          if (city != 'all'){
+          if (city !== 'all'){
 
             if(_allData[i]['city'].toLowerCase() === city && _allData[i]['available_desks'] >= desks){
 
