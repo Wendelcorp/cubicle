@@ -16,4 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 .rubocop.yml
+
+# Ignore ds store file
 .DS_Store
+
+# Ignore system image file
