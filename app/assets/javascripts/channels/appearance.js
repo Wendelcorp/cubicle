@@ -19,6 +19,6 @@ $(document).on("turbolinks:load", function () {
   });
 
   var userImgIdConstructor = function(id){
-    return "#" + user.id + "-status";
+    return "#" + id + "-status";
   }
 });
