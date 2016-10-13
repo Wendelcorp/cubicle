@@ -10,17 +10,9 @@ var querystring
     data: {},
     dataType: 'json'
   }).done(function(data){
-    // console.log(data)
-    // console.log(data.length)
-    var imgArr = []
-    keys = Object.keys(data)
-    for (i=0; i < keys.length; i++){
-      imgArr.push(data[keys[i]])
-    }
-    // console.log(imgArr)
-    // $('<img>').attr('src',data[keys[0]]).appendTo('.sort-tools')
 
-    // console.log(Object.values(data))
+    var imgHash = data
+
 
     $.ajax({
       url: "/spaces.json",
@@ -39,7 +31,7 @@ var querystring
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-        $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+        $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ _allData[i]['id'] + "' ></div>");
       }
       // .toLowerCase();
