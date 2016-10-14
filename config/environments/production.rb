@@ -39,7 +39,6 @@ Rails.application.configure do
   # everything is up to date
   config.action_cable.url = 'wss://whispering-spire-50980.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = ['https://whispering-spire-50980.herokuapp.com', 'http://whispering-spire-50980.herokuapp.com']
-
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 

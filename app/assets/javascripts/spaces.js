@@ -92,7 +92,6 @@ var querystring
           else{
 
             if(_allData[i]['available_desks'] >= desks){
-
               populate(i)
             }
           }
@@ -116,7 +115,6 @@ var querystring
             }
           }
           else{
-
             if(_allData[i]['available_desks'] >= desks){
               populate(i)
             }
