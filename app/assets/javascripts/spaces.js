@@ -21,11 +21,11 @@ var querystring
       dataType: 'json'
     }).done(function(data){
       var _allData = data
-      console.log(_allData)
       // globalish variables for all data and empty array for available data
       var _availableData = []
       var city = 'all';
       var desks = 1;
+      console.log(_allData)
 
       function populate(i) {
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
@@ -74,13 +74,15 @@ var querystring
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
+            console.log(desks)
+            console.log(city)
+            console.log(dataCity)
 
             if(dataCity === city && desks === 1 ) {
-
+              console.log('fuck ya')
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
-
               console.log(city)
               if(_allData[i]['available_desks'] >= desks){
                 populate(i)
@@ -100,14 +102,13 @@ var querystring
       });
 
       $('#number-of-desks').change(function(event){
-
         desks = parseInt(this.value);
 
         $('.space-info').html("")
 
         for(var i = 0, l = _allData.length; i < l; i++){
 
-          if (city !== 'all'){
+          if (city != 'all'){
 
             if(_allData[i]['city'].toLowerCase() === city && _allData[i]['available_desks'] >= desks){
 
@@ -142,9 +143,8 @@ var querystring
         var loadDesks = localStorage.desks
         console.log(loadDesks)
         var price = $('span#pricenumber').text();
-        console.log(price)
-        var total = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
-        $('span#total-price-value').text(total);
+        var totalPrice = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
+        $('span#total-price-value').text(totalPrice);
       }
   });
 
@@ -196,12 +196,3 @@ $('form').on('cocoon:after-remove', function(e,removething){
 });
 
 });
-
-
-
-
-
-
-
-
-// $( ".inner" ).wrap( "<div class='new'></div>" );
