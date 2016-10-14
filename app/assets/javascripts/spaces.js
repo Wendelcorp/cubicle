@@ -10,17 +10,9 @@ var querystring
     data: {},
     dataType: 'json'
   }).done(function(data){
-    // console.log(data)
-    // console.log(data.length)
-    var imgArr = []
-    keys = Object.keys(data)
-    for (i=0; i < keys.length; i++){
-      imgArr.push(data[keys[i]])
-    }
-    // console.log(imgArr)
-    // $('<img>').attr('src',data[keys[0]]).appendTo('.sort-tools')
 
-    // console.log(Object.values(data))
+    var imgHash = data
+
 
     $.ajax({
       url: "/spaces.json",
@@ -39,9 +31,25 @@ var querystring
         $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
-        $('<img>').attr('class','front-page-img').attr('src',  imgArr[parseInt(_allData[i]['id'])-1]).appendTo('#link' + _allData[i]['id'])
+        $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ _allData[i]['id'] + "' ></div>");
       }
+      function hoverOnAndOff(){
+        $('.front-page-img-container').mouseenter(function(event){
+        value = parseInt(this.id); // starts at 1
+          console.log(value)
+          $(this).stop().animate({opacity:.5},200);
+          $('<div>').html(_allData[value-1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
+          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
+          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
+      });
+        $('.front-page-img-container').mouseleave(function(event){
+          $('.available_desks').remove()
+          $('.name').remove()
+          $(this).stop().animate({opacity:1},200);
+      });
+      }
+
       // .toLowerCase();
 
       $('#city').change(function(event){
@@ -75,7 +83,7 @@ var querystring
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
-              // console.log(dataCity);
+              
               console.log(city)
               if(_allData[i]['available_desks'] >= desks){
                 populate(i)
@@ -83,99 +91,45 @@ var querystring
             }
           }
           else{
-            // console.log('this is the else')
+            
             if(_allData[i]['available_desks'] >= desks){
-              // console.log('inside the if')
+              
               populate(i)
             }
           }
         }
-        $('.front-page-img-container').mouseenter(function(event){
-        value = parseInt(this.id); // starts at 1
-          console.log(value)
-          $(this).stop().animate({opacity:.5},200);
-          $('<div>').html(_allData[value -1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
-          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
-          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
-      });
-        $('.front-page-img-container').mouseleave(function(event){
-          $('.available_desks').remove()
-          $('.name').remove()
-          $(this).stop().animate({opacity:1},200);
-      });
+        hoverOnAndOff()
 
       });
 
       $('#number-of-desks').change(function(event){
         desks = parseInt(this.value);
-        // console.log(desks)
+
         $('.space-info').html("")
 
         for(var i = 0, l = _allData.length; i < l; i++){
 
           if (city != 'all'){
 
-            if(_allData[i]['city'].toLowerCase() === city && _allData[i]['available_desks'] >= desks)
-              // console.log(desks)
-              populate(i)
+            if(_allData[i]['city'].toLowerCase() === city && _allData[i]['available_desks'] >= desks){
+
+              populate(i);
+            }
           }
           else{
-            // console.log('this is the final else')
+            
             if(_allData[i]['available_desks'] >= desks){
               populate(i)
             }
           }
         }
 
-      $('.front-page-img-container').mouseenter(function(event){
-        value = parseInt(this.id); // starts at 1
-          console.log(value)
-          $(this).stop().animate({opacity:.5},200);
-          $('<div>').html(_allData[value -1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
-          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
-          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
-      });
-        $('.front-page-img-container').mouseleave(function(event){
-          $('.available_desks').remove()
-          $('.name').remove()
-          $(this).stop().animate({opacity:1},200);
-      });
+        hoverOnAndOff();
 
        localStorage.setItem('desks', desks);
       });
 
-
-
-
-
-
-
-
-
-      $('.front-page-img-container').mouseenter(function(event){
-        value = parseInt(this.id);
-        $(this).stop().animate({opacity:.5},200);
-        $('<div>').html(_allData[value]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
-        $('<div>').html("Available Desks: " + _allData[value]['available_desks']).attr("class",'available_desks').css("position", "absolute")
-        .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
-        console.log(_allData[value]['description'])
-      });
-
-      $('.front-page-img-container').mouseleave(function(event){
-        $('.available_desks').remove()
-        $('.name').remove()
-        $(this).stop().animate({opacity:1},200);
-        console.log(_allData[value]['description'])
-      });
-
-
-
-
-
-
-
-
-
+      hoverOnAndOff();
 
       }).fail(function(data){
       console.log('this failed');
