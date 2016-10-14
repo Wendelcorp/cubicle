@@ -22,3 +22,4 @@
 
 # Ignore system image file
 /public/system/images/*
+/app/assets/images/*
