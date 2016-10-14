@@ -28,20 +28,20 @@ var querystring
       console.log(_allData)
 
       function populate(i) {
-        $("<div>").attr('id', _allData[i]['id']).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
-        $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + _allData[i]['id'])
-        $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
+        $("<div>").attr('id', i).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+        $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + i)
+        $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + i)
         $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
-        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ _allData[i]['id'] + "' ></div>");
+        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
       }
       function hoverOnAndOff(){
         $('.front-page-img-container').mouseenter(function(event){
         value = parseInt(this.id); // starts at 1
           console.log(value)
           $(this).stop().animate({opacity:.5},200);
-          $('<div>').html(_allData[value-1]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+value)
-          $('<div>').html("Available Desks: " + _allData[value-1]['available_desks']).attr("class",'available_desks').css("position", "absolute")
-          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+value)
+          $('<div>').html(_allData[value]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+(value))
+          $('<div>').html("Available Desks: " + _allData[value]['available_desks']).attr("class",'available_desks').css("position", "absolute")
+          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+(value))
       });
         $('.front-page-img-container').mouseleave(function(event){
           $('.available_desks').remove()
