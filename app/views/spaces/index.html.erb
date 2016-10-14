@@ -31,10 +31,10 @@
   <div id="search-results">
     <div class="space-info">
       <% @spaces.each_with_index do |space,val| %>
-        <div class="space-box" id = "<%= val %>" >
+        <div class="space-box" id = "<%= space.id %>" >
           <p class="space-price">$<%= '%.2f' % space.price %></p>
         <%= link_to space_path(space), class: 'show-btn', id: "link1" do %>
-        <div class="front-page-img-container" id = "<%= val %>" >
+        <div class="front-page-img-container" id = "<%= space.id %>" >
             <%= image_tag space.images.first.location_picture.url(:original), class: 'front-page-img' if space.images.first  %>
             <% end %>
         </div>
