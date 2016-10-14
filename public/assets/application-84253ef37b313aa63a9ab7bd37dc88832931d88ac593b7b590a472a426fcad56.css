@@ -1,0 +1,757 @@
+/* line 1, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+footer {
+  width: 100%;
+  height: 150px;
+  background-color: #2E3192;
+}
+
+/* line 9, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+.footer-container {
+  height: 100px;
+}
+
+/* line 14, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+.row {
+  display: flex;
+  flex-wrap: ltr;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* line 21, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+.col {
+  width: 250px;
+  height: 100px;
+  padding: 10px;
+}
+
+/* line 27, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+.footer-link {
+  line-height: 3px;
+  color: white;
+  font-size: 10px;
+}
+
+/* line 33, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+.footer-heading {
+  color: white;
+}
+
+/* line 37, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/footer.scss */
+#footer-logo {
+  padding-top: 25px;
+  padding-bottom: 20px;
+  width: 105px;
+}
+/* line 1, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.dropdown select {
+  background: transparent;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  -webkit-appearance: none;
+  border: 4px solid #2E3192;
+  text-align-last: center;
+  color: #2E3192;
+}
+
+/* line 17, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.dropdown {
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  overflow: visible;
+  background: white;
+  text-align: center;
+  display: inline-block;
+}
+
+/* line 27, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+#user-icon img {
+  position: absolute;
+  top: 5px;
+  color: white;
+  width: 20px;
+  margin-left: -15px;
+}
+
+/* line 35, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+#current_chats img {
+  position: absolute;
+  top: 6px;
+  color: white;
+  width: 18px;
+  margin-left: -12px;
+}
+
+/* line 44, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+#in {
+  width: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 51, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.results-container {
+  margin-top: 50px;
+  background-color: #efefef;
+}
+
+/* line 57, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.results-container a {
+  text-decoration: none;
+}
+
+/* line 62, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.add-space {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  text-decoration: none;
+  background-color: #2E3192;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+}
+
+/* line 75, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.add-space a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  line-height: 35px;
+}
+
+/* line 82, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.space-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 18px;
+}
+
+/* line 91, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.space-box {
+  position: relative;
+  min-width: 250px;
+  height: 200px;
+  margin: 0 5px;
+  background: white;
+  margin-top: 10px;
+}
+
+/* line 100, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.front-page-img-container {
+  width: 300px;
+  overflow: hidden;
+}
+
+/* line 105, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.front-page-img {
+  height: 200px;
+}
+
+/* line 109, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/indexpage.scss */
+.space-price {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: #00AEEF;
+  color: white;
+}
+/* line 1, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/interstitial.scss.erb */
+.int-body {
+  height: 100vh;
+  width: 100%;
+  background-image: url(/assets/photo-1445810694374-0a94739e4a03-2774fea5e20c8a6eae7208ac76718c4a1f34ff6d12d15e467880f7d466fadae7.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+/* line 9, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/interstitial.scss.erb */
+.int-cta {
+  color: white;
+}
+
+/* line 13, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/interstitial.scss.erb */
+.int-logo {
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+/* line 20, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/interstitial.scss.erb */
+.int-main-container {
+  max-width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+/* line 4, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/rooms.scss */
+.rooms-list h3 > a {
+  text-decoration: none;
+}
+/* line 1, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/show.scss */
+.show-page-image {
+  height: 400px;
+}
+
+/* line 5, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/show.scss */
+.show-page-image-container {
+  width: 475px;
+  height: 400px;
+  overflow: hidden;
+  float: left;
+  margin-top: 50px;
+}
+
+/* line 13, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/show.scss */
+.map-container {
+  width: 950px;
+  margin: 0 auto;
+}
+
+/* line 18, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/show.scss */
+.space-details-container {
+  width: 475px;
+  float: left;
+  height: 400px;
+  background-color: #00AEEF;
+  color: white;
+  margin-top: 50px;
+  padding: 30px;
+  padding-top: 0px;
+}
+
+/* line 29, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/show.scss */
+.unslider-arrow {
+  position: relative;
+  top: -50px;
+}
+/*Time for the CSS*/
+/* line 4, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider {
+  width: 640px;
+  /*Same as width of the large image*/
+  position: relative;
+  /*Instead of height we will use padding*/
+  padding-top: 320px;
+  /*That helps bring the labels down*/
+  margin: 100px auto;
+  /*Lets add a shadow*/
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+}
+
+/*Last thing remaining is to add transitions*/
+/* line 18, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s;
+}
+
+/* line 24, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider input[name='slide_switch'] {
+  display: none;
+}
+
+/* line 28, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider label {
+  /*Lets add some spacing for the thumbnails*/
+  margin: 18px 0 0 18px;
+  border: 3px solid #999;
+  float: left;
+  cursor: pointer;
+  transition: all 0.5s;
+  /*Default style = low opacity*/
+  opacity: 0.6;
+}
+
+/* line 41, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider label img {
+  display: block;
+}
+
+/*Time to add the click effects*/
+/* line 46, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider input[name='slide_switch']:checked + label {
+  border-color: #666;
+  opacity: 1;
+}
+
+/*Clicking any thumbnail now should change its opacity(style)*/
+/*Time to work on the main images*/
+/* line 52, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider input[name='slide_switch'] ~ img {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/*That hides all main images at a 110% size
+On click the images will be displayed at normal size to complete the effect
+*/
+/* line 59, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/slideshow.scss */
+.slider input[name='slide_switch']:checked + label + img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*Clicking on any thumbnail now should activate the image related to it*/
+/*We are done :)*/
+/* line 7, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+.active {
+  visibility: visible;
+}
+
+/* line 8, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+.inactive {
+  visibility: hidden;
+}
+
+/* line 10, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+#newmessage {
+  color: tomato;
+  font-size: 15px;
+  position: absolute;
+  right: 176px;
+  top: 5px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+/* line 20, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+div.space-box {
+  width: 300px;
+  height: 200px;
+}
+
+/* line 25, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+#space_name {
+  display: block;
+  border: 1px solid #c4c4c4;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+}
+
+/* line 33, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+.space-details-container {
+  position: relative;
+}
+
+/* line 37, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+.message-user-icon {
+  width: 26px;
+  margin-left: 400px;
+  margin-top: 10px;
+  position: absolute;
+  z-index: 10;
+}
+
+/* line 45, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/spaces.scss */
+.message-user-text {
+  width: 150px;
+  right: 0px;
+  top: 14px;
+  position: absolute;
+  font-size: 12px;
+}
+/* line 1, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: helvetica, arial;
+  /*background-image: url(images/subtle_white_feathers.png);*/
+}
+
+/* line 11, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+h2 {
+  font-size: 16px;
+  font-weight: bolder;
+  color: #2E3192;
+}
+
+/* line 17, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.main-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+  padding-bottom: 25px;
+}
+
+/* line 28, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.nav-item a {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 34, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+nav {
+  height: 30px;
+  width: 100%;
+  background-color: #2E3192;
+  position: absolute;
+  top: 0;
+}
+
+/* line 43, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 49, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.nav-content {
+  max-width: 950px;
+  margin: 0 auto;
+  font-size: 11px;
+  text-align: right;
+  position: relative;
+}
+
+/* line 58, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.width-control {
+  max-width: 950px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* line 65, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.sort-tools {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 71, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.nav-item {
+  list-style: none;
+  color: white;
+  display: inline-block;
+  line-height: 30px;
+  margin-right: 28px;
+}
+
+/* line 79, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.nav-item:last-child {
+  margin-right: 80px;
+}
+
+/* line 83, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.header-container {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+}
+
+/* line 90, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+#logo {
+  width: 150px;
+}
+
+/* line 94, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.featured-image {
+  max-width: 950px;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+/* line 101, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/styles.scss */
+.inside-feature-frame {
+  max-width: 950px;
+}
+/* line 3, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 7, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+body {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+}
+
+/* line 39, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+ul.panel-header {
+  text-align: center;
+  margin-top: 0px;
+  margin: 0px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* line 53, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+form {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* line 58, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+.submit {
+  margin-top: 10px;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  padding-left: 27px !important;
+  padding-right: 27px !important;
+  font-weight: normal;
+  display: block;
+  white-space: normal;
+  width: 100%;
+  background-color: #2E3192;
+  color: white;
+  font-size: 16px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* line 75, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+.textfield {
+  display: block;
+  border: 1px solid #c4c4c4;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+}
+
+/* line 94, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+.loginprompt {
+  float: left;
+  font-size: 14px;
+  font-style: normal;
+  width: 50%;
+}
+
+/* line 112, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+a {
+  color: #2E3192;
+}
+
+/* line 116, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+.checkfield {
+  float: left;
+  margin-bottom: 5px;
+}
+
+/* line 121, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+.checkboxfield {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* line 129, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+.width-control > a[href="/users/sign_up"] {
+  display: none;
+}
+
+/* line 133, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+#new_user.new_user > a[href="/users/sign_in"] {
+  display: none;
+}
+
+/* line 141, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+a[href="/users/auth/facebook"],
+a[href="/users/auth/linkedin"] {
+  margin-top: 15px;
+  max-width: 100%;
+  background-color: #2E3192;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  align-items: flex-start;
+  cursor: default;
+  -webkit-appearence: push-button;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: inherit;
+  border-color: #000;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  min-height: 30px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* line 170, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/users.scss */
+#forgot_password_title {
+  font-weight: normal;
+  text-align: center;
+}
+/* line 2, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/usershow.scss */
+.each-lease {
+  margin-bottom: 5px;
+  background-color: #00AEEF;
+  color: white;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 11, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/usershow.scss */
+.request-status {
+  background-color: #2E3192;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 250px;
+  text-align: center;
+  height: 100%;
+  line-height: 57px;
+}
+
+/* line 24, /Users/Mitchell/Desktop/cubicle/cubicle/app/assets/stylesheets/usershow.scss */
+.space-between-lease {
+  margin-right: 20px;
+}
+.my-slider {
+ margin: 0;
+ float: left;
+}
+
+.unslider {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    width: 475px;
+    overflow: hidden;
+}
+.unslider-wrap {
+    position: relative
+}
+.unslider-wrap.unslider-carousel>li {
+    float: left
+}
+.unslider-vertical>ul {
+    height: 100%
+}
+.unslider-vertical li {
+    float: none;
+    width: 100%
+}
+.unslider-fade {
+    position: relative
+}
+.unslider-fade .unslider-wrap li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 8
+}
+.unslider-fade .unslider-wrap li.unslider-active {
+    z-index: 10
+}
+.unslider li, .unslider ol, .unslider ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+}
+.unslider-arrow {
+    position: relative;;
+    left: 250px;
+    top: -50px;
+    z-index: 2;
+    cursor: pointer
+}
+.unslider-arrow.next {
+    left: auto;
+    right: -400px;
+    background-color: #00AEEF;
+    color: white;
+    padding: 5px 15px;
+}
+.unslider-arrow.prev {
+    left: auto;
+    right: 45px;
+    background-color: #00AEEF;
+    color: white;
+    padding: 5px 15px;
+}
+
+.unslider-nav {
+  display: none;
+}
+/**
+ *   Here's where everything gets included. You don't need
+ *   to change anything here, and doing so might break
+ *   stuff. Here be dragons and all that.
+ */
+/**
+ *   Default variables
+ *
+ *   While these can be set with JavaScript, it's probably
+ *   better and faster to just set them here, compile to
+ *   CSS and include that instead to use some of that
+ *   hardware-accelerated goodness.
+ */
+
+
+.unslider-nav ol {
+  list-style: none;
+  text-align: center;
+}
+.unslider-nav ol li {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 4px;
+  background: transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  text-indent: -999em;
+  border: 2px solid #fff;
+  cursor: pointer;
+
+}
+.unslider-nav ol li.unslider-active {
+  background: #fff;
+  cursor: default;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+
+ */
+
