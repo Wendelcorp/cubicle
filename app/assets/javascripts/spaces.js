@@ -33,7 +33,7 @@ var querystring
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + _allData[i]['id'])
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + _allData[i]['id'])
         $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
-        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ _allData[i]['id'] + "' ></div>");
+        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '"+ i + "' ></div>");
       }
       function hoverOnAndOff(){
         $('.front-page-img-container').mouseenter(function(event){
