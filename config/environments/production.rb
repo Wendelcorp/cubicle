@@ -36,9 +36,9 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url ="wss://whispering-spire-50980.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ 'https://whispering-spire-50980.herokuapp.com', /http:\/\/whispering-spire-50980.herokuapp.com.*/]
-
+  # everything is up to date
+  config.action_cable.url = 'wss://whispering-spire-50980.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = ['https://whispering-spire-50980.herokuapp.com', 'http://whispering-spire-50980.herokuapp.com']
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
@@ -94,8 +94,6 @@ Rails.application.configure do
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
       s3_region: ENV.fetch('AWS_REGION'),
     }
-    Paperclip::Attachment.default_options[:url] = 'cubic-assets.amazonaws.com',
-    Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename',
-    Paperclip::Attachment.default_options[:s3_host_name] = 's3-us-west-2.amazonaws.com'
   }
+
 end

@@ -13,13 +13,12 @@ var hasBeenChanged = false;
   //  var desks = $(this).val();
    var desks = $('#lease_desks').text();
    var price = $('span#pricenumber').text();
-
-   $('span#total-price-value').text(desks * price);
+   $('span#total-price-value').text(desks * price );
  } else {
     var loadDesks = (String(localStorage.desks));
     var price = $('span#pricenumber').text();
-    var totalPrice = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
-   $('span#total-price-value').text(totalPrice);
+    var total = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
+   $('span#total-price-value').text(total);
  }
 
 $('.back-to-description').click(function(event){
@@ -28,5 +27,3 @@ $('.back-to-description').click(function(event){
   $('.new-lease').toggle();
   $('.toggle-info').toggle();
 })
-
-

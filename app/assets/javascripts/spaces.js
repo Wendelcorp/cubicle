@@ -83,7 +83,6 @@ var querystring
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
-              
               console.log(city)
               if(_allData[i]['available_desks'] >= desks){
                 populate(i)
@@ -91,9 +90,8 @@ var querystring
             }
           }
           else{
-            
+
             if(_allData[i]['available_desks'] >= desks){
-              
               populate(i)
             }
           }
@@ -117,7 +115,6 @@ var querystring
             }
           }
           else{
-            
             if(_allData[i]['available_desks'] >= desks){
               populate(i)
             }
@@ -197,12 +194,3 @@ $('form').on('cocoon:after-remove', function(e,removething){
 });
 
 });
-
-
-
-
-
-
-
-
-// $( ".inner" ).wrap( "<div class='new'></div>" );
