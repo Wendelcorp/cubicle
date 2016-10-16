@@ -13,6 +13,10 @@
   </head>
 
   <body>
+    <% if current_page?(controller: 'spaces', action: 'index') %>
+    <%= render "interstitial" %>
+    <% end %>
+
     <div class="main-container">
       <nav>
         <div class="nav-content">
@@ -44,6 +48,26 @@
     </div>
   </div>
   <footer>
+    <div class="width-control">
+    <div class="row">
+      <div class="col">
+        <img id="footer-logo" src="/images/footer-logo.svg" alt="">
+        <p class="footer-link">Cubicl LTD.  ®  2016</p>
+      </div>
+      <div class="col">
+        <h4 class="footer-heading">About Us</h4>
+        <p class="footer-link">Our Policy</p>
+        <p class="footer-link">Frequently Asked Questions</p>
+        <p class="footer-link">Support</p>
+      </div>
+      <div class="col">
+        <h4 class="footer-heading">Follow Us</h4>
+        <p class="footer-link">Our Policy</p>
+        <p class="footer-link">Frequently Asked Questions</p>
+        <p class="footer-link">Support</p>
+      </div>
+    </div>
+    </div>
   </footer>
   </body>
 </html>
