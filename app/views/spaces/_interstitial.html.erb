@@ -1,7 +1,9 @@
 <div class="int-body">
   <img class="int-logo" src= <%= asset_path('footer-logo.svg') %> alt="">
+   <% if user_signed_in? %>
+   <% else %>
   <li class="nav-item int-login"><span id = "log-in-button"><%= link_to "Log In", new_user_session_path %></span></li>
-
+  <% end %>
   <div class="int-main-container">
     <h1 class="int-cta">Find your space. Launch your idea.</h1>
     <div class="int-btns">
