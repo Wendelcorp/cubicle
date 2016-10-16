@@ -1,5 +1,5 @@
 <p>
-  <small>(<%= message.created_at.strftime("%I:%M%p")%> - UTC)</small>
+  <div class="time"><small><%= message.created_at.strftime("%I:%M%p")%></small></div>
   <b><%= message.user.first_name + ' ' + message.user.last_name %></b>
-  <%= message.content %>
+  <div class="msgcontent"><%= message.content %></div>
 </p>

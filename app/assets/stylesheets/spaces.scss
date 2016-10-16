@@ -22,6 +22,14 @@ div.space-box{
   height: 200px;
 }
 
+#space_name {
+  display: block;
+  border: 1px solid #c4c4c4;
+  width: 100%;
+  padding: 10px;
+  margin: 5px
+}
+
 .space-details-container {
   position: relative;
 }

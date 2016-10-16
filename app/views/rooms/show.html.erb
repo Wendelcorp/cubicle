@@ -8,7 +8,9 @@
     <% end %>
   </li>
 </ul>
+<div class="message-box">
 <div class="messages">
   <%= render @messages %>
 </div>
 <%= render partial: "/messages/form", locals: {room: @room, message: @message} %>
+</div>

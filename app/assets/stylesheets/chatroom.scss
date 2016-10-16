@@ -1,0 +1,35 @@
+.messages {
+  width: 400px;
+  padding: 20px 30px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  height: 440px;
+  overflow: scroll;
+  margin: 0 auto;
+}
+
+.message-box {
+  width: 400px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  height: 500px;
+  margin: 0 auto;
+
+}
+
+.time {
+  background-color: #00AEEF;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+}
+
+.msgcontent {
+  background-color: #dddddd;
+  padding: 5px;
+  border-radius: 4px;
+  margin-top: 10px;
+  max-width: 300px;
+  word-wrap: break-word;
+}

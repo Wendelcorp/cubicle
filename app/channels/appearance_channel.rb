@@ -8,7 +8,6 @@ class AppearanceChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-    return unless current_user
     current_user.is_offline
   end
 end

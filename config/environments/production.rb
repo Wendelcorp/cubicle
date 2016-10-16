@@ -36,9 +36,9 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
-
+  # everything is up to date
+  config.action_cable.url = 'wss://whispering-spire-50980.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = ['https://whispering-spire-50980.herokuapp.com', 'http://whispering-spire-50980.herokuapp.com']
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
@@ -83,4 +83,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # paperclip config
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch("S3_BUCKET_NAME"),
+      access_key_id: ENV.fetch("AWS_ACCESS_KEY_ID"),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
+    }
+  }
+
 end

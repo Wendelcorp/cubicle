@@ -67,7 +67,7 @@ user1_space2 = FactoryGirl.create :space,
                                   postal_code: 'M5H 2G4'
 
 user1_space2_picture_1 = FactoryGirl.create :image,
-                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic2.jpeg')),
+                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic2.jpg')),
                                   space_id:user1_space2.id
 
 user1_space2_picture_2 = FactoryGirl.create :image,
@@ -84,9 +84,6 @@ user1_space3_picture_1 = FactoryGirl.create :image,
                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic3.jpg')),
                                   space_id:user1_space3.id
 
-user1_space3_picture_2 = FactoryGirl.create :image,
-                                  location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic12.jpg')),
-                                  space_id:user1_space3.id
 
 # user2 have 3 space
 user2_space1 = FactoryGirl.create :space,
@@ -106,7 +103,7 @@ user2_space2 = FactoryGirl.create :space,
                                   postal_code: 'M5J 0A8'
 
 user2_space2_picture_1 = FactoryGirl.create :image,
-                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic5.jpg')),
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic5.png')),
                                    space_id:user2_space2.id
 
 
@@ -137,7 +134,7 @@ user3_space2 = FactoryGirl.create :space,
                                    postal_code: 'M5B 2L7'
 
 user3_space2_picture_1 = FactoryGirl.create :image,
-                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic8.png')),
+                                   location_picture:File.new(Rails.root.join('app', 'assets', 'images', 'pic8.jpg')),
                                    space_id:user3_space2.id
 
 user3_space3 = FactoryGirl.create :space,

@@ -36,7 +36,7 @@ class SpacesController < ApplicationController
     available_leases = Space.available_leases(@space)
     taken_desks = Space.taken_desks(available_leases)
     @remaining_desks = available_spaces - taken_desks
-    @price_per_desk = @space.price
+    @price_per_desk = '%.2f' % @space.price
     @hash = Gmaps4rails.build_markers(@space) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude

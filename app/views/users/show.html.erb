@@ -1,19 +1,19 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<%= link_to 'back to home page', spaces_path %>
-
-<h3>Owned offices:</h3>
+<h3>My Offices:</h3>
 <% @spaces.each do |space| %>
-  <%= "Name of company: #{space.name}"%></br>
-  <%= "Available_desks: #{space.available_desks}"%></br>
-  <%= "Price per desk: #{space.price}" %></br>
-  <%= "Address: #{space.name}" %></br>
-  <%= link_to 'Edit this Space', edit_space_path(space) %></br>
-  <%= link_to "Delete this Space", space_path(space), method: :delete, data: { confirm: 'Are you sure you want to delete this space?'}  %>
+  <div class="each-lease each-lease-sq">
+  <strong><%= "#{space.name}"%></strong></br></span>
+  <%= "Desks Available: #{space.available_desks}"%></br></span>
+  <%= "Price per desk: #{space.price}" %></br></span>
+  <%= "Address: #{space.name}" %></br></span>
+  <strong><span class="space-control"><%= link_to 'Edit this Space', edit_space_path(space) %></span></strong> </br>
+  <strong><span class="space-control"><%= link_to "Delete this Space", space_path(space), method: :delete, data: { confirm: 'Are you sure you want to delete this space?'}  %></span></strong>
+</div>
 <% end %>
 
 <% unless @leases.blank? %>
-  <h3>My Pending Leases:</h3>
+  <h3>Pending Leases:</h3>
 <% end %>
 
 
@@ -27,21 +27,23 @@
 <% end %>
 
 
-<h3>Pending Leases for my spaces</h3>
+<h3>Pending Leases For My Spaces:</h3>
 <% @spaces.each do |space| %>
   <% unless space.leases.blank? %>
-    <h4>Pending Leases for my space <%= space.name %></h2>
+    <h4><%= space.name %></h2>
   <% end %>
   <% space.leases.each do |lease| %>
+    <div class="each-lease each-lease-sq-half">
     <%= "number of desks: #{lease.desks}" %> </br>
     <%= "starting month: #{lease.month}"  %></br>
     <%= "space name: #{Space.find(lease.space_id).name}" %></br>
-    <%= "User description: #{lease.description}" %> <br>
-    <span id=<%= lease.id %>>Current Status: <%= lease.status.name %></span></br>
+    <%= "Message: #{lease.description}" %> <br>
+    <strong><span id=<%= lease.id %>>Current Status: <%= lease.status.name %></span></br></strong>
+  </br>
     <% if lease.status.name == 'pending' %>
       <button type="button" name="accept" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Accept</button>
       <button type="button" name="reject" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Reject</button>
+    </div>
     <% end %>
-  </br>
   <% end %>
 <% end %>
