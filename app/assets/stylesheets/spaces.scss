@@ -72,12 +72,12 @@ div.space-box{
 // }
 
 //888888888888888888888888888//
-.modal-body {
-	max-width:350px /*-- change this to get your desired form width --*/;
-	margin:0 auto;
-  width:100%;
-  position: relative;
-}
+// .modal-body {
+// 	max-width:350px /*-- change this to get your desired form width --*/;
+// 	margin:0 auto;
+//   width:100%;
+//   position: relative;
+// }
 
 .modal-body button {
   background: orange;
@@ -88,7 +88,7 @@ div.space-box{
   perspective: 1000px;
   padding-top: 500px;
   left: 50%;
-margin-left: -175px;
+  margin-left: -175px;
 }
 
 .imagetags {
@@ -103,6 +103,8 @@ margin-left: -175px;
 }
 
 .modal-body {
+  max-width:350px /*-- change this to get your desired form width --*/;
+  // position: relative;
   background: #F0FFFF;
   padding: 40px 25px;
   box-shadow: 0px 50px 30px -30px rgba(0,0,0,0.3);
@@ -111,18 +113,33 @@ margin-left: -175px;
   position: absolute;
   top: 0;
   box-sizing: border-box;
-  // display: none;
+  display: none;
   transform-origin: top left;
-
-
 }
 
-.modal-body.is-showing {
+.is-showing {
   display: block;
 }
 
+// .modal-body-step-1 {
+//   display: block;
+// }
+//
+// .modal-body-step-2 {
+//   display: none;
+// }
+//
+// .modal-body-step-3 {
+//   display: none;
+// }
+//
+// .modal-body-step-4 {
+//   display: none;
+// }
+
 .animation-out {
-  animation: out 300ms ease-in-out forwards;
+  animation: out 800ms ease-in-out forwards;
+  display: block;
 }
 
 .animation-in {
@@ -130,13 +147,17 @@ margin-left: -175px;
   display: block;
 }
 
-.animation-up {
-  animation: up 300ms ease-in-out forwards;
-}
 
   @keyframes out {
-    0% {transform: translateY(0px)}
-    100% {transform: translateY(300px)}
+    0% {
+      transform: translateY(0px) rotate(0deg)
+    }
+    30% {
+      transform: translateY(0px) rotate(50deg)
+    }
+    100% {
+      transform: translateY(800px)rotate(30deg)
+    }
   }
 
   @keyframes in {
