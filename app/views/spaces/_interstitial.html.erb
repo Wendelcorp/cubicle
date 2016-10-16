@@ -1,12 +1,28 @@
 <div class="int-body">
   <img class="int-logo" src= <%= asset_path('footer-logo.svg') %> alt="">
+  <li class="nav-item int-login"><span id = "log-in-button"><%= link_to "Log In", new_user_session_path %></span></li>
+
   <div class="int-main-container">
-    <h1 class="int-cta">Find your space.</h1>
-    <button class="scroll" type="button" name="button"></button>
+    <h1 class="int-cta">Find your space. Launch your idea.</h1>
+    <div class="int-btns">
+      <div class="int-btn-1">Explore</div>
+      <div class="int-btn-2">
+      <%= link_to "List a space", new_space_path %>
+    </div>
+    </div>
+    <div class="mouse">
+    <div class="scroll"></div>
+    </div>
   </div>
 </div>
 <script type="text/javascript">
-  $(".scroll").click(function() {
+  $(".mouse").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".main-container").offset().top},
+        'slow');
+  });
+
+  $(".int-btn-1").click(function() {
     $('html,body').animate({
         scrollTop: $(".main-container").offset().top},
         'slow');
