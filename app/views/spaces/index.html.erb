@@ -32,7 +32,12 @@
       <% @spaces.each_with_index do |space,val| %>
         <div class="space-box" id = "<%= val %>" >
           <p class="space-price">$<%= '%.2f' % space.price %></p>
-        <%= link_to space_path(space), class: 'show-btn', id: "link1" do %>
+  <%= link_to space_path(space), class: 'show-btn', id: "link1" do %>
+          <div class="space-hover">
+            <p class="space-name"><strong><%= space.name %></strong></p>
+            <p class="space-desks">Desks Available: <%= space.available_desks %></p>
+          </div>
+
         <div class="front-page-img-container" id = "<%= val %>" >
             <%= image_tag space.images.first.location_picture.url(:original), class: 'front-page-img' if space.images.first  %>
             <% end %>
