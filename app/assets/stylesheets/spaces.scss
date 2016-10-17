@@ -320,3 +320,10 @@ a.add_fields, a.remove_fields.dynamic {
   color: white;
   font-size: 12px;
 }
+
+.modal-body button.back {
+  color: black;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
