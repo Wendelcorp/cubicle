@@ -47,6 +47,7 @@ var querystring
           $('<div>').html("Available Desks: " + _allData[value]['available_desks']).attr("class",'available_desks').css("position", "absolute")
           .css("top", "65px").css('font-weight', 'bold').appendTo('#'+(value))
       });
+        // when the mouse leaves the image, remove all the appended information and return opacity to normal
         $('.front-page-img-container').mouseleave(function(event){
           $('.available_desks').remove()
           $('.name').remove()
@@ -72,23 +73,16 @@ var querystring
 
           var dataCity = _allData[i]['city'].toLowerCase();
 
-
-          // console.log(desks)
+          // if the cities are not all 
           if (city != 'all'){
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
-            console.log(desks)
-            console.log(city)
-            console.log(dataCity)
 
             if(dataCity === city && desks === 1 ) {
-              console.log('fuck ya')
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
-              
-              console.log(city)
               if(_allData[i]['available_desks'] >= desks){
                 populate(i)
               }
@@ -142,11 +136,9 @@ var querystring
 
       if($('div').is('.index-page')){
         localStorage.setItem('desks', 1);
-      };//parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2);
-
+      };
       if($('span').is('#total-price-value')){
         var loadDesks = localStorage.desks
-        console.log(loadDesks)
         var price = $('span#pricenumber').text();
         var totalPrice = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
         $('span#total-price-value').text(totalPrice);
@@ -202,11 +194,3 @@ $('form').on('cocoon:after-remove', function(e,removething){
 
 });
 
-
-
-
-
-
-
-
-// $( ".inner" ).wrap( "<div class='new'></div>" );
