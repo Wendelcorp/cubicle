@@ -3,9 +3,6 @@ class LeaseMailer < ApplicationMailer
     @user = User.find(space.user_id)
     @space = space
     @url = 'https://whispering-spire-50980.herokuapp.com/users/sign_in'
-    puts "-----------------------"
-    puts @user.email
-    puts "-----------------------"
     mail(to: @user.email, subject: 'You Have a New Lease on Cubicle')
   end
 end
