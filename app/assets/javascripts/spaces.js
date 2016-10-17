@@ -16,7 +16,7 @@ var querystring
 
 
     $.ajax({
-      //ajax get for all the space information 
+      //ajax get for all the space information
       url: "/spaces.json",
       method: 'GET',
       data: {},
@@ -35,25 +35,7 @@ var querystring
         $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
       }
-      function hoverOnAndOff(){
-        // function used for hovering over the images on the first page, 
-        // this function only takes in the incrementing index of that image to populate it with the 
-        $('.front-page-img-container').mouseenter(function(event){
-        value = parseInt(this.id);
-          $(this).stop().animate({opacity:.5},200);
-          $('<div>').html(_allData[value]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+(value))
-          $('<div>').html("Available Desks: " + _allData[value]['available_desks']).attr("class",'available_desks').css("position", "absolute")
-          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+(value))
-      });
-        // when the mouse leaves the image, remove all the appended information and return opacity to normal
-        $('.front-page-img-container').mouseleave(function(event){
-          $('.available_desks').remove()
-          $('.name').remove()
-          $(this).stop().animate({opacity:1},200);
-      });
-      }
-
-      // .toLowerCase();
+  
 
       $('#city').change(function(event){
         _availableData = []
@@ -70,7 +52,7 @@ var querystring
 
           var dataCity = _allData[i]['city'].toLowerCase();
 
-          // if the cities are not all 
+          // if the cities are not all
           if (city != 'all'){
 
 
@@ -92,8 +74,6 @@ var querystring
             }
           }
         }
-        hoverOnAndOff()
-
       });
 
       $('#number-of-desks').change(function(event){
@@ -116,13 +96,8 @@ var querystring
             }
           }
         }
-
-        hoverOnAndOff();
-
        localStorage.setItem('desks', desks);
       });
-
-      hoverOnAndOff();
 
       }).fail(function(data){
       console.log('this failed');

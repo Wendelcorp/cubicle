@@ -112,3 +112,45 @@
   background-color: #00AEEF;
   color: white;
 }
+
+.space-name {
+  color: white;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+}
+
+.space-desks {
+  color: white;
+  position: absolute;
+  top: 85px;
+  width: 100%;
+  text-align: center;
+
+}
+
+.space-hover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+
+.space-hover:hover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: visible;
+  opacity: 1;
+  -o-transition:.35s;
+-ms-transition:.35s;
+-moz-transition:.35s;
+-webkit-transition:.35s;
+/* ...and now for the proper property */
+transition:.35s;
+}
