@@ -5,38 +5,42 @@ $(function(){
 var querystring
 
   $.ajax({
+    // ajax get of all the first inamges from each space
     url: "/images.json",
     method: 'GET',
     data: {},
     dataType: 'json'
   }).done(function(data){
-
+    // image hash has the space id as the key and image location as the value
     var imgHash = data
 
 
     $.ajax({
+      //ajax get for all the space information 
       url: "/spaces.json",
       method: 'GET',
       data: {},
       dataType: 'json'
     }).done(function(data){
       var _allData = data
-      // globalish variables for all data and empty array for available data
-      var _availableData = []
+      // variables for all data that will need to be used outside of functions
       var city = 'all';
       var desks = 1;
       console.log(_allData)
 
       function populate(i) {
-        $("<div>").attr('id', i).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+        // mimics the original html that gets cleared to repopulate the page with the correct information
+        $("<div>").attr('id', i).attr('class', 'space-box').appendTo('.space-info')
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + i)
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + i)
         $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
       }
       function hoverOnAndOff(){
+        // function used for hovering over the images on the first page, 
+        // this function only takes in the incrementing index of that image to populate it with the 
         $('.front-page-img-container').mouseenter(function(event){
-        value = parseInt(this.id); // starts at 1
+        value = parseInt(this.id);
           console.log(value)
           $(this).stop().animate({opacity:.5},200);
           $('<div>').html(_allData[value]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+(value))
