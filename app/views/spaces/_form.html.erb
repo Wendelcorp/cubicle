@@ -11,65 +11,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label 'Venue name' %><br/>
-    <%= f.text_field :name, placeholder: "Enter your venue's name" %>
-  </div>
+<div class="modal-bodies">
 
-  <div class = "field">
-    <%= f.label 'Address'%><br/>
-    <%= f.number_field :number, placeholder: "Street Number" %>
-  </div>
-  <div class = "field">
-    <%= f.text_field :street_name, placeholder: "Street Name" %>
-  </div>
-  <div class = "field">
-    <%= f.label :city %><br/>
+
+    <div class="modal-body modal-body-step-1 is-showing">
+    <%= f.label 'Venue name' %>
+    <%= f.text_field :name, placeholder: "Enter your venue's name" %><br/>
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Describe your venue" %><br/>
+    <button type="button">Start</button>
+      </div>
+
+
+
+   <div class="modal-body modal-body-step-2">
+    <%= f.label 'Address'%>
+    <%= f.number_field :number, placeholder: "Enter Street Number" %>
+    <%= f.text_field :street_name, placeholder: "Enter Street Name" %><br/>
+    <%= f.label :city %>
     <%= f.select :city, ['Toronto', 'Montreal', 'Vancouver'], { :prompt => "Select" }%>
-  </div>
-  <div class = "field">
-    <%= f.label :province %><br/>
-    <%= f.select :province, ['AB', 'BC', 'MB','NB','NL','NS','NT','NU','ON','PE','QC','SK','YT'], { :prompt => "Select" }, placeholder: "Please select your province" %>
-  </div>
-  <div class = "field">
-    <%= f.label "postal code" %><br/>
-    <%= f.text_field :postal_code, placeholder: "Postal Code" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :available_desks %><br/>
-    <%= f.number_field :available_desks %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'Price per desk' %><br/>
-    <%= f.number_field :price, step:0.01%>
-  </div>
+    <%= f.label :province %>
+    <%= f.select :province, ['AB', 'BC', 'MB','NB','NL','NS','NT','NU','ON','PE','QC','SK','YT'], { :prompt => "Select" }, placeholder: "Please select your province" %><br/>
+    <%= f.label "postal code" %>
+    <%= f.text_field :postal_code, placeholder: "Enter Postal Code" %><br/>
+    <button type="button">Next</button>
+   </div>
 
 
-  <div id = "upload_pictures" >
-    <p>Upload Images</p></br>
-    <%= f.fields_for :images do |image| %>
-      <%= render 'image_fields', :f => image %>
-    <% end %>
-    <div class="links">
-      <%=link_to_add_association 'Add extra Image', f, :images %>
+
+    <div class="modal-body modal-body-step-3">
+    <%= f.label :available_desks %>
+    <%= f.number_field :available_desks, placeholder: "Enter desks available" %><br/>
+    <%= f.label 'Price per desk' %>
+    <%= f.number_field :price, placeholder: "Enter price per desk" %><br/>
+    <button type="button">Next</button>
     </div>
-  </br></br>
-    <% unless @space.images.blank? %>
-      <% @space.images.each do |image| %>
-        <div class='imagetags'>
-          <%= image_tag image.location_picture.url(:thumb) %>
+
+
+
+
+    <div class="modal-body modal-body-step-4">
+      <div id = "upload_pictures">
+        <p>Upload Images</p></br>
+        <%= f.fields_for :images do |image| %>
+          <%= render 'image_fields', :f => image %>
+        <% end %>
+        <div class="links">
+          <%=link_to_add_association 'Add extra Image', f, :images %>
         </div>
-      <% end %>
-    <% end %>
+        </br></br>
+        <% unless @space.images.blank? %>
+          <% @space.images.each do |image| %>
+            <div class='imagetags'>
+              <%= image_tag image.location_picture.url(:thumb) %>
+            </div>
+          <% end %>
+        <% end %>
 
-  </div>
-  <%= f.submit 'Save' %>
+        <%= f.submit 'Save' %>
+        <% end %>
+    </div>
+   </div>
 
-<% end %>
+</div>

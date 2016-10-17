@@ -8,6 +8,24 @@
   overflow: hidden;
 }
 
+.each-lease-sq {
+  display: inline-block;
+  line-height: 20px;
+  width: 200px;
+}
+
+.each-lease-sq-half {
+  display: inline-block;
+  line-height: 20px;
+  width: 473px;
+}
+
+.space-control a {
+  text-decoration: underline;
+  color: white;
+
+}
+
 .request-status {
   background-color: #2E3192;
   display: inline-block;

@@ -17,7 +17,7 @@ document.addEventListener("turbolinks:load", function () {
       }).done(function(response){
 
         $('#message_content').val("");
-
+        $('input[type="submit"]').prop('disabled', false);
       });
     });
   });

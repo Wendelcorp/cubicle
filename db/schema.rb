@@ -53,12 +53,10 @@ ActiveRecord::Schema.define(version: 20161010183508) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
-    t.datetime "user1_visited_timestamp", default: '2016-10-14 22:18:58'
-    t.datetime "user2_visited_timestamp", default: '2016-10-14 22:18:58'
+    t.datetime "user1_visited_timestamp", default: '2016-10-16 21:20:25'
+    t.datetime "user2_visited_timestamp", default: '2016-10-16 21:20:25'
     t.integer  "user1_id"
     t.integer  "user2_id"
-    t.datetime "user1_visited_timestamp", default: '2016-10-12 20:35:48'
-    t.datetime "user2_visited_timestamp", default: '2016-10-12 20:35:48'
   end
 
   create_table "spaces", force: :cascade do |t|
