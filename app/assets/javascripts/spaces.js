@@ -5,57 +5,41 @@ $(function(){
 var querystring
 
   $.ajax({
+    // ajax get of all the first inamges from each space
     url: "/images.json",
     method: 'GET',
     data: {},
     dataType: 'json'
   }).done(function(data){
-
+    // image hash has the space id as the key and image location as the value
     var imgHash = data
 
 
     $.ajax({
+      //ajax get for all the space information
       url: "/spaces.json",
       method: 'GET',
       data: {},
       dataType: 'json'
     }).done(function(data){
       var _allData = data
-      // globalish variables for all data and empty array for available data
-      var _availableData = []
+      // variables for all data that will need to be used outside of functions
       var city = 'all';
       var desks = 1;
-      console.log(_allData)
 
       function populate(i) {
-        $("<div>").attr('id', i).attr('class', 'space-box').appendTo('.space-info') // .html('_allData[i]['name']')
+        // mimics the original html that gets cleared to repopulate the page with the correct information
+        $("<div>").attr('id', i).attr('class', 'space-box').appendTo('.space-info')
         $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + i)
         $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + i)
         $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
       }
-      function hoverOnAndOff(){
-        $('.front-page-img-container').mouseenter(function(event){
-        value = parseInt(this.id); // starts at 1
-          console.log(value)
-          $(this).stop().animate({opacity:.5},200);
-          $('<div>').html(_allData[value]['name']).attr('class','name').css("position", "absolute").css("top", "50px").css('font-weight', 'bold').appendTo('#'+(value))
-          $('<div>').html("Available Desks: " + _allData[value]['available_desks']).attr("class",'available_desks').css("position", "absolute")
-          .css("top", "65px").css('font-weight', 'bold').appendTo('#'+(value))
-      });
-        $('.front-page-img-container').mouseleave(function(event){
-          $('.available_desks').remove()
-          $('.name').remove()
-          $(this).stop().animate({opacity:1},200);
-      });
-      }
-
-      // .toLowerCase();
+  
 
       $('#city').change(function(event){
         _availableData = []
         city = this.value.toLowerCase();
-        // console.log(city) // return value is 'Toronto' , 'Hamilton' ..
 
         //clears the search results
         $('.space-info').html("")
@@ -68,22 +52,16 @@ var querystring
 
           var dataCity = _allData[i]['city'].toLowerCase();
 
-
-          // console.log(desks)
+          // if the cities are not all
           if (city != 'all'){
 
 
             // if the chosen city is equal to the city selected in the list and desks is not changed
-            console.log(desks)
-            console.log(city)
-            console.log(dataCity)
 
             if(dataCity === city && desks === 1 ) {
-              console.log('fuck ya')
               populate(i)
             }
             else if( dataCity === city && desks != 1 ){
-              console.log(city)
               if(_allData[i]['available_desks'] >= desks){
                 populate(i)
               }
@@ -96,8 +74,6 @@ var querystring
             }
           }
         }
-        hoverOnAndOff()
-
       });
 
       $('#number-of-desks').change(function(event){
@@ -120,13 +96,8 @@ var querystring
             }
           }
         }
-
-        hoverOnAndOff();
-
        localStorage.setItem('desks', desks);
       });
-
-      hoverOnAndOff();
 
       }).fail(function(data){
       console.log('this failed');
@@ -135,11 +106,9 @@ var querystring
 
       if($('div').is('.index-page')){
         localStorage.setItem('desks', 1);
-      };//parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2);
-
+      };
       if($('span').is('#total-price-value')){
         var loadDesks = localStorage.desks
-        console.log(loadDesks)
         var price = $('span#pricenumber').text();
         var totalPrice = parseFloat(Math.round((loadDesks * price) * 100) / 100).toFixed(2)
         $('span#total-price-value').text(totalPrice);

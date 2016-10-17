@@ -15,36 +15,35 @@
 
 
     <div class="modal-body modal-body-step-1 is-showing">
-    <%= f.label 'Venue name' %>
-    <%= f.text_field :name, placeholder: "Enter your venue's name" %><br/>
-    <%= f.label :description %>
-    <%= f.text_area :description, placeholder: "Describe your venue" %><br/>
-    <button type="button">Start</button>
-      </div>
+      <%= f.label 'Venue name' %>
+      <%= f.text_field :name, placeholder: "Enter your venue's name" %><br/>
+      <%= f.text_area :description, placeholder: "Describe your venue" %><br/>
+      <button type="button">Start</button>
+    </div>
 
 
 
    <div class="modal-body modal-body-step-2">
-    <%= f.label 'Address'%>
-    <%= f.number_field :number, placeholder: "Enter Street Number" %>
-    <%= f.text_field :street_name, placeholder: "Enter Street Name" %><br/>
-    <%= f.label :city %>
-    <%= f.select :city, ['Toronto', 'Montreal', 'Vancouver'], { :prompt => "Select" }%>
-    <%= f.label :province %>
-    <%= f.select :province, ['AB', 'BC', 'MB','NB','NL','NS','NT','NU','ON','PE','QC','SK','YT'], { :prompt => "Select" }, placeholder: "Please select your province" %><br/>
-    <%= f.label "postal code" %>
-    <%= f.text_field :postal_code, placeholder: "Enter Postal Code" %><br/>
-    <button type="button">Next</button>
+      <%= f.label 'Address'%><br/>
+      <%= f.number_field :number, placeholder: "Number" %>
+      <%= f.text_field :street_name, placeholder: "Enter Street Name" %><br/>
+      <%= f.label :city %>
+      <%= f.select :city, ['Toronto', 'Montreal', 'Vancouver'], { :prompt => "Select" }%>
+      <%= f.label :province %>
+      <%= f.select :province, ['AB', 'BC', 'MB','NB','NL','NS','NT','NU','ON','PE','QC','SK','YT'], { :prompt => "Select" }, placeholder: "Please select your province" %><br/>
+      <%= f.label "postal code" %>
+      <%= f.text_field :postal_code, placeholder: "Enter Postal Code" %><br/>
+      <button type="button">Next</button>
    </div>
 
 
 
     <div class="modal-body modal-body-step-3">
-    <%= f.label :available_desks %>
-    <%= f.number_field :available_desks, placeholder: "Enter desks available" %><br/>
-    <%= f.label 'Price per desk' %>
-    <%= f.number_field :price, placeholder: "Enter price per desk" %><br/>
-    <button type="button">Next</button>
+      <%= f.label :available_desks %>
+      <%= f.number_field :available_desks, placeholder: "Enter desks available" %>
+      <%= f.label 'Price per desk' %>
+      <%= f.number_field :price, placeholder: "Enter price per desk CDN$" %>
+      <button type="button">Next</button>
     </div>
 
 
@@ -68,7 +67,7 @@
           <% end %>
         <% end %>
 
-        <%= f.submit 'Save' %>
+        <%= f.submit 'Save Venue' %>
         <% end %>
     </div>
    </div>
