@@ -188,7 +188,3 @@ $('form').on('cocoon:after-remove', function(e,removething){
 });
 
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> bugs
