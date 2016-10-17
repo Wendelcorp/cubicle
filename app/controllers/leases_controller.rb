@@ -17,6 +17,7 @@ class LeasesController < ApplicationController
     @lease.user_id = @user.id
 
     if @lease.save
+      LeaseMailer.lease_email(@space).deliver_later
       redirect_to space_path(@space), :notice => "Lease request submitted."
     else
       render :new

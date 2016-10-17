@@ -1,8 +1,12 @@
+html {
+  position: relative;
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: helvetica, arial;
+  margin-bottom: 150px;
 
   // background: url("/images/foggy_birds.png")
   /*background-image: url(images/subtle_white_feathers.png);*/
@@ -59,7 +63,7 @@ nav ul {
   max-width: 950px;
   margin: 0 auto;
   position: relative;
-  
+
 }
 
 .sort-tools {

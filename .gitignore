@@ -7,6 +7,10 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore env and procfile
+.env
+Procfile
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -19,6 +23,5 @@
 
 # Ignore ds store file
 .DS_Store
-
 # Ignore system image file
 /public/system/images/*
