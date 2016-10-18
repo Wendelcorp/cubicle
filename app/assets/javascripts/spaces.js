@@ -30,10 +30,16 @@ var querystring
       function populate(i) {
         // mimics the original html that gets cleared to repopulate the page with the correct information
         $("<div>").attr('id', i).attr('class', 'space-box').appendTo('.space-info')
-        $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + i)
-        $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + i)
-        $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
-        $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
+          $('<p>').attr('class', 'space-price').html('$' + Number(_allData[i]['price']).toFixed(2)).appendTo("#" + i)
+          $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'first-a' + _allData[i]['id'] ).appendTo("#" + i)
+            $('<div>').attr('class', 'space-hover').attr('id', 'second-d'+_allData[i]['id']).appendTo('#first-a' + _allData[i]['id'])
+              $('<p>').attr('class', 'space-name').attr('id', 'third-p'+_allData[i]['id']).appendTo('#second-d'+_allData[i]['id'])
+                $('<strong>').html(_allData[i]['name']).appendTo('#third-p'+_allData[i]['id'])
+              $('<p>').attr('class', 'space-desks').html('Desks Available: ' + _allData[i]['available_desks']).appendTo('#second-d' +_allData[i]['id'])
+        // anchor tag appends to space-box
+            $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + i)
+              $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
+          $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
       }
   
 
