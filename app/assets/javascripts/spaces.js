@@ -35,7 +35,7 @@ var querystring
             $('<div>').attr('class', 'space-hover').attr('id', 'second-d'+_allData[i]['id']).appendTo('#first-a' + _allData[i]['id'])
               $('<p>').attr('class', 'space-name').attr('id', 'third-p'+_allData[i]['id']).appendTo('#second-d'+_allData[i]['id'])
                 $('<strong>').html(_allData[i]['name']).appendTo('#third-p'+_allData[i]['id'])
-              $('<p>').attr('class', 'space-desks').html('Desks Available:' + _allData[i]['available_desks']).appendTo('#second-d' +_allData[i]['id'])
+              $('<p>').attr('class', 'space-desks').html('Desks Available: ' + _allData[i]['available_desks']).appendTo('#second-d' +_allData[i]['id'])
         // anchor tag appends to space-box
             $('<a>').attr('class', 'show-btn').attr('href', '/spaces/' + _allData[i]['id']).attr('id', 'link' + _allData[i]['id']).appendTo("#" + i)
               $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])

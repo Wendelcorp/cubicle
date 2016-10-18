@@ -41,7 +41,11 @@ class SpacesController < ApplicationController
       marker.lat user.latitude
       marker.lng user.longitude
     end
-    @user_has_lease = Space.user_has_lease?(current_user, @space)
+    if user_signed_in?
+      @user_has_lease = Space.user_has_lease?(current_user, @space)
+    else
+      @user_has_lease = false
+    end
   end
 
   def edit
