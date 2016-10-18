@@ -96,6 +96,8 @@ div.space-box{
   padding-top: 500px;
   left: 50%;
   margin-left: -250px;
+  margin-bottom: 20px;
+  overflow: scroll;
 }
 
 .imagetags {
@@ -260,7 +262,7 @@ div.space-box{
       transform: translateY(0px) rotate(50deg)
     }
     100% {
-      transform: translateY(800px)rotate(30deg)
+      transform: translateY(14000px)rotate(30deg)
     }
   }
 
