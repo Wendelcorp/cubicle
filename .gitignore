@@ -25,3 +25,6 @@ Procfile
 .DS_Store
 # Ignore system image file
 /public/system/images/*
+
+# Ignore application configuration
+/config/application.yml
