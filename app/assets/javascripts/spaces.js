@@ -35,7 +35,7 @@ var querystring
         $('<img>').attr('class','front-page-img').attr('src',  imgHash[parseInt(_allData[i]['id'])]).appendTo('#link' + _allData[i]['id'])
         $('#link' + _allData[i]['id']).wrap( "<div class='front-page-img-container' id = '" + (i) + "container' ></div>");
       }
-  
+
 
       $('#city').change(function(event){
         _availableData = []
@@ -148,7 +148,7 @@ var querystring
 
    newthing.find('input[type=file]').on('change', function(event){
 
-     previewpic(event, newthing.find('input[type=file]').attr('id'), $('<div>'));
+     previewpic(event, newthing.find('input[type=file]').attr('id'), $('<div>',{'class': 'imagetags'}));
 
    });
 
