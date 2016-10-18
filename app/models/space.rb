@@ -44,4 +44,18 @@ class Space < ApplicationRecord
     return count
   end
 
+
+  def self.user_has_lease?(user,space)
+    office_id = Space.find(space.id).id
+    leases = Lease.where(status_id: 1)
+    if user
+      leases.each do |lease|
+        if lease.space_id == office_id && user.id == lease.user_id
+          return true
+        end
+      end
+    end
+  return false
+  end
+
 end

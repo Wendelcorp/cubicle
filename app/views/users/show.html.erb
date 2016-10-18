@@ -43,7 +43,7 @@
     <% if lease.status.name == 'pending' %>
       <button type="button" name="accept" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Accept</button>
       <button type="button" name="reject" class="status" id=<%= lease.id %> data-spaceid=<%= space.id %>>Reject</button>
-    </div>
     <% end %>
+    </div>
   <% end %>
 <% end %>
